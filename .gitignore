@@ -1,0 +1,15 @@
+# Imagens grandes de firmware e dumps
+*.img
+*.bin
+*.dmp
+*.iso
+*.rar
+*.7z
+*.zip
+
+# Arquivos temporários e executáveis pesados
+*.exe
+*.msi
+Thumbs.db
+Desktop.ini
+.DS_Store
