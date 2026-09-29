@@ -50,7 +50,20 @@ Diferenças e especificações identificadas na placa física deste aparelho:
 
 ---
 
-## 3. Dispositivos de Recuperação Identificados
+## 3. Guias Visuais Anotados e Mapeamento de Hardware (`fotos_anotadas/`)
+
+Foi gerado um conjunto completo de 4 infográficos técnicos de alta definição na pasta [`fotos_anotadas/`](fotos_anotadas/) anotando diretamente as fotografias reais da placa e comparando cada subsistema com a base de engenharia reversa (`references/HY300-H713-Research/Hardware`):
+
+| Imagem Anotada | Descrição & Destaques | Comparação com a Base de Referência |
+| :--- | :--- | :--- |
+| [**`01_placa_principal_geral.jpg`**](fotos_anotadas/01_placa_principal_geral.jpg) | Visão panorâmica dos 12 subsistemas: SoC Allwinner H713, 2x RAMs DDR3, Wi-Fi 6, USB 2.0 (FEL), HDMI, Áudio P2, Botão FEL, FAN, 5V DC, SPK, LCD FFC 40p e IR. | Identifica as 4 grandes diferenças da sua placa em relação ao teardown da comunidade (RAMs SK Hynix, Wi-Fi no topo, P2 populado e botão FEL soldado). |
+| [**`02_detalhe_processador_ram_botoes.jpg`**](fotos_anotadas/02_detalhe_processador_ram_botoes.jpg) | Macro de altíssima resolução do núcleo lógico: chips SK Hynix (`H5TQ2G83CFR`), dissipador H713, botão microswitch FEL e portas. | Destaque crucial: tutorial ilustrado passo a passo de como forçar o modo FEL (`1f3a:efe8`) usando o microswitch físico sem solda. |
+| [**`03_detalhe_wifi_uart_sensores.jpg`**](fotos_anotadas/03_detalhe_wifi_uart_sensores.jpg) | Macro das conexões e conectividade: módulo `AW869A WIFI6`, cristal `24.000 MHz`, conector da ventoinha (`风扇接口`), jack P2 e vias UART. | Demonstra a pinagem de comunicação serial 3.3V TTL (TX/RX/GND) para leitura no PuTTY (COM9). |
+| [**`04_placa_fonte_alimentacao.jpg`**](fotos_anotadas/04_placa_fonte_alimentacao.jpg) | Visão completa da placa de alimentação `GKY40W-TYY27A REV:A01` dividida entre Zona de Alta Tensão (Primário) e Zona Segura (Secundário). | Destaque em vermelho do capacitor `KSJ VENT` (~340V DC) com regras de ouro de segurança e guia de teste de voltagens com multímetro. |
+
+---
+
+## 4. Dispositivos de Recuperação Identificados
 
 ### 1. Botão Físico SMD de Recuperação (FEL / U-Boot)
 - **Localização:** Na borda superior esquerda da placa preta, logo ao lado da porta HDMI (`zoom_left_hdmi_button.jpg`).
@@ -70,7 +83,7 @@ Diferenças e especificações identificadas na placa física deste aparelho:
 
 ---
 
-## 4. Estado das Ferramentas e Scripts de Automação
+## 5. Estado das Ferramentas e Scripts de Automação
 
 No diretório do projeto, foram criados utilitários de um clique para Windows:
 
@@ -88,7 +101,7 @@ No diretório do projeto, foram criados utilitários de um clique para Windows:
 
 ---
 
-## 5. Roteiro de Retomada dos Trabalhos
+## 6. Roteiro de Retomada dos Trabalhos
 
 Quando retomar a sessão (seja no PC atual ou no notebook):
 
