@@ -56,18 +56,20 @@ Foi gerado um conjunto completo de 4 infográficos técnicos de alta definição
 
 | Imagem Anotada | Descrição & Destaques | Comparação com a Base de Referência |
 | :--- | :--- | :--- |
-| [**`01_placa_principal_geral.jpg`**](fotos_anotadas/01_placa_principal_geral.jpg) | Visão panorâmica dos 12 subsistemas: SoC Allwinner H713, 2x RAMs DDR3, Wi-Fi 6, USB 2.0 (FEL), HDMI, Áudio P2, Botão FEL, FAN, 5V DC, SPK, LCD FFC 40p e IR. | Identifica as 4 grandes diferenças da sua placa em relação ao teardown da comunidade (RAMs SK Hynix, Wi-Fi no topo, P2 populado e botão FEL soldado). |
-| [**`02_detalhe_processador_ram_botoes.jpg`**](fotos_anotadas/02_detalhe_processador_ram_botoes.jpg) | Macro de altíssima resolução do núcleo lógico: chips SK Hynix (`H5TQ2G83CFR`), dissipador H713, botão microswitch FEL e portas. | Destaque crucial: tutorial ilustrado passo a passo de como forçar o modo FEL (`1f3a:efe8`) usando o microswitch físico sem solda. |
+| [**`01_placa_principal_geral.jpg`**](fotos_anotadas/01_placa_principal_geral.jpg) | Visão panorâmica dos 12 subsistemas: SoC Allwinner H713, 2x RAMs DDR3, Wi-Fi 6, USB 2.0 (FEL), HDMI, Áudio P2, Botão Power, FAN, 5V DC, SPK, LCD FFC 40p e IR. | Identifica as diferenças da placa: RAMs SK Hynix, Wi-Fi AW869A no topo, P2 populado e botão Power mecânico. |
+| [**`02_detalhe_processador_ram_botoes.jpg`**](fotos_anotadas/02_detalhe_processador_ram_botoes.jpg) | Macro de altíssima resolução do núcleo lógico: chips SK Hynix (`H5TQ2G83CFR`), dissipador H713, botão microswitch Power e portas. | Destaque: esclarecimento sobre o botão físico Power e os métodos reais para forçar o modo FEL (`1f3a:efe8`). |
 | [**`03_detalhe_wifi_uart_sensores.jpg`**](fotos_anotadas/03_detalhe_wifi_uart_sensores.jpg) | Macro das conexões e conectividade: módulo `AW869A WIFI6`, cristal `24.000 MHz`, conector da ventoinha (`风扇接口`), jack P2 e vias UART. | Demonstra a pinagem de comunicação serial 3.3V TTL (TX/RX/GND) para leitura no PuTTY (COM9). |
 | [**`04_placa_fonte_alimentacao.jpg`**](fotos_anotadas/04_placa_fonte_alimentacao.jpg) | Visão completa da placa de alimentação `GKY40W-TYY27A REV:A01` dividida entre Zona de Alta Tensão (Primário) e Zona Segura (Secundário). | Destaque em vermelho do capacitor `KSJ VENT` (~340V DC) com regras de ouro de segurança e guia de teste de voltagens com multímetro. |
 
 ---
 
-## 4. Dispositivos de Recuperação Identificados
+## 4. Dispositivos de Recuperação & Métodos FEL Identificados
 
-### 1. Botão Físico SMD de Recuperação (FEL / U-Boot)
-- **Localização:** Na borda superior esquerda da placa preta, logo ao lado da porta HDMI (`zoom_left_hdmi_button.jpg`).
-- **Função:** Microswitch SMD com botão branco em relevo. Manter pressionado ao conectar o cabo de energia força o chip Allwinner H713 a desviar do bootloader corrompido e entrar em modo FEL USB sem necessidade de conexões adicionais.
+### 1. Botão Físico SMD (Power / Teste de FEL)
+- **Localização:** Na borda lateral ao lado do HDMI, alinhado à alavanca mecânica da carcaça plástica.
+- **Função Real:** É o **botão físico de Power (Liga/Desliga)** do projetor.
+- **Relação com FEL:** Na placa de referência havia dois botões (`POWERON` e `UBOOT`). Nesta placa comercial, apenas o botão Power veio montado. Pode ser testado segurando ao conectar o USB.
+- **Gatilho Alternativo Sem Solda (Mais Confiável):** Manter pressionado `Vol +` no controle remoto infravermelho original durante a energização (o U-Boot do H713 intercepta esse sinal e cai direto em modo FEL).
 
 ### 2. Porta Serial UART (Console U-Boot)
 - **Localização dos Pinos:** No canto inferior da placa, entre o conector branco da ventoinha (`风扇接口`) e a porta de áudio P2 (vias circulares de sinal e ilhas de solda ao lado do parafuso).

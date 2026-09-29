@@ -90,10 +90,10 @@ def gerar_foto_1():
          "Saida estereo analogica para fones de ouvido ou caixa de som externa.",
          "DIFERENCA: Populada na sua placa! Na placa de referencia, esse jack estava vazio."),
          
-        (7, "Botao Microswitch FEL / U-BOOT", (250, 220, 430, 360), (234, 179, 8),
-         "Botao Fisico de Recuperacao de Fabrica", "SMD Tactile Microswitch",
-         "Forca o BootROM do SoC para o modo FEL (1f3a:efe8) quando mantido pressionado ao plugar na energia/USB.",
-         "DIFERENCA CRUCIAL: Sua placa TEM BOTAO FISICO SOLDADO! Permite entrar em FEL sem solda nem curto!"),
+        (7, "Botao Power (Liga/Desliga)", (250, 220, 430, 360), (234, 179, 8),
+         "Botao Fisico Power da Carcaca", "SMD Tactile Microswitch",
+         "Botao fisico de energia da carcaca. Pode ser testado segurado ao conectar USB para tentar acionar FEL.",
+         "ESCLARECIMENTO: E o botao Power do aparelho! Ao lado dele ficam as ilhas de teste UBOOT/FEL."),
          
         (8, "Conector da Ventoinha (FAN)", (680, 1670, 890, 1980), (6, 182, 212),
          "Cooler de Exaustao e Refrigeracao", "Silkscreen: Fan / Refrigeração",
@@ -266,7 +266,7 @@ def gerar_foto_2():
     # Badges
     draw_badge(ov_draw, 1575, 1300, 55, "RAM", (59, 130, 246, 240), font=get_font(34, bold=True))
     draw_badge(ov_draw, 475, 1500, 55, "CPU", (239, 68, 68, 240), font=get_font(34, bold=True))
-    draw_badge(ov_draw, 1725, 200, 55, "FEL", (234, 179, 8, 240), font=get_font(34, bold=True))
+    draw_badge(ov_draw, 1725, 200, 55, "PWR", (234, 179, 8, 240), font=get_font(34, bold=True))
     draw_badge(ov_draw, 2000, 430, 50, "SPK", (236, 72, 153, 240), font=get_font(30, bold=True))
     draw_badge(ov_draw, 1800, 2450, 55, "5V", (225, 29, 72, 240), font=get_font(34, bold=True))
 
@@ -287,26 +287,24 @@ def gerar_foto_2():
     draw.text((cw + 40, 28), "NÚCLEO DE PROCESSAMENTO & FEL", fill=(255, 255, 255), font=get_font(38, bold=True))
     draw.text((cw + 40, 92), "Macro Detalhado: Allwinner H713, SK Hynix e Botão Físico", fill=(148, 163, 184), font=get_font(22, bold=False))
 
-    # Card 1: BOTAO FEL
+    # Card 1: BOTAO POWER & MODO FEL
     draw_rounded_card(draw, cw + 30, 170, canvas_w - 30, 680, 16, fill=(69, 26, 3), outline=(245, 158, 11), width=3)
-    draw.text((cw + 55, 195), "★ DESCOBERTA CRUCIAL: BOTÃO FÍSICO FEL", fill=(251, 191, 36), font=get_font(28, bold=True))
+    draw.text((cw + 55, 195), "★ ESCLARECIMENTO: BOTÃO POWER & MODO FEL", fill=(251, 191, 36), font=get_font(28, bold=True))
     fel_text = [
-        "Sua placa possui um microswitch SMD soldado de fabrica ao lado do HDMI!",
-        "Na placa de teardown da comunidade, este botao NAO vinha soldado (exigia",
-        "aterrar vias com pinca ou solda). Na sua placa, o processo e 100% seguro!",
+        "Este microswitch SMD lateral e o BOTAO POWER fisico da carcaca do projetor.",
+        "Na placa de teste de laboratorio havia um 2o botao ('UBOOT'), ausente aqui.",
+        "Ao lado dele ficam as ilhas nao-populadas que correspondem ao UBOOT/FEL.",
         "",
-        "COMO ACIONAR O MODO FEL (1f3a:efe8) PARA REGRAVAR A FIRMWARE:",
-        "1. Desconecte o cabo de energia e o cabo USB do projetor.",
-        "2. Abra o PhoenixSuit no computador com a imagem .img carregada.",
-        "3. Mantenha este BOTAO FEL PRESSIONADO com o dedo ou espatula plastica.",
-        "4. Conecte o cabo USB Macho-Macho entre o PC e a porta USB do projetor.",
-        "5. Conecte o cabo de energia na tomada (mantendo o botao pressionado).",
-        "6. O PhoenixSuit detectara instantaneamente o projetor em modo FEL!",
-        "7. Solte o botao e confirme a gravacao de firmware na tela do PC."
+        "COMO TESTAR OU ENTRAR NO MODO FEL (1f3a:efe8):",
+        "1. Teste rapido: Segure o botao POWER apertado e conecte o cabo USB ao PC.",
+        "   Se o PhoenixSuit detectar '1f3a:efe8', o circuito roteia Power para FEL!",
+        "2. Metodo garantido s/ abrir: Segure 'Vol+' no controle remoto ao ligar a energia.",
+        "3. Metodo via serial UART: Digite 'efex' no terminal PuTTY (porta COM9).",
+        "4. Metodo por contato: Aterrar a via de UBOOT ao lado do HDMI durante o boot."
     ]
     for idx, l in enumerate(fel_text):
-        fcol = (255, 255, 255) if idx < 3 else ((254, 240, 138) if "COMO ACIONAR" in l else (226, 232, 240))
-        fbld = True if (idx < 3 or "COMO ACIONAR" in l) else False
+        fcol = (255, 255, 255) if idx < 3 else ((254, 240, 138) if "COMO TESTAR" in l else (226, 232, 240))
+        fbld = True if (idx < 3 or "COMO TESTAR" in l) else False
         draw.text((cw + 55, 250 + idx * 34), l, fill=fcol, font=get_font(20, bold=fbld))
 
     # Card 2: MEMORIAS SK HYNIX
