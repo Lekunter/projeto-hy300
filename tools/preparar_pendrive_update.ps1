@@ -21,33 +21,63 @@ Write-Host "  PREPARADOR DE MICROSD / USB AUTO-BOOT - HY300 H713     " -Foregrou
 Write-Host "=========================================================" -ForegroundColor Cyan
 
 # 1. Detectar unidades disponíveis
+$allVolumes = @(Get-Volume | Where-Object { $_.DriveLetter -and $_.DriveLetter -notin @('C', 'D') })
+$removable = @($allVolumes | Where-Object { $_.DriveType -eq 'Removable' })
+
 if (-not $DriveLetter) {
-    Write-Host "`nUnidades disponíveis detectadas no sistema:" -ForegroundColor Yellow
-    $allVolumes = Get-Volume | Where-Object { $_.DriveLetter -and $_.DriveLetter -notin @('C', 'D') }
-    if ($allVolumes) {
+    Write-Host "`nUnidades removíveis detectadas no sistema:" -ForegroundColor Yellow
+    if ($allVolumes.Count -gt 0) {
         $allVolumes | Format-Table DriveLetter, FriendlyName, FileSystemType, SizeRemaining, DriveType
     } else {
         Get-Volume | Where-Object { $_.DriveLetter } | Format-Table DriveLetter, FriendlyName, FileSystemType, SizeRemaining, DriveType
     }
 
-    $DriveLetter = Read-Host "Digite a letra da unidade do cartão/adaptador (ex: E ou F)"
+    if ($removable.Count -eq 1) {
+        $auto = $removable[0].DriveLetter
+        Write-Host "Unidade removível encontrada: $auto" -ForegroundColor Green
+        $inp = Read-Host "Pressione ENTER para selecionar a unidade $auto (ou digite outra letra)"
+        if ([string]::IsNullOrWhiteSpace($inp)) {
+            $DriveLetter = $auto
+        } else {
+            $DriveLetter = $inp
+        }
+    } else {
+        $DriveLetter = Read-Host "Digite a letra da unidade do cartão/adaptador (ex: E ou F)"
+    }
 }
 
-$DriveLetter = $DriveLetter.TrimEnd(':').ToUpper() + ":"
-if (-not (Test-Path "$DriveLetter\")) {
-    Write-Error "A unidade $DriveLetter não foi encontrada ou não está acessível."
+# Limpar e normalizar letra da unidade
+$clean = ($DriveLetter -replace '[^a-zA-Z]').ToUpper()
+if (-not $clean) {
+    Write-Error "Letra de unidade inválida digitada: '$DriveLetter'"
     exit 1
 }
 
+$DriveLetter = $clean + ":"
+$rootPath = $clean + ":\"
+
+# Assegurar que o drive está acessível no PowerShell
+if (-not (Get-PSDrive -Name $clean -ErrorAction SilentlyContinue)) {
+    New-PSDrive -Name $clean -PSProvider FileSystem -Root $rootPath -ErrorAction SilentlyContinue | Out-Null
+}
+
+$driveExists = [System.IO.Directory]::Exists($rootPath) -or (Test-Path -LiteralPath $rootPath -ErrorAction SilentlyContinue) -or (Get-Volume -DriveLetter $clean -ErrorAction SilentlyContinue)
+if (-not $driveExists) {
+    Write-Error "A unidade $DriveLetter não foi encontrada ou não está acessível no Windows."
+    exit 1
+}
+
+Write-Host "`n[OK] Unidade selecionada: $DriveLetter ($rootPath)" -ForegroundColor Green
+
 # 2. Verificar Sistema de Arquivos (FAT32 Obrigatório)
-$vol = Get-Volume -DriveLetter ($DriveLetter.TrimEnd(':'))
-if ($vol.FileSystemType -ne 'FAT32') {
+$vol = Get-Volume -DriveLetter $clean -ErrorAction SilentlyContinue
+if ($vol -and $vol.FileSystemType -ne 'FAT32') {
     Write-Host "`n[AVISO] A unidade $DriveLetter está formatada como $($vol.FileSystemType)." -ForegroundColor Yellow
     Write-Host "O bootloader U-Boot do projetor Allwinner H713 EXIGE estritamente o formato FAT32." -ForegroundColor Yellow
     $fmtChoice = Read-Host "Deseja formatar a unidade $DriveLetter em FAT32 agora? (S/N)"
     if ($fmtChoice -match '^[sSyY]') {
         Write-Host "[...] Formatando unidade $DriveLetter em FAT32..." -ForegroundColor Yellow
-        Format-Volume -DriveLetter ($DriveLetter.TrimEnd(':')) -FileSystem FAT32 -NewFileSystemLabel "HY300_BOOT" -Force | Out-Null
+        Format-Volume -DriveLetter $clean -FileSystem FAT32 -NewFileSystemLabel "HY300_BOOT" -Force | Out-Null
         Write-Host "[OK] Unidade $DriveLetter formatada com sucesso em FAT32!" -ForegroundColor Green
     }
 }
@@ -91,9 +121,9 @@ if (-not (Test-Path $FirmwarePath)) {
 }
 
 # 4. Criar diretório update na unidade
-$targetDir = "$DriveLetter\update"
-if (-not (Test-Path $targetDir)) {
-    New-Item -ItemType Directory -Path $targetDir -Force | Out-Null
+$targetDir = $clean + ":\update"
+if (-not [System.IO.Directory]::Exists($targetDir)) {
+    [System.IO.Directory]::CreateDirectory($targetDir) | Out-Null
 }
 
 # 5. Criar auto_update.txt (minúsculo, ASCII, UNIX newline)
