@@ -2,7 +2,7 @@
 
 > **Repositório:** [projeto-hy300 (GitHub: Lekunter)](https://github.com/Lekunter/projeto-hy300)
 > **Última atualização:** 03/10/2026
-> **Status:** projetor ainda em brick. O PhoenixCard (modo Product) no slot MicroSD da placa **não recuperou**. SoC **confirmado H713** e placa identificada como **`M11-REV1.3`** (fotos de 03/10, ver §3). Próximo passo: fazer a UART funcionar no header de 3 furos e entrar em FEL pelo cartão FEL (`CRIAR_CARTAO_FEL.bat`).
+> **Status:** projetor ainda em brick. O PhoenixCard (modo Product) no slot MicroSD da placa **não recuperou**. SoC **confirmado H713** e placa identificada como **`M11-REV1.3`** (fotos de 03/10, ver §3). Próximo passo: entrar em FEL (controle `Vol+`, USB+Power ou cartão FEL `CRIAR_CARTAO_FEL.bat`) e procurar a UART nos pads ao lado da eMMC.
 
 ---
 
@@ -44,8 +44,8 @@ Placa **`M11-REV1.3`** (serigrafia ao lado do SoC, com `C01`). **Não é** a `HY
 | PMIC | A8038S | QFN com 3 indutores `2R2` (face inferior, marcação não lida) |
 | Amplificador | XA8870C | SOIC-8 `NS4150`-like ao lado do slot SD (face inferior) |
 | Slot MicroSD | não tem | **Tem** (face inferior, ao lado da RAM, sem abertura na carcaça) |
-| UART | pads `TX`/`RX` serigrafados | Provável **header de 3 furos sem nome** no canto entre o jack P2 e o conector do cooler. Os furos estão com solda velha e flux queimado (tentativas anteriores). |
-| Pads de teste | n/d | 4 pads redondos em fila ao lado da eMMC (face inferior), função desconhecida |
+| UART | pads `TX`/`RX` serigrafados | **Não localizada.** Candidato: 4 pads redondos em fila ao lado da eMMC (face inferior), não testado. |
+| Receptor IR | conector `IR` | Conector `遥控头接口` (sensor frontal) **e** receptor traseiro de 3 pinos no canto P2/cooler (os "3 furos"). **Não é UART.** |
 | Botão FEL/`UBOOT` | presente sob o HDMI | **Não montado**; só existe o botão Power |
 | Etiqueta | `DW1G+8G+20800D4` | `A024 QC-C 0115 PASS` |
 
@@ -93,10 +93,11 @@ Infográficos anotados: `fotos_anotadas/01…04`. Eles foram gerados a partir da
 ## 6. Próximos passos (ordem recomendada)
 
 1. ~~Identificar placa e SoC~~: **feito** (H713, `M11-REV1.3`).
-2. **UART no header de 3 furos** (canto P2/cooler): limpar com flux + malha, identificar GND/TX/RX com o multímetro e ligar o CP2102. O log de boot diz **por que** a tela fica vazia (slot B? painel? kernel?) antes de gravar qualquer coisa. Passo a passo: [docs/ROTEIRO_PRATICO_BANCADA_CP2102.md](docs/ROTEIRO_PRATICO_BANCADA_CP2102.md).
-3. **Cartão FEL** (`CRIAR_CARTAO_FEL.bat`) + cabo USB-A×USB-A → confirmar `VID_1F3A&PID_EFE8` no notebook. Dá FEL garantido, sem botão nem UART.
-4. **Preservar a configuração original desta placa.** A eMMC atual guarda o bootloader/DTB com o painel e a DRAM certos da `M11-REV1.3`. Se a UART funcionar, tentar o conserto **sem regravar tudo**: no U-Boot, `printenv` e corrigir o slot (ex.: voltar para `_a`). Se precisar gravar a imagem inteira, antes faça backup (via ADB se o Android subir, ou pela UART/FEL).
-5. **Gravar a imagem de referência pelo PhoenixSuit é aceitável como último recurso.** Com o cartão FEL, a placa sempre volta para FEL, então um flash errado não "mata" o aparelho. O risco real é **perder a config de painel desta placa** (tela continuaria vazia, agora por outro motivo).
-6. Procurar imagem específica da `M11-REV1.3`: buscas por "M11-REV1.3" não retornaram nada em 03/10/2026.
+2. **Testes sem solda primeiro:** (a) controle remoto `Vol+` com o receptor IR traseiro soldado; (b) placa alimentada só pela USB do PC + botão Power. Detalhes no GUIA, Método E.
+3. **UART nos 4 pads ao lado da eMMC** (os 3 furos do canto P2 são do receptor IR, não da UART): identificar GND/TX/RX com o multímetro e ligar o CP2102. O log de boot diz **por que** a tela fica vazia (slot B? painel? kernel?) antes de gravar qualquer coisa. Passo a passo: [docs/ROTEIRO_PRATICO_BANCADA_CP2102.md](docs/ROTEIRO_PRATICO_BANCADA_CP2102.md).
+4. **Cartão FEL** (`CRIAR_CARTAO_FEL.bat`) + cabo USB-A×USB-A → confirmar `VID_1F3A&PID_EFE8` no notebook. Dá FEL garantido, sem botão nem UART.
+5. **Preservar a configuração original desta placa.** A eMMC atual guarda o bootloader/DTB com o painel e a DRAM certos da `M11-REV1.3`. Se a UART funcionar, tentar o conserto **sem regravar tudo**: no U-Boot, `printenv` e corrigir o slot (ex.: voltar para `_a`). Se precisar gravar a imagem inteira, antes faça backup (via ADB se o Android subir, ou pela UART/FEL).
+6. **Gravar a imagem de referência pelo PhoenixSuit é aceitável como último recurso.** Com o cartão FEL, a placa sempre volta para FEL, então um flash errado não "mata" o aparelho. O risco real é **perder a config de painel desta placa** (tela continuaria vazia, agora por outro motivo).
+7. Procurar imagem específica da `M11-REV1.3`: buscas por "M11-REV1.3" não retornaram nada em 03/10/2026.
 
 Passo a passo detalhado: [docs/GUIA_RECUPERACAO.md](docs/GUIA_RECUPERACAO.md).

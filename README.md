@@ -52,7 +52,7 @@ projeto-hy300/
 | eMMC | 8 GB Kioxia `THGBMHG6C1LBAIL` | 8 GB Samsung `KLM8G1WEPD-B031` |
 | Wi-Fi/BT | AIC8800D40 | módulo `AW869A WiFi6` |
 | MicroSD | não | **sim, slot na placa** (face inferior) |
-| UART | pads `TX`/`RX` serigrafados | provável header de 3 furos sem nome, canto P2/cooler |
+| UART | pads `TX`/`RX` serigrafados | não localizada (candidato: 4 pads ao lado da eMMC) |
 | Fonte | n/d | `GKY40W-TYY27A`: 27 V (LED) + 5 V/2 A (placa) |
 
 ID USB em modo FEL: `USB\VID_1F3A&PID_EFE8`. Já foi visto uma vez no Windows do desktop.
@@ -61,7 +61,7 @@ ID USB em modo FEL: `USB\VID_1F3A&PID_EFE8`. Já foi visto uma vez no Windows do
 
 ## Recuperação (resumo)
 
-1. **UART** no header de 3 furos → ler o log de boot e tentar consertar pelo U-Boot.
+1. **Entrar em FEL sem solda:** controle `Vol+`, ou USB do PC + botão Power. Se não der, use o cartão FEL.
 2. **Cartão FEL** no slot da placa (`CRIAR_CARTAO_FEL.bat`) + cabo USB-A×A → FEL garantido.
 3. **PhoenixSuit** com a imagem **correta para a placa**.
 4. Alternativas e status de cada uma: [docs/GUIA_RECUPERACAO.md](docs/GUIA_RECUPERACAO.md).

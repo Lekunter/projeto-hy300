@@ -78,6 +78,7 @@ Se o PhoenixSuit falhar logo no início (erro de DRAM/`fes`), a imagem não é p
 
 - Segundo `references/HY300-H713-Research/Boot/BOOT_MODES.md`, o U-Boot **da placa de referência** entra em FEL se `Vol+` for segurado no controle durante a energização (`Home` = recovery com wipe).
 - Depende do U-Boot da eMMC estar íntegro e ser igual ao da referência. Nesta placa não se confirmou.
+- Esta placa tem **dois pontos de receptor IR**: os 3 furos no canto P2/cooler (receptor traseiro) e o conector `遥控头接口` (cabo para o sensor frontal). Antes do teste, confirme que pelo menos um receptor está **soldado na orientação certa** (cúpula para fora da placa, como no original). Aponte o controle para ele.
 - Para conferir se o controle emite: aponte para a câmera do celular e aperte um botão. O LED deve piscar na tela.
 - Sequência: cabo USB-A×A no PC → segure `Vol+` apontado para o receptor → ligue na tomada → mantenha por ~5 s.
 
@@ -92,8 +93,8 @@ Se o PhoenixSuit falhar logo no início (erro de DRAM/`fes`), a imagem não é p
 
 - 3,3 V TTL, 115200 8-N-1. Ligações: GND na carcaça do USB/HDMI, RX do módulo no TX da placa, TX do módulo no RX da placa, **VCC desligado**.
 - No prompt `=>` do U-Boot: `efex` (vai para FEL), `printenv` (mostra slot/variáveis).
-- **Candidato principal nesta placa:** o **header de 3 furos sem nome** no canto entre o jack P2 e o conector do cooler (`fotos placa/fotos 0310/header_3furos_canto_P2.jpg`). Os furos estão com solda velha e flux queimado; limpe antes de medir. Identificação no [roteiro de bancada](ROTEIRO_PRATICO_BANCADA_CP2102.md).
-- Candidato secundário: 4 pads redondos em fila ao lado da eMMC, na face inferior (`pads_teste_verso.jpg`).
+- Os **3 furos do canto P2/cooler são do receptor IR traseiro** (confirmado em 03/10/2026), não da UART.
+- Candidato que sobra: 4 pads redondos em fila ao lado da eMMC, na face inferior (`fotos placa/fotos 0310/pads_teste_verso.jpg`). Identificação no [roteiro de bancada](ROTEIRO_PRATICO_BANCADA_CP2102.md).
 - As fotos `marked_uart_pads.jpg` da pesquisa são da placa de referência; não valem para esta.
 
 ---
