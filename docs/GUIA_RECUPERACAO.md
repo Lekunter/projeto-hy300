@@ -32,7 +32,7 @@ Ordem recomendada agora: **Método F (UART)** para diagnosticar → **Método A 
    - relê e confere a gravação.
 
 ### Usar
-1. Instale os drivers FEL no notebook: `tools/instalar_drivers_fel.ps1`.
+1. Instale os drivers FEL no notebook: `INSTALAR_DRIVERS_FEL.bat`.
 2. Projetor **fora da tomada**. Cartão FEL no **slot da placa**.
 3. Cabo **USB-A macho × USB-A macho** entre o notebook e a porta USB do projetor.
 4. Ligue na tomada. O projetor deve ficar "morto" (sem luz/imagem): isso é normal em FEL.

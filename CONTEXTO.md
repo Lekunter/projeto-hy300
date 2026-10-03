@@ -80,7 +80,7 @@ Infográficos anotados: `fotos_anotadas/01…04`. Eles foram gerados a partir da
 | Arquivo | Função |
 | :--- | :--- |
 | `CRIAR_CARTAO_FEL.bat` → `tools/criar_cartao_fel.ps1` | **Novo.** Grava `tools/fel/fel-sdboot.sunxi` no setor 16 do cartão: força **modo FEL** pelo slot SD. |
-| `ABRIR_PHOENIXSUIT.bat` | PhoenixSuit v1.10 (flash por FEL). Drivers: `tools/instalar_drivers_fel.ps1`. |
+| `ABRIR_PHOENIXSUIT.bat` | PhoenixSuit v1.10 (flash por FEL). Drivers: `INSTALAR_DRIVERS_FEL.bat`. |
 | `ABRIR_PHOENIXCARD.bat` | PhoenixCard v4.2.7 (cartão Product/Startup). Para voltar o cartão ao normal: botão **Format to Normal**. |
 | `PREPARAR_CARTAO_MICROSD.bat` | Cartão/pendrive `update/auto_update.txt` (não confirmado). |
 | `ABRIR_SERIAL_CP2102.bat` | PuTTY 115200 8-N-1 no CP2102 (COM9 no desktop). |

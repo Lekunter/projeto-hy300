@@ -12,6 +12,7 @@ Repositório para recuperar de soft brick (após OTA) um projetor **HY300** com 
 ```text
 projeto-hy300/
 ├── CONTEXTO.md                    # Status, hardware real, histórico de tentativas, próximos passos
+├── INSTALAR_DRIVERS_FEL.bat       # Driver USB FEL (VID_1F3A&PID_EFE8) + ADB Allwinner
 ├── CRIAR_CARTAO_FEL.bat           # Cartão MicroSD que força modo FEL pelo slot da placa
 ├── ABRIR_PHOENIXSUIT.bat          # Flash por USB FEL
 ├── ABRIR_PHOENIXCARD.bat          # Cartão de produção (Product/Startup)

@@ -3,25 +3,53 @@
     Instala os drivers Allwinner USB FEL (VID_1F3A PID_EFE8) no Windows.
 
 .DESCRIPTION
-    Executa o instalador de drivers de 64 bits do PhoenixSuit com privilégios de administrador.
+    Adiciona ao repositorio de drivers do Windows (pnputil) o driver FEL do PhoenixSuit
+    (Drivers\AW_Driver\usbdrv.inf) e o driver ADB/fastboot Allwinner (Drivers\ADB_Driver).
+    Pede administrador. Funciona com o projetor desconectado: o Windows usa o driver
+    automaticamente quando o aparelho aparecer em FEL.
 #>
 
 $driversDir = "$PSScriptRoot\PhoenixSuit\PhoenixSuit v1.10\Drivers"
-$dpinst64 = "$PSScriptRoot\PhoenixSuit\PhoenixSuit v1.10\DPInst64.exe"
+$infs = @(
+    "$driversDir\AW_Driver\usbdrv.inf",
+    "$driversDir\ADB_Driver\android_winusb.inf"
+)
 
-Write-Host "=========================================================" -ForegroundColor Cyan
-Write-Host "    INSTALADOR DE DRIVERS ALLWINNER USB FEL (64-BIT)    " -ForegroundColor Cyan
-Write-Host "=========================================================" -ForegroundColor Cyan
-
-if (-not (Test-Path $dpinst64)) {
-    Write-Error "Instalador DPInst64.exe não encontrado em: $dpinst64"
-    exit 1
+$isAdmin = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
+if (-not $isAdmin) {
+    Write-Host "Pedindo permissao de administrador..." -ForegroundColor Yellow
+    Start-Process powershell.exe -Verb RunAs -ArgumentList "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`""
+    exit
 }
 
-Write-Host "[...] Iniciando instalação dos drivers Allwinner USB..." -ForegroundColor Yellow
-Start-Process -FilePath $dpinst64 -ArgumentList "/path `"$driversDir`" /sa" -Verb RunAs -Wait
+Write-Host "=========================================================" -ForegroundColor Cyan
+Write-Host "    INSTALADOR DE DRIVERS ALLWINNER USB FEL (pnputil)    " -ForegroundColor Cyan
+Write-Host "=========================================================" -ForegroundColor Cyan
 
-Write-Host "`n[OK] Processo de instalação finalizado!" -ForegroundColor Green
-Write-Host "Ao conectar o projetor em modo FEL, verifique no Gerenciador de Dispositivos:" -ForegroundColor Cyan
-Write-Host "  -> 'Dispositivos USB' ou 'Universal Serial Bus controllers'"
-Write-Host "  -> Dispositivo identificado com Hardware ID: USB\VID_1F3A&PID_EFE8"
+$falhou = $false
+foreach ($inf in $infs) {
+    if (-not (Test-Path $inf)) {
+        Write-Host "[ERRO] Nao encontrado: $inf" -ForegroundColor Red
+        $falhou = $true
+        continue
+    }
+    Write-Host "`n[...] Instalando $(Split-Path $inf -Leaf)" -ForegroundColor Yellow
+    pnputil.exe /add-driver "$inf" /install
+    # 0 = ok, 259 = nenhum dispositivo conectado agora (driver fica no repositorio mesmo assim)
+    if ($LASTEXITCODE -ne 0 -and $LASTEXITCODE -ne 259) {
+        Write-Host "[ERRO] pnputil retornou $LASTEXITCODE para $inf" -ForegroundColor Red
+        $falhou = $true
+    }
+}
+
+Write-Host "`nDrivers Allwinner no repositorio do Windows:" -ForegroundColor Cyan
+pnputil.exe /enum-drivers | Select-String -Context 1, 4 -Pattern 'usbdrv.inf|android_winusb.inf' | Out-Host
+
+if ($falhou) {
+    Write-Host "`n[AVISO] Algum driver falhou. Veja as mensagens acima." -ForegroundColor Red
+} else {
+    Write-Host "`n[OK] Drivers instalados." -ForegroundColor Green
+}
+Write-Host "Com o projetor em FEL, o Gerenciador de Dispositivos deve mostrar:"
+Write-Host "  'USB Device(VID_1f3a_PID_efe8)'  ->  ID de hardware USB\VID_1F3A&PID_EFE8"
+Read-Host "`nPressione ENTER para fechar"
