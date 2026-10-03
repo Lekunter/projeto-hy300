@@ -1,0 +1,28 @@
+[CONFIG]
+count=2
+maxNum=10000
+
+[DATA0]
+name= BLUETOOCH 	;名称，长度不超过32个字符的长度
+alian=蓝牙		;别名
+length=12 		;数据长度
+preLen=3			;前缀数据长度
+sufLen=3			;后缀数据长度
+varLen=6			;可变数据长度
+type=binary		;数据类型 binary二进制
+prefix= 0c1200		;前缀数据 
+suffix= 000000 		;后缀数据
+variant=000000000002
+
+[DATA1]
+name=MAC		;名称，长度不超过32个字符的长度
+alian=网卡
+length=12 		;数据长度
+preLen=3			;前缀数据长度
+sufLen=3			;后缀数据长度
+varLen=6			;可变数据长度
+type=char		;数据类型 char 字符型
+prefix= ab0000		;前缀数据 
+suffix= ab0000		;后缀数据 
+variant=000000000022
+ 

@@ -1,0 +1,1 @@
+.\Drivers\AW_Driver\InstallUSBDrv.exe  .\Drivers\AW_Driver\usbdrv.inf

@@ -7,3 +7,9 @@ firmware/gdrive_dumps/
 
 # Permitir ferramentas e executaveis em tools/
 !tools/**
+
+# Zips baixados do aw-ol.com (ja extraidos em tools/)
+tools/AllwinnertechPhoeniSuitRelease*.zip
+tools/PhoenixUSBPro_V_*.zip
+tools/全志USB烧录驱动*.zip
+
