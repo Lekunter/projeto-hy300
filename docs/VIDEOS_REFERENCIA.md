@@ -1,6 +1,9 @@
 # Vídeos de Referência: Desmontagem, UART e Flash (HY300 / Allwinner)
 
-Compilado de vídeos práticos do YouTube mostrando o passo a passo de abertura, manuseio dos componentes internos, ligação serial UART e regravação via PhoenixSuit.
+Vídeos do YouTube sobre abertura, ligação serial UART e regravação via PhoenixSuit.
+
+> [!WARNING]
+> Estes links foram reunidos pelo agente anterior e **não foram verificados**: títulos e IDs podem estar errados ou não existir. Se um link não abrir, busque pelo título no YouTube. Nenhum destes vídeos é da revisão de placa com slot MicroSD e módulo `AW869A`.
 
 ---
 

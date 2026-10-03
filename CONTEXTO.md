@@ -1,128 +1,100 @@
-# Projeto HY300 — Contexto de Recuperação e Engenharia Reversa
+# Projeto HY300: contexto de recuperação
 
-> **Repositório Oficial:** [projeto-hy300 (GitHub: Lekunter)](https://github.com/Lekunter/projeto-hy300)  
-> **Status Atual:** Hardware desmontado e inspecionado; Mapeamento UART concluído com guia visual; Módulo CP2102 detectado na **COM9**; Scripts de inicialização automática criados; Firmware pronto para regravação.
-
----
-
-## 1. O Problema e Causa Raiz
-
-### Sintoma
-- Projetor smart modelo **HY300** (Allwinner H713).
-- Sofreu **soft brick** após atualização de firmware via OTA (Over-The-Air).
-- O aparelho liga (cooler gira, LED acende), mas não carrega o sistema Android (tela preta ou travado).
-
-### Diagnóstico Técnico
-- **Falha de Particionamento Virtual A/B:** O particionamento GPT original define partições duplas (`_a` e `_b`), mas de fábrica **apenas o Slot A contém dados**. O Slot B é vazio (preenchido com zeros `0x00`).
-- O serviço de atualização OTA gravou os dados no slot inativo e mudou o ponteiro do bootloader para o Slot B. Ao reiniciar, o U-Boot tenta inicializar um sistema inexistente.
-- **Solução:** Forçar entrada em **Modo Allwinner FEL** (`USB\VID_1F3A&PID_EFE8`) e regravar a Stock ROM completa através do PhoenixSuit.
+> **Repositório:** [projeto-hy300 (GitHub: Lekunter)](https://github.com/Lekunter/projeto-hy300)
+> **Última atualização:** 03/10/2026
+> **Status:** projetor ainda em brick. O PhoenixCard (modo Product) no slot MicroSD da placa **não recuperou**. Próximo passo: identificar o SoC/placa e entrar em FEL pelo cartão FEL (`CRIAR_CARTAO_FEL.bat`).
 
 ---
 
-## 2. Raio-X do Hardware Real (Inspecionado via Fotos do Usuário)
+## 1. Sintoma atual (confirmado em 03/10/2026)
 
-Diferenças e especificações identificadas na placa física deste aparelho:
+| Situação | Comportamento |
+| :--- | :--- |
+| **Sem cartão**, liga na tomada | Pula o standby, liga direto (LED/cooler), projeta **tela vazia** (luz sem imagem). Igual ao brick original. |
+| **Com o cartão PhoenixCard (Product)** no slot da placa | Fica em **standby**, não liga, não responde ao botão Power nem a nada. |
 
-### Placa Principal (PCB Preta):
-- **SoC (Processador):** Allwinner H713 (`sun50iw12p1` / plataforma TV303), protegido por um **dissipador de alumínio extrudado preto com aletas**.
-- **Cristal Oscilador:** `24.000 MHZ` (clock base do SoC Allwinner).
-- **Memória RAM:** 2x chips **SK Hynix** `H5TQ2G83CFR PBC 213V` na face superior (256MB DDR3 cada = 512MB nesta face, 1GB total somando a face inferior).
-- **Conectividade Sem Fio:** Módulo blindado metálico **`AW869A WIFI6`** (Wi-Fi 6 + Bluetooth 5.x) com antena conectada via conector U.FL / IPEX dourado.
-- **Portas de E/S:**
-  - 1x HDMI Fêmea
-  - 1x USB 2.0 Tipo-A (Porta de gravação FEL e periféricos)
-  - 1x Jack P2 3.5mm de Áudio Estéreo (blindagem metálica)
-- **Conectores e Serigrafia Traduzida:**
-  - `5V电源接口`: Conector branco de 4 pinos com chicote vermelho grosso (Alimentação 5V vinda da fonte).
-  - `风扇接口`: Conector de 2 pinos com fios vermelho e preto (Cooler/ventoinha de exaustão).
-  - `遥控头接口`: Conector de 3 pinos com fios preto, vermelho e amarelo (Sensor infravermelho frontal).
-  - `按键接口`: Trilha não populada com pads de teste (`GND`, `ON/OFF`, `LEDCTL`).
-  - `马达接口`: Trilha não populada para motor de foco automático.
-  - `SPK`: Conector de 2 pinos com fios torcidos vermelho e preto ao lado do HDMI (Alto-falante interno).
-  - **FFC 40 pinos:** Conector do cabo flat alaranjado do display LCD de projeção.
-
-### Placa da Fonte (PCB Verde):
-- **Modelo:** `GKY40W-TYY27A REV:A01 HR DATE:2023.11.25`
-- **Saídas do Transformador:**
-  - `27V / 1.1A` (~30W): Alimentação do LED da lâmpada de projeção.
-  - `5V / 2A` (10W): Alimentação regulada para a placa lógica principal.
-- ⚠️ **AVISO DE SEGURANÇA ELÉTRICA:** O capacitor primário grande (`KSJ VENT`) retifica alta tensão (170V a 340V DC) e armazena carga perigosa mesmo após desligado. **Nunca tocar na placa verde enquanto conectada à tomada.**
+**Leitura técnica:**
+- O comportamento **muda** com o cartão → o BootROM **lê o slot MicroSD** antes da eMMC. Isso é ótimo: o slot é um caminho garantido para executar código nosso (cartão FEL).
+- Com o cartão Product, o boot0 do cartão foi carregado, mas o processo **travou ou não tem saída de vídeo** (não houve barra de progresso). Possíveis causas, em ordem de probabilidade:
+  1. **A imagem não é desta placa.** O `HY300 Pro+ - H713.img` foi feito para a placa de referência `HY200_QZ713DF_A1` (RAM Elpida/Samsung, Wi-Fi AIC8800). A placa deste aparelho é **outra revisão** (ver seção 3). Parâmetros de DRAM, painel e Wi-Fi podem não bater, e o boot0 do cartão pode travar ao iniciar a RAM.
+  2. **O SoC nem é H713.** Ele está sob o dissipador e **nunca foi visto**. "H713" veio da pesquisa de referência, não desta placa.
+  3. O cartão estava gravando "às cegas" (o gravador de cartão não liga o painel LCD) e foi retirado antes do fim. Menos provável: o comportamento sem cartão continua idêntico ao de antes.
+- **A eMMC muito provavelmente não foi alterada**, porque sem cartão o aparelho se comporta exatamente como antes.
 
 ---
 
-## 3. Guias Visuais Anotados e Mapeamento de Hardware (`fotos_anotadas/`)
+## 2. Causa raiz provável do brick original
 
-Foi gerado um conjunto completo de 4 infográficos técnicos de alta definição na pasta [`fotos_anotadas/`](fotos_anotadas/) anotando diretamente as fotografias reais da placa e comparando cada subsistema com a base de engenharia reversa (`references/HY300-H713-Research/Hardware`):
+- Soft brick após **OTA**. Na plataforma H713 de referência, a GPT tem partições `_a`/`_b`, mas **só o Slot A tem dados**; o Slot B é zerado. Uma OTA que grava no Slot B e troca o slot ativo deixa o U-Boot tentando iniciar um sistema vazio.
+- Isso está documentado para a placa de referência (`references/HY300-H713-Research/Firmware/PARTITION_LAYOUT.md`). **Para esta placa é hipótese**: não temos log serial que confirme.
+- Hipótese alternativa a não descartar: a OTA gravou firmware de **outro painel/placa** (a "tela vazia com luz" é típica de painel sem sinal).
 
-| Imagem Anotada | Descrição & Destaques | Comparação com a Base de Referência |
+---
+
+## 3. Hardware real deste aparelho (fotos em `fotos placa/`)
+
+Esta placa **não é** a `HY200_QZ713DF_A1` da pesquisa YuujiLab. Diferenças confirmadas por foto:
+
+| Item | Placa de referência (YuujiLab) | **Esta placa** |
 | :--- | :--- | :--- |
-| [**`01_placa_principal_geral.jpg`**](fotos_anotadas/01_placa_principal_geral.jpg) | Visão panorâmica dos 12 subsistemas: SoC Allwinner H713, 2x RAMs DDR3, Wi-Fi 6, USB 2.0 (FEL), HDMI, Áudio P2, Botão Power, FAN, 5V DC, SPK, LCD FFC 40p e IR. | Identifica as diferenças da placa: RAMs SK Hynix, Wi-Fi AW869A no topo, P2 populado e botão Power mecânico. |
-| [**`02_detalhe_processador_ram_botoes.jpg`**](fotos_anotadas/02_detalhe_processador_ram_botoes.jpg) | Macro de altíssima resolução do núcleo lógico: chips SK Hynix (`H5TQ2G83CFR`), dissipador H713, botão microswitch Power e portas. | Destaque: esclarecimento sobre o botão físico Power e os métodos reais para forçar o modo FEL (`1f3a:efe8`). |
-| [**`03_detalhe_wifi_uart_sensores.jpg`**](fotos_anotadas/03_detalhe_wifi_uart_sensores.jpg) | Macro das conexões e conectividade: módulo `AW869A WIFI6`, cristal `24.000 MHz`, conector da ventoinha (`风扇接口`), jack P2 e vias UART. | Demonstra a pinagem de comunicação serial 3.3V TTL (TX/RX/GND) para leitura no PuTTY (COM9). |
-| [**`04_placa_fonte_alimentacao.jpg`**](fotos_anotadas/04_placa_fonte_alimentacao.jpg) | Visão completa da placa de alimentação `GKY40W-TYY27A REV:A01` dividida entre Zona de Alta Tensão (Primário) e Zona Segura (Secundário). | Destaque em vermelho do capacitor `KSJ VENT` (~340V DC) com regras de ouro de segurança e guia de teste de voltagens com multímetro. |
+| SoC | Allwinner H713 (visível) | **Coberto por dissipador, não verificado** |
+| RAM (face superior) | 2x Elpida `J2108BCSE` | 2x **SK Hynix `H5TQ2G83CFR PBC 213V`** (DDR3 2Gb cada) |
+| Wi-Fi/BT | AIC8800D40 (chip na face inferior) | Módulo blindado **`AW869A WiFi6`** na face superior, antena U.FL |
+| Slot MicroSD | não tem | **Tem** (soldado ao lado da RAM, sem abertura na carcaça) |
+| Pads UART | `TX`/`RX` serigrafados ao lado do SoC | **Sem serigrafia**, não localizados |
+| Botão FEL/`UBOOT` | presente sob o HDMI | **Não montado**; só existe o botão Power |
+| Etiqueta | `DW1G+8G+20800D4` | Etiqueta `…0115 PASS` perto do slot SD |
+
+Demais itens desta placa:
+- Cristal `24.000 MHz`; jack P2 3,5 mm; HDMI; 1x USB-A; FFC de 40 vias do LCD.
+- Conectores (serigrafia chinesa): `5V电源接口` (5V), `风扇接口` (cooler), `遥控头接口` (receptor IR, 3 fios), `SPK` (alto-falante).
+- `按键接口`: pads `GND` / `ON/OFF` / `LEDCTL`. `ON/OFF` é a linha do botão Power (em paralelo com o microswitch). **Não aciona FEL.**
+- `马达接口`: motor de foco, não populado.
+
+**Fonte (PCB verde):** `GKY40W-TYY27A REV:A01` (2023-11-25). Saídas **27 V / 1,1 A** (LED da lâmpada) e **5 V / 2 A** (placa lógica).
+> ⚠️ O capacitor primário (`KSJ VENT`) guarda 170–340 V DC mesmo desligado. Não toque na placa verde ligada à tomada.
+
+Infográficos anotados: `fotos_anotadas/01…04`. Eles foram gerados a partir da pesquisa de referência; **a posição de UART marcada neles não foi confirmada nesta placa.**
 
 ---
 
-## 4. Dispositivos de Recuperação & Métodos FEL Identificados
+## 4. Histórico de tentativas
 
-### 1. Botão Físico SMD (Power / Teste de FEL)
-- **Localização:** Na borda lateral ao lado do HDMI, alinhado à alavanca mecânica da carcaça plástica.
-- **Função Real:** É o **botão físico de Power (Liga/Desliga)** do projetor.
-- **Relação com FEL:** Na placa de referência havia dois botões (`POWERON` e `UBOOT`). Nesta placa comercial, apenas o botão Power veio montado. Pode ser testado segurando ao conectar o USB.
-- **Gatilho Alternativo Sem Solda (Mais Confiável):** Manter pressionado `Vol +` no controle remoto infravermelho original durante a energização (o U-Boot do H713 intercepta esse sinal e cai direto em modo FEL).
-
-### 2. Porta Serial UART (Console U-Boot)
-- **Localização dos Pinos:** No canto inferior da placa, entre o conector branco da ventoinha (`风扇接口`) e a porta de áudio P2 (vias circulares de sinal e ilhas de solda ao lado do parafuso).
-- **Mapeamento Visual:** Consulte [guia_conexoes_ttl_completo.jpg](fotos%20placa/guia_conexoes_ttl_completo.jpg).
-- **Parâmetros de Comunicação:**
-  - **Nível Lógico:** **3.3V TTL** (JUMPER DO MÓDULO OBRIGATORIAMENTE EM 3.3V).
-  - **Baud Rate:** 115200 bps
-  - **Data Bits:** 8 | **Stop Bits:** 1 | **Parity:** None (8-N-1)
-  - **GND:** Carcaça metálica externa da porta USB ou HDMI.
-  - **VCC:** **NÃO CONECTAR!**
-  - **RXD do Módulo:** Conectar ao TX da placa.
-  - **TXD do Módulo:** Conectar ao RX da placa.
+| Data | Tentativa | Resultado |
+| :--- | :--- | :--- |
+| antes de 28/09 | PhoenixSuit + botão/controle | Nunca reconheceu. Mas o Windows do **desktop** já registrou `USB\VID_1F3A&PID_EFE8` uma vez, então o SoC é Allwinner e **entra em FEL**. |
+| 30/09 | Procurar pads TX/RX para o CP2102 | Não encontrados (placa sem serigrafia). |
+| 30/09 | Curto `ON/OFF`–`GND` (sugestão do modo IA do Google) | Equivale a apertar Power; não leva a FEL. |
+| 01/10 | Cartão `update/auto_update.txt` (pendrive/SD) | Preparado, **nunca testado** no projetor (foi substituído pelo PhoenixCard). Método **não confirmado** para este U-Boot. |
+| 01–03/10 | PhoenixCard v4.2.7 modo **Product** no slot da placa | Fica em standby, sem barra, sem resposta. Sem cartão, nada mudou. |
 
 ---
 
-## 5. Estado das Ferramentas e Scripts de Automação
+## 5. Ferramentas e arquivos
 
-No diretório do projeto, foram criados utilitários de um clique para Windows:
+| Arquivo | Função |
+| :--- | :--- |
+| `CRIAR_CARTAO_FEL.bat` → `tools/criar_cartao_fel.ps1` | **Novo.** Grava `tools/fel/fel-sdboot.sunxi` no setor 16 do cartão: força **modo FEL** pelo slot SD. |
+| `ABRIR_PHOENIXSUIT.bat` | PhoenixSuit v1.10 (flash por FEL). Drivers: `tools/instalar_drivers_fel.ps1`. |
+| `ABRIR_PHOENIXCARD.bat` | PhoenixCard v4.2.7 (cartão Product/Startup). Para voltar o cartão ao normal: botão **Format to Normal**. |
+| `PREPARAR_CARTAO_MICROSD.bat` | Cartão/pendrive `update/auto_update.txt` (não confirmado). |
+| `ABRIR_SERIAL_CP2102.bat` | PuTTY 115200 8-N-1 no CP2102 (COM9 no desktop). |
+| `firmware/HY300 Pro+ - H713.img` | Imagem `IMAGEWTY` 1,91 GB (Git LFS). **Feita para a placa de referência.** |
+| `tools/platform-tools/` | adb/fastboot. |
 
-1. **[ABRIR_SERIAL_CP2102.bat](ABRIR_SERIAL_CP2102.bat):**
-   - Executa com bypass de permissões do PowerShell.
-   - Detecta automaticamente o adaptador **Silicon Labs CP210x na COM9** (ou porta equivalente).
-   - Abre o PuTTY automaticamente a 115200 baud configurado.
-2. **[ABRIR_PHOENIXSUIT.bat](ABRIR_PHOENIXSUIT.bat):**
-   - Abre o utilitário oficial Allwinner PhoenixSuit v1.10.
-   - Localização dos arquivos: `tools/PhoenixSuit/PhoenixSuit v1.10/PhoenixSuit.exe`.
-   - Instalador de drivers FEL: `tools/PhoenixSuit/PhoenixSuit v1.10/PhoenixDrvInstall.exe`.
-3. **Firmware Stock Validado:**
-   - Imagem salva em: `firmware/HY300_Pro_Plus_H713.img` (1.91 GB).
-   - Cabeçalho verificado: Allwinner `IMAGEWTY` autêntico para chip H713.
+**Duas máquinas:** o agente roda no **desktop**; o projetor e o cartão ficam no **notebook**. Comandos de disco/USB executados pelo agente veem só as portas do desktop. Sincronize com `git pull` (ou pelo Google Drive em `G:\Meu Drive` para arquivos grandes).
 
 ---
 
-## 6. Roteiro de Retomada dos Trabalhos
+## 6. Próximos passos (ordem recomendada)
 
-Quando retomar a sessão (seja no PC atual ou no notebook):
+1. **Identificar a placa e o SoC (antes de gravar qualquer coisa):**
+   - Foto do **código serigrafado da placa** (geralmente na borda, ex.: `HY…_…_A1`, com data).
+   - Foto da **face inferior** inteira (eMMC, PMIC).
+   - Se o dissipador sair com segurança (clipe ou fita térmica, girar levemente, sem alavancar), foto da **marcação do chip**.
+2. **Cartão FEL** (`CRIAR_CARTAO_FEL.bat`) + cabo USB-A×USB-A → confirmar `VID_1F3A&PID_EFE8` no notebook. Isso dá FEL garantido, sem botão nem UART.
+3. Com FEL e o **SoC confirmado como H713**: flash pelo **PhoenixSuit** com a imagem. Se der erro de DRAM/inicialização, a imagem não é desta placa (ver passo 4).
+4. **Conseguir a imagem certa para esta revisão** (placa com AW869A + slot SD + SK Hynix): procurar pelo código da placa no 4PDA / r/Magcubic / XDA.
+5. **Antes de qualquer gravação bem-sucedida, fazer backup** da eMMC atual (via FEL + `sunxi-fel` da YuujiLab, ou via ADB se o Android chegar a subir).
 
-### Opção 1: Via Console Serial (CP2102)
-1. Conectar o cabo GND na carcaça de metal da porta USB.
-2. Conectar os pinos RX/TX nas vias indicadas no [guia_conexoes_ttl_completo.jpg](fotos%20placa/guia_conexoes_ttl_completo.jpg).
-3. Plugar o CP2102 no PC e dar dois cliques em `ABRIR_SERIAL_CP2102.bat`.
-4. Com a janela do PuTTY aberta, teclar **ESPAÇO** repetidamente e ligar o projetor na tomada.
-5. No prompt `=>`, digitar:
-   ```text
-   efex
-   ```
-6. O projetor entrará no modo FEL.
-7. Conectar o cabo USB macho-macho e abrir o `ABRIR_PHOENIXSUIT.bat` para regravar o arquivo `firmware/HY300_Pro_Plus_H713.img`.
-
-### Opção 2: Via Botão Físico SMD (Sem Solda)
-1. Projetor fora da tomada.
-2. Cabo USB macho-macho conectado entre PC e o projetor.
-3. PhoenixSuit aberto com a ROM carregada na aba **Firmware**.
-4. Pressionar e manter pressionado o microswitch branco ao lado da HDMI com um palito.
-5. Ligar a energia na tomada (segurar por 5 segundos).
-6. O PhoenixSuit detectará o aparelho e iniciará o flash.
+Passo a passo detalhado: [docs/GUIA_RECUPERACAO.md](docs/GUIA_RECUPERACAO.md).

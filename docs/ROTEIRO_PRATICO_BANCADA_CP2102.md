@@ -1,6 +1,9 @@
 # Roteiro Prático de Bancada: Recuperação do HY300 com CP2102
 
-Este roteiro é o seu guia passo a passo para a bancada. Siga exatamente esta sequência para recuperar o projetor de forma segura, rápida e sem depender do botão externo de reset nem de pendrives.
+Roteiro da bancada para usar o console serial (UART).
+
+> [!IMPORTANT]
+> **Status (03/10/2026):** nesta placa os pads TX/RX **não têm serigrafia e não foram encontrados**. A placa também não tem botão de reset/FEL. Para entrar em FEL, prefira o **cartão FEL no slot MicroSD** ([GUIA_RECUPERACAO.md](GUIA_RECUPERACAO.md), Método A). Este roteiro continua útil para ver o log de boot, se os pads forem achados.
 
 ---
 
@@ -33,11 +36,12 @@ Antes de plugar qualquer fio no projetor:
 
 1. Retire os parafusos na base e na carcaça plástica cilíndrica do projetor.
 2. Separe as duas metades da carcaça com cuidado para não romper os fios do alto-falante nem o cabo flat do display LCD.
-3. Localize a placa-mãe principal (modelo `HY200_QZ713DF_A1`).
-4. Ao lado do processador Allwinner H713 e próximo ao dissipador de alumínio, localize dois pequenos círculos dourados (pads de teste) serigrafados na placa:
-   - Um marcado como **`TX`** (Transmissão do projetor).
-   - Um marcado como **`RX`** (Recepção do projetor).
-   *(Fotos em alta resolução para conferência visual estão em: `references/HY300-H713-Research/Hardware/marked_uart_pads.jpg`)*.
+3. Localize a placa-mãe principal. Na placa de referência (`HY200_QZ713DF_A1`) os pads `TX`/`RX` são serigrafados ao lado do SoC (`references/HY300-H713-Research/Hardware/marked_uart_pads.jpg`). **Nesta placa não há serigrafia.**
+4. Para achar o TX com o multímetro (escala DC 20 V, ponta preta na carcaça do USB):
+   - Com a placa ligada, procure vias/pads de teste perto do SoC que fiquem em **~3,3 V** em repouso.
+   - O **TX** cai e oscila por alguns segundos logo após ligar na tomada (o bootloader está imprimindo log). Num multímetro isso aparece como um valor tremendo entre 2,5 e 3,3 V.
+   - Confirme ligando o **RX do CP2102** nesse ponto com o PuTTY aberto: devem aparecer textos legíveis (`HELLO! BOOT0`, `U-Boot …`).
+   - O RX da placa costuma ficar ao lado do TX, também em ~3,3 V, mas sem oscilar.
 
 ---
 
@@ -99,7 +103,7 @@ Agora o processador está sob o seu controle total:
    `D:\hy300\projeto-hy300\tools\PhoenixSuit\PhoenixSuit v1.10\PhoenixSuit.exe`
 4. No PhoenixSuit:
    - Clique na aba **Firmware**.
-   - Clique em **Image** e selecione o arquivo da ROM baixada (ex: `firmware/HY300_H713_STOCK.img`).
+   - Clique em **Image** e selecione a imagem **correta para a placa** (a atual é `firmware/HY300 Pro+ - H713.img`, feita para a placa de referência; ver `firmware/README.md`).
    - O PhoenixSuit detectará o projetor em modo FEL e exibirá uma caixa de diálogo perguntando se deseja formatar:
      `Tips: Does mandatory format?` -> Clique em **Sim (Yes)**.
 5. A barra de progresso verde começará a avançar no PhoenixSuit:

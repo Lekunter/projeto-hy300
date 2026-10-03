@@ -10,10 +10,9 @@ O HY300 é construído em uma arquitetura modular compacta:
 
 ```mermaid
 flowchart TD
-    AC["Entrada AC 100-240V"] --> PSU["Fonte Interna AC/DC (Gera 12V / 19V)"]
-    PSU --> BUCK["Conversores Step-Down (5V, 3.3V, 1.8V, 1.1V)"]
-    PSU --> LED_DRV["Driver de Corrente Constante do LED"]
-    LED_DRV --> LED_LAMP["Lâmpada LED COB (30W - 50W)"]
+    AC["Entrada AC 100-240V"] --> PSU["Fonte GKY40W-TYY27A (27V/1,1A + 5V/2A)"]
+    PSU -->|5V| BUCK["Reguladores na placa (3.3V, 1.8V, 1.1V)"]
+    PSU -->|27V| LED_LAMP["Lâmpada LED (~30W)"]
     
     BUCK --> MAIN["Placa Principal (Allwinner H713)"]
     MAIN --> LCD["Painel LCD Transmissivo (Conector 40-pin FFC)"]
@@ -39,8 +38,8 @@ flowchart TD
    - Dissipador de calor de alumínio aletado acoplado ao LED.
 4. **Sistema de Refrigeração:**
    - Turbina / Blower centrífugo (mantém o ar fluindo através das aletas do LED e resfria a face do LCD).
-5. **Fonte Chaveada Interna:**
-   - Placa de fonte AC-DC que fornece tensão de 12V a 19V com capacidade de 3A a 4A.
+5. **Fonte Chaveada Interna (medida nesta unidade):**
+   - `GKY40W-TYY27A REV:A01`: **27 V / 1,1 A** para o LED e **5 V / 2 A** para a placa lógica. Não há 12 V nesta fonte.
 6. **Alto-falante e Carcaça Articulada:**
    - Falante full-range 4 ohms / 3W.
    - Base cilíndrica com articulação de 180 graus.
@@ -58,9 +57,10 @@ Se a placa-mãe original com Allwinner H713 for recuperada via firmware, ela pos
 
 ### Como integrar a TV Box internamente no gabinete:
 1. **Desmontagem da TV Box:** Remova a placa da TV Box de sua carcaça plástica original para reduzir volume.
-2. **Alimentação:** A maioria das TV Boxes consome **5V / 2A**. 
-   - Você pode puxar os 12V da fonte do projetor e utilizar um pequeno módulo conversor Step-Down DC-DC regulável (ex: **LM2596** ou **Mini MP1584EN**) ajustado exatamente para **5.1V**.
-   - Conecte a saída nos pinos de alimentação do conector DC Jack da TV Box.
+2. **Alimentação:** A maioria das TV Boxes consome **5V / 1–2A**.
+   - A fonte desta unidade só tem **5 V / 2 A**, e essa saída já alimenta a placa H713. Somar uma TV Box nela tende a estourar a capacidade.
+   - Use uma **fonte 5 V separada** para a TV Box. Ou use um step-down (ex.: **MP1584EN**, **LM2596**) a partir dos **27 V**, ajustado para 5,1 V, desde que a soma com o LED caiba em ~30 W: meça com o multímetro antes.
+   - **Nunca** ligue a saída de 27 V direto na TV Box.
 3. **Sinal de Vídeo:**
    - Utilize um cabo flat flexível mini-HDMI / HDMI macho-macho ultrafino ou solde fios blindados curtos diretamente entre as trilhas HDMI da TV Box e a porta HDMI IN do projetor.
 4. **Áudio:** O áudio será transmitido diretamente pelo HDMI para o amplificador interno e alto-falante do HY300.

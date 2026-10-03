@@ -1,106 +1,107 @@
-# Guia Completo de Recuperação (Unbrick) — HY300 / HY300 Pro (Allwinner H713)
+# Guia de Recuperação (Unbrick): HY300 com slot MicroSD na placa
 
-Este documento detalha todos os métodos práticos e laboratoriais conhecidos para reviver o projetor **HY300 / HY300 Pro** (marcas Magcubic, Transpeed ou genéricas) baseado no chip **Allwinner H713** (`sun50iw12p1` / placa `HY200_QZ713DF_A1`) após soft brick por atualização OTA.
+Métodos em ordem de prioridade **para esta placa** (revisão com módulo `AW869A`, RAM SK Hynix e slot MicroSD; ver [CONTEXTO.md](../CONTEXTO.md)). Cada método diz o que já foi testado e o que é só teoria.
 
----
-
-## 1. Entendendo o Brick
-
-* **Sintoma:** O aparelho acende o LED de status, o cooler/ventilador gira, a lâmpada LED pode ou não acender, mas não há imagem ou o sistema trava indefinidamente na logo inicial.
-* **Causa Raiz:** O fabricante Hotack configurou uma tabela GPT com Virtual A/B "falsa". O sistema ativo é o **Slot A**. As partições do **Slot B** são blocos vazios preenchidos com zeros (`0x00`). Quando a atualização OTA oficial é aplicada, o Android grava no Slot B e troca o slot de boot no U-Boot. Ao reiniciar, o processador tenta inicializar um sistema vazio, resultando em falha imediata.
+> [!WARNING]
+> A imagem `firmware/HY300 Pro+ - H713.img` foi feita para a placa de referência `HY200_QZ713DF_A1`. **Confirme o SoC e o código da placa antes de gravar a eMMC.** Imagem de outra placa pode deixar painel, Wi-Fi ou até a RAM sem funcionar.
 
 ---
 
-## 2. Método 1: Unbrick Autônomo via Pendrive USB (Sem PC / Sem Cabos Especiais)
+## 0. Identificar placa e SoC (obrigatório antes de gravar)
 
-Este é o método mais rápido e não invasivo. Ele aproveita a rotina de recuperação embutida no U-Boot do Allwinner:
-
-### Requisitos:
-* 1 Pendrive USB comum (de 4GB a 32GB).
-* Arquivo de firmware stock `.img` (localizado em `firmware/`).
-
-### Procedimento Passo a Passo:
-1. Formate o pendrive em **FAT32** (tamanho de alocação padrão).
-2. Crie uma pasta na raiz chamada exatamente `update` (em letras minúsculas).
-3. Dentro da pasta `update`, crie um arquivo de texto chamado `auto_update.txt` com a seguinte linha exata:
-   ```text
-   sunxi_flash write update/update.img firmware
-   ```
-4. Copie o arquivo da ROM `.img` para dentro da pasta `update` e renomeie-o para `update.img` (tudo em minúsculas).
-   *(Alternativa automatizada: basta executar o script `tools/preparar_pendrive_update.ps1` no PowerShell).*
-5. Desconecte o cabo de energia da tomada do projetor.
-6. Insira o pendrive na porta USB do HY300.
-7. Ligue o cabo de energia na tomada. **NÃO pressione o botão de ligar**.
-8. O U-Boot detectará o arquivo de comando no pendrive e iniciará a projeção de uma tela de regravação com barra de progresso verde.
-9. Aguarde o término completo (100%).
-10. Desconecte da tomada, **remova o pendrive** (caso contrário ele regravará no próximo boot) e ligue o projetor normalmente.
+1. Projetor fora da tomada, carcaça aberta.
+2. Fotografe:
+   - o **código serigrafado da placa** (borda da PCB, algo como `HY…_…_A1` + data);
+   - a **face inferior** inteira;
+   - a **marcação do processador**, se o dissipador sair sem esforço (gire levemente; não alavanque contra a placa).
+3. Compare com a pesquisa de referência em `references/HY300-H713-Research/Hardware/PCB_INSPECTION.md`.
 
 ---
 
-## 3. Método 2: Regravação via PC (Modo FEL / USB-A x USB-A)
+## Método A: Cartão FEL no slot MicroSD (recomendado)
 
-Utilizado quando o U-Boot estiver corrompido ou não ler o pendrive. O chip Allwinner possui um modo de baixo nível em ROM pura (**Modo FEL**, `USB\VID_1F3A&PID_EFE8`) que permite injetar código e regravar a eMMC diretamente do computador.
+**Por que funciona:** o BootROM do Allwinner lê o **cartão SD antes da eMMC**. Já confirmamos que esta placa lê o slot, porque o comportamento muda com o cartão inserido. O stub `fel-sdboot.sunxi` (do sunxi-tools) só faz uma coisa: salta para a rotina FEL do BootROM. Não depende de botão, controle remoto, UART nem do U-Boot corrompido, e **não grava nada na eMMC**.
 
-### Requisitos:
-* Cabo **USB-A Macho para USB-A Macho** de boa qualidade.
-* Computador com Windows.
-* Software **PhoenixSuit** (já extraído em `tools/PhoenixSuit/`) ou **PhoenixUSBPro**.
-* Drivers Allwinner USB FEL instalados (execute `tools/instalar_drivers_fel.ps1`).
+> Status: **não testado ainda nesta placa.** O stub é usado em vários SoCs Allwinner (salta para o endereço `0x20` do BROM); para o H713 especificamente não há confirmação publicada.
 
-### Procedimento Passo a Passo:
-1. Abra o arquivo executável:
-   `tools/PhoenixSuit/PhoenixSuit v1.10/PhoenixSuit.exe`
-2. No PhoenixSuit, clique na aba **Firmware** e selecione o arquivo `.img` da ROM.
-3. Desconecte a energia do projetor.
-4. Conecte uma ponta do cabo USB-A na porta USB do PC e a outra na porta USB do projetor.
-5. **Gatilho do Modo FEL:**
-   * **Opção com Botão Físico (Mais confiável):** Localize o pequeno orifício sob a porta HDMI (ou dentro do conector de áudio P2). Com um palito de dente não metálico ou clipe de papel fino, sinta o clique do botão interno e **mantenha-o pressionado**.
-   * Conecte o cabo de energia do projetor na tomada mantendo o botão pressionado por cerca de 3 a 5 segundos e solte.
-   * **Opção com Controle Remoto IR:** Aponte o controle remoto para o receptor do projetor e fique apertando repetidamente a tecla **Volume + (Vol+)** ao conectar o cabo de energia na tomada.
-6. O Windows emitirá o som de dispositivo USB conectado e o Gerenciador de Dispositivos exibirá `USB Device(VID_1f3a_PID_efe8)`.
-7. O PhoenixSuit exibirá uma janela de confirmação perguntando se deseja formatar a partição (**Upgrade / Format**). Confirme com **Sim**.
-8. A regravação será iniciada. Não desconecte o cabo USB nem a energia.
-9. Ao concluir (100%), desconecte o cabo USB e reinicie o aparelho. O primeiro boot leva entre 3 e 5 minutos.
+### Preparar o cartão (no notebook)
+1. `git pull`.
+2. MicroSD no **adaptador USB** (ou no leitor do notebook).
+3. Dois cliques em **`CRIAR_CARTAO_FEL.bat`** (pede administrador).
+4. Escolha o disco do cartão e digite `SIM`. O script:
+   - apaga o cartão e cria uma partição FAT32 começando em 1 MB;
+   - grava `tools/fel/fel-sdboot.sunxi` no offset **8 KB (setor 16)**;
+   - relê e confere a gravação.
 
----
+### Usar
+1. Instale os drivers FEL no notebook: `tools/instalar_drivers_fel.ps1`.
+2. Projetor **fora da tomada**. Cartão FEL no **slot da placa**.
+3. Cabo **USB-A macho × USB-A macho** entre o notebook e a porta USB do projetor.
+4. Ligue na tomada. O projetor deve ficar "morto" (sem luz/imagem): isso é normal em FEL.
+5. No Gerenciador de Dispositivos deve aparecer **`USB\VID_1F3A&PID_EFE8`**.
 
-## 4. Método 3: Depuração e Controle via Console Serial (UART)
-
-Caso o projetor continue não respondendo ou deseje inspecionar exatamente o ponto de falha do boot:
-
-### Pinagem na Placa-Mãe (`HY200_QZ713DF_A1`):
-* **Pads de Teste UART:** Localizados próximos ao processador H713 e dissipador térmico (veja fotos em `references/HY300-H713-Research/Hardware/`).
-* **TX da Placa:** Conectar no pino **RX** de um conversor USB-Serial (FTDI, CP2102, CH340).
-* **RX da Placa:** Conectar no pino **TX** do conversor USB-Serial.
-* **GND:** Pode ser soldado ou aterrado na carcaça externa metálica da porta USB ou HDMI.
-* **Nível Lógico:** 3.3V (Não use 5V!).
-* **Configuração:** 115200 baud, 8 bits de dados, sem paridade, 1 stop bit (8-N-1).
-
-### Comandos de Resgate no U-Boot:
-Ao ligar a energia com o terminal aberto (PuTTY / TeraTerm), pressione qualquer tecla repetidamente para interromper a contagem do boot:
-1. **Forçar Modo FEL via software:**
-   ```text
-   => efex
-   ```
-   *(O projetor entrará imediatamente no modo USB FEL para o PhoenixSuit).*
-2. **Iniciar modo Fastboot:**
-   ```text
-   => fastboot
-   ```
-3. **Verificar variáveis de ambiente e slots:**
-   ```text
-   => printenv
-   ```
+### Resultados possíveis
+| O que acontece | Significado | Próximo passo |
+| :--- | :--- | :--- |
+| Aparece `VID_1F3A&PID_EFE8` | FEL funcionando | Método B (PhoenixSuit), **se o SoC estiver confirmado** |
+| Nada aparece no USB | Cabo/porta (teste outra porta, cabo curto) ou o stub não serve neste SoC | Conferir cabo; voltar ao passo 0 |
 
 ---
 
-## 5. Método 4: Forçamento de FEL via Curto de Barramento eMMC (Hard Unbrick)
+## Método B: Gravação pelo PhoenixSuit (com o aparelho em FEL)
 
-Em casos raros em que o bootloader entra em loop antes de verificar os botões de recuperação, o processador possui uma lógica de inicialização de hardware:
-1. O BootROM tenta ler sucessivamente: SD Card -> eMMC -> SPI -> **Modo FEL**.
-2. Se a leitura do eMMC falhar, o chip Allwinner cai **obrigatoriamente** no modo USB FEL.
-3. Para simular falha de leitura e forçar o Modo FEL:
-   * Com o aparelho desligado, use uma pinça ou agulha fina para fechar um curto momentâneo entre a linha de clock (`CLK`) ou dados (`DAT0`) do chip eMMC Kioxia (`THGBMHG6C1LBAIL`) e o terra (`GND`).
-   * Ligue a alimentação do aparelho com o cabo USB-A conectado ao PC.
-   * Remova o curto após 1 segundo.
-   * O computador reconhecerá o dispositivo em modo `VID_1F3A&PID_EFE8` de fábrica.
+1. Aparelho em FEL (Método A, ou qualquer outro).
+2. `ABRIR_PHOENIXSUIT.bat` → aba **Firmware** → **Image** → selecione a imagem.
+3. O PhoenixSuit detecta o FEL e pergunta se quer formatar → **Sim** (*mandatory format*).
+4. Não mexa no cabo nem na tomada até `Upgrade Firmware Successfully`.
+5. Desligue, **retire o cartão FEL do slot** (senão ele volta para FEL a cada boot), e ligue de novo. O primeiro boot pode levar de 3 a 5 minutos.
+
+Se o PhoenixSuit falhar logo no início (erro de DRAM/`fes`), a imagem não é para este SoC/placa. Pare e procure a imagem certa.
+
+---
+
+## Método C: PhoenixCard (cartão de produção)
+
+- `ABRIR_PHOENIXCARD.bat` → imagem → modo **Product** → **Burn**. Depois coloque o cartão no slot da placa e ligue.
+- **Testado em 01–03/10/2026: não funcionou.** O aparelho ficou em standby, sem barra de progresso e sem resposta. Ver hipóteses no CONTEXTO §1.
+- Se for tentar de novo: deixe ligado **pelo menos 15–20 min** sem mexer (o gravador de cartão pode não ligar o painel LCD), depois retire o cartão e ligue. Se o comportamento sem cartão mudar, a gravação aconteceu.
+- Para devolver o cartão ao uso normal: PhoenixCard → **Format to Normal** (ou `CRIAR_CARTAO_FEL.bat`, que também apaga o cartão).
+
+---
+
+## Método D: Pendrive/SD com `update/auto_update.txt`
+
+- `PREPARAR_CARTAO_MICROSD.bat` cria `update/auto_update.txt` (`sunxi_flash write update/update.img firmware`) + `update/update.img` num pendrive/cartão FAT32.
+- **Não confirmado para este U-Boot** e **nunca testado no projetor**. Não está na pesquisa de referência; trate como tentativa de baixa chance.
+
+---
+
+## Método E: Controle remoto IR (`Vol+`)
+
+- Segundo `references/HY300-H713-Research/Boot/BOOT_MODES.md`, o U-Boot **da placa de referência** entra em FEL se `Vol+` for segurado no controle durante a energização (`Home` = recovery com wipe).
+- Depende do U-Boot da eMMC estar íntegro e ser igual ao da referência. Nesta placa não se confirmou.
+- Para conferir se o controle emite: aponte para a câmera do celular e aperte um botão. O LED deve piscar na tela.
+- Sequência: cabo USB-A×A no PC → segure `Vol+` apontado para o receptor → ligue na tomada → mantenha por ~5 s.
+
+---
+
+## Método F: Console UART (CP2102)
+
+- 3,3 V TTL, 115200 8-N-1. Ligações: GND na carcaça do USB/HDMI, RX do módulo no TX da placa, TX do módulo no RX da placa, **VCC desligado**.
+- No prompt `=>` do U-Boot: `efex` (vai para FEL), `printenv` (mostra slot/variáveis).
+- **Nesta placa os pads não têm serigrafia e não foram encontrados.** As fotos `marked_uart_pads.jpg` são da placa de referência.
+- Para procurar com multímetro: com a placa ligada, o **TX** fica em ~3,3 V em repouso e oscila para baixo nos primeiros segundos de boot (o boot0/U-Boot imprime log). Meça vias de teste perto do SoC com a ponta preta no GND.
+
+---
+
+## Método G: Curto na eMMC (último recurso)
+
+Encostar CLK ou DAT0 da eMMC ao GND durante a energização faz o BootROM falhar na eMMC e cair em FEL.
+**Nesta placa não é necessário:** o slot MicroSD (Método A) faz o mesmo sem risco de danificar trilhas. Só use se o Método A não der FEL e você souber exatamente os pinos da eMMC.
+
+---
+
+## Depois de recuperar
+
+1. **Backup da eMMC inteira** antes de qualquer outra mudança (`references/HY300-H713-Research/Firmware/EMMC_DUMPING.md`: via ADB sem root).
+2. Desative as atualizações OTA do fabricante para não repetir o brick.

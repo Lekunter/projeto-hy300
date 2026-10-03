@@ -1,62 +1,71 @@
-# Projeto HY300 — Recuperação, Engenharia Reversa e Upgrade (Allwinner H713)
+# Projeto HY300: recuperação, engenharia reversa e upgrade
 
-Repositório completo dedicado à recuperação de soft brick, documentação técnica de baixo nível, ferramentas de regravação, links de firmware e projetos de engenharia de hardware/upgrade com placas de TV Box para o projetor smart **HY300 / HY300 Pro** (baseado no processador **Allwinner H713**, `sun50iw12p1`, placa **`HY200_QZ713DF_A1`**).
+Repositório para recuperar de soft brick (após OTA) um projetor **HY300**. A plataforma de referência usa o **Allwinner H713** (`sun50iw12p1`). A placa deste aparelho é **outra revisão** (módulo Wi-Fi `AW869A`, RAM SK Hynix, slot MicroSD) e o SoC ainda não foi confirmado visualmente.
+
+**Status atual e próximos passos:** [CONTEXTO.md](CONTEXTO.md)
+**Passo a passo:** [docs/GUIA_RECUPERACAO.md](docs/GUIA_RECUPERACAO.md)
 
 ---
 
-## 📁 Estrutura do Projeto
+## Estrutura
 
 ```text
 projeto-hy300/
+├── CONTEXTO.md                    # Status, hardware real, histórico de tentativas, próximos passos
+├── CRIAR_CARTAO_FEL.bat           # Cartão MicroSD que força modo FEL pelo slot da placa
+├── ABRIR_PHOENIXSUIT.bat          # Flash por USB FEL
+├── ABRIR_PHOENIXCARD.bat          # Cartão de produção (Product/Startup)
+├── PREPARAR_CARTAO_MICROSD.bat    # Cartão/pendrive update/auto_update.txt (não confirmado)
+├── ABRIR_SERIAL_CP2102.bat        # PuTTY 115200 no CP2102
 ├── docs/
-│   ├── GUIA_RECUPERACAO.md        # Passo a passo completo dos 4 métodos de unbrick
-│   └── HARDWARE_UPGRADE_TVBOX.md  # Arquitetura, mod híbrido e transplante com TV Box
-├── tools/
-│   ├── PhoenixSuit/               # Utilitário oficial de flash USB FEL + drivers
-│   ├── platform-tools/            # Google Android Platform-Tools (adb, fastboot v37.0.1)
-│   ├── preparar_pendrive_update.ps1  # Script automático para criar pendrive de unbrick
-│   └── instalar_drivers_fel.ps1   # Script de instalação de drivers Allwinner no Windows
+│   ├── GUIA_RECUPERACAO.md        # Métodos A–G, com status de cada um
+│   ├── ROTEIRO_PRATICO_BANCADA_CP2102.md
+│   ├── HARDWARE_UPGRADE_TVBOX.md  # Mod híbrido e transplante com TV Box
+│   └── VIDEOS_REFERENCIA.md
 ├── firmware/
-│   └── README.md                  # Catálogo de ROMs, hashes e links (Mega, GDrive)
-├── references/
-│   ├── HY300-H713-Research/       # Teardown, BROM, GPT, AVB bypass, pinagem UART
-│   ├── magcubic-root/             # awimg.py (unpacker/repacker com checksum) e debloat
-│   └── sunxi-tools/               # Ferramentas sunxi com suporte ao Allwinner H713
-├── CONTEXTO.md                    # Diagnóstico detalhado da falha Virtual A/B pós-OTA
-└── README.md                      # Este sumário geral
+│   ├── README.md                  # Origem e links das imagens
+│   └── HY300 Pro+ - H713.img      # 1,91 GB, Git LFS (placa de referência!)
+├── fotos placa/                   # Fotos reais desta placa
+├── fotos_anotadas/                # Infográficos (baseados na referência)
+├── tools/
+│   ├── fel/fel-sdboot.sunxi       # Stub FEL (sunxi-tools)
+│   ├── criar_cartao_fel.ps1
+│   ├── PhoenixSuit/  PhoenixCard/  platform-tools/  CP210x_Driver/  putty.exe
+│   ├── instalar_drivers_fel.ps1   # Drivers USB FEL
+│   ├── preparar_pendrive_update.ps1
+│   ├── abrir_serial_cp2102.ps1
+│   └── setup_ambiente.ps1         # Baixa ferramentas/referências numa máquina nova
+└── references/
+    ├── HY300-H713-Research/       # YuujiLab: BROM, GPT, UART, FEL, AVB (placa HY200_QZ713DF_A1)
+    ├── magcubic-root/             # awimg.py (desempacota/reempacota IMAGEWTY), debloat
+    └── sunxi-tools/               # Fork YuujiLab com suporte ao H713 (submódulo)
 ```
 
 ---
 
-## ⚙️ Especificações de Hardware Confirmadas
+## Hardware
 
-- **SoC:** Allwinner H713 (`sun50iw12p1` / plataforma TV303)
-- **CPU:** Quad-Core ARM Cortex-A53
-- **GPU:** ARM Mali-G31 MP2
-- **Memória RAM:** 1GB DDR3 (2x Elpida topo + 2x Samsung base)
-- **Armazenamento:** 8GB eMMC Kioxia / Toshiba (`THGBMHG6C1LBAIL`)
-- **Wi-Fi / BT:** AIC8800D40 (Wi-Fi 6 + Bluetooth 5.4 Dual-Mode)
-- **Painel LCD:** TFT transmissivo de ~2.69 polegadas (1280x720 nativo) com flat de 40 pinos
-- **Entrada de Vídeo:** HDMI Type-A Female
-- **ID USB FEL:** `USB\VID_1F3A&PID_EFE8`
+| Item | Placa de referência (`HY200_QZ713DF_A1`) | Este aparelho |
+| :--- | :--- | :--- |
+| SoC | Allwinner H713, A53 x4, Mali-G31 MP2 | sob dissipador, **não verificado** |
+| RAM | 1 GB DDR3 (2x Elpida + 2x Samsung) | DDR3 SK Hynix `H5TQ2G83CFR` (2 na face superior) |
+| eMMC | 8 GB Kioxia `THGBMHG6C1LBAIL` | não verificado |
+| Wi-Fi/BT | AIC8800D40 | módulo `AW869A WiFi6` |
+| MicroSD | não | **sim, slot na placa** |
+| UART | pads `TX`/`RX` serigrafados | sem serigrafia, não localizados |
+| Fonte | n/d | `GKY40W-TYY27A`: 27 V (LED) + 5 V/2 A (placa) |
 
----
-
-## 🛠️ Métodos de Recuperação Prontos para Uso
-
-1. **Unbrick por Pendrive USB (Sem PC):**
-   Execute o script `tools/preparar_pendrive_update.ps1` no PowerShell com um pendrive FAT32 e uma imagem stock. Insira o pendrive e ligue o projetor na tomada para iniciar a regravação automática pelo U-Boot. Detalhes em [docs/GUIA_RECUPERACAO.md](docs/GUIA_RECUPERACAO.md).
-2. **Flash USB em Modo FEL (Via Computador):**
-   Instale os drivers com `tools/instalar_drivers_fel.ps1`, abra o `tools/PhoenixSuit/PhoenixSuit v1.10/PhoenixSuit.exe`, segure o botão oculto de Reset (abaixo da porta HDMI) e conecte o cabo USB-A x USB-A.
-3. **Console Serial UART (3.3V 115200 8-N-1):**
-   Interrompa o boot e execute `efex` no U-Boot para entrar em modo FEL direto por software.
-4. **Hard Unbrick por Curto de Linha de Dados da eMMC:**
-   Curto momentâneo entre CLK/DAT0 e GND durante o power on para forçar o BROM em modo FEL caso os botões falhem.
+ID USB em modo FEL: `USB\VID_1F3A&PID_EFE8`. Já foi visto uma vez no Windows do desktop.
 
 ---
 
-## 💡 Opções de Upgrade com Placas de TV Box
+## Recuperação (resumo)
 
-Consulte o documento completo em [docs/HARDWARE_UPGRADE_TVBOX.md](docs/HARDWARE_UPGRADE_TVBOX.md):
-- **Opção 1 (Mod Híbrido Interno):** Integrar a placa de uma TV Box rápida (Amlogic S905X/W com 2GB/4GB de RAM) dentro da carcaça do HY300, alimentada pela fonte interna (via conversor Step-Down 5V) e conectada à porta HDMI IN do projetor.
-- **Opção 2 (Transplante Total):** Se a placa original estiver inutilizada, utilizar uma **Placa Controladora Universal HDMI para LCD de 40 pinos** (baseada em Realtek RTD2660) ligada diretamente no flat do display óptico do projetor.
+1. **Identificar placa e SoC** (fotos do código da PCB e do chip).
+2. **Cartão FEL** no slot da placa (`CRIAR_CARTAO_FEL.bat`) + cabo USB-A×A → FEL garantido.
+3. **PhoenixSuit** com a imagem **correta para a placa**.
+4. Alternativas e status de cada uma: [docs/GUIA_RECUPERACAO.md](docs/GUIA_RECUPERACAO.md).
+
+## Upgrade com TV Box
+
+[docs/HARDWARE_UPGRADE_TVBOX.md](docs/HARDWARE_UPGRADE_TVBOX.md): TV Box ligada na entrada HDMI do projetor (se a placa for recuperada) ou placa controladora HDMI→LCD 40 vias (se não for).
