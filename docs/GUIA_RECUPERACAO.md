@@ -77,7 +77,8 @@ Se o PhoenixSuit falhar logo no início (erro de DRAM/`fes`), a imagem não é p
 ## Método E: Controle remoto IR (`Vol+`)
 
 - Segundo `references/HY300-H713-Research/Boot/BOOT_MODES.md`, o U-Boot **da placa de referência** entra em FEL se `Vol+` for segurado no controle durante a energização (`Home` = recovery com wipe).
-- Depende do U-Boot da eMMC estar íntegro e ser igual ao da referência. Nesta placa não se confirmou.
+- Depende do U-Boot da eMMC estar íntegro e ser igual ao da referência.
+- **Testado nesta placa: não entrou em FEL** (receptor IR traseiro original sempre esteve soldado). Possíveis motivos: o U-Boot desta placa não tem o atalho, ou nem chega a rodar.
 - Esta placa tem **dois pontos de receptor IR**: os 3 furos no canto P2/cooler (receptor traseiro) e o conector `遥控头接口` (cabo para o sensor frontal). Antes do teste, confirme que pelo menos um receptor está **soldado na orientação certa** (cúpula para fora da placa, como no original). Aponte o controle para ele.
 - Para conferir se o controle emite: aponte para a câmera do celular e aperte um botão. O LED deve piscar na tela.
 - Sequência: cabo USB-A×A no PC → segure `Vol+` apontado para o receptor → ligue na tomada → mantenha por ~5 s.

@@ -2,7 +2,7 @@
 
 > **Repositório:** [projeto-hy300 (GitHub: Lekunter)](https://github.com/Lekunter/projeto-hy300)
 > **Última atualização:** 03/10/2026
-> **Status:** projetor ainda em brick. O PhoenixCard (modo Product) no slot MicroSD da placa **não recuperou**. SoC **confirmado H713** e placa identificada como **`M11-REV1.3`** (fotos de 03/10, ver §3). Próximo passo: entrar em FEL (controle `Vol+`, USB+Power ou cartão FEL `CRIAR_CARTAO_FEL.bat`) e procurar a UART nos pads ao lado da eMMC.
+> **Status:** projetor ainda em brick. O PhoenixCard (modo Product) no slot MicroSD da placa **não recuperou**. SoC **confirmado H713** e placa identificada como **`M11-REV1.3`** (fotos de 03/10, ver §3). Próximo passo: entrar em FEL (USB+Power ou cartão FEL `CRIAR_CARTAO_FEL.bat`; controle `Vol+` já falhou) e procurar a UART nos pads ao lado da eMMC.
 
 ---
 
@@ -70,6 +70,7 @@ Infográficos anotados: `fotos_anotadas/01…04`. Eles foram gerados a partir da
 | 30/09 | Procurar pads TX/RX para o CP2102 | Não encontrados (placa sem serigrafia). |
 | 30/09 | Curto `ON/OFF`–`GND` (sugestão do modo IA do Google) | Equivale a apertar Power; não leva a FEL. |
 | 01/10 | Cartão `update/auto_update.txt` (pendrive/SD) | Preparado, **nunca testado** no projetor (foi substituído pelo PhoenixCard). Método **não confirmado** para este U-Boot. |
+| antes de 03/10 | Controle remoto `Vol+` ao ligar | Não entrou em FEL. |
 | 01–03/10 | PhoenixCard v4.2.7 modo **Product** no slot da placa | Fica em standby, sem barra, sem resposta. Sem cartão, nada mudou. |
 
 ---
@@ -93,7 +94,7 @@ Infográficos anotados: `fotos_anotadas/01…04`. Eles foram gerados a partir da
 ## 6. Próximos passos (ordem recomendada)
 
 1. ~~Identificar placa e SoC~~: **feito** (H713, `M11-REV1.3`).
-2. **Testes sem solda primeiro:** (a) controle remoto `Vol+` com o receptor IR traseiro soldado; (b) placa alimentada só pela USB do PC + botão Power. Detalhes no GUIA, Método E.
+2. **Teste sem solda:** placa alimentada só pela USB do PC + botão Power (GUIA, Método E). O controle remoto `Vol+` **já foi testado e não funcionou**.
 3. **UART nos 4 pads ao lado da eMMC** (os 3 furos do canto P2 são do receptor IR, não da UART): identificar GND/TX/RX com o multímetro e ligar o CP2102. O log de boot diz **por que** a tela fica vazia (slot B? painel? kernel?) antes de gravar qualquer coisa. Passo a passo: [docs/ROTEIRO_PRATICO_BANCADA_CP2102.md](docs/ROTEIRO_PRATICO_BANCADA_CP2102.md).
 4. **Cartão FEL** (`CRIAR_CARTAO_FEL.bat`) + cabo USB-A×USB-A → confirmar `VID_1F3A&PID_EFE8` no notebook. Dá FEL garantido, sem botão nem UART.
 5. **Preservar a configuração original desta placa.** A eMMC atual guarda o bootloader/DTB com o painel e a DRAM certos da `M11-REV1.3`. Se a UART funcionar, tentar o conserto **sem regravar tudo**: no U-Boot, `printenv` e corrigir o slot (ex.: voltar para `_a`). Se precisar gravar a imagem inteira, antes faça backup (via ADB se o Android subir, ou pela UART/FEL).

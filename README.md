@@ -61,7 +61,7 @@ ID USB em modo FEL: `USB\VID_1F3A&PID_EFE8`. Já foi visto uma vez no Windows do
 
 ## Recuperação (resumo)
 
-1. **Entrar em FEL sem solda:** controle `Vol+`, ou USB do PC + botão Power. Se não der, use o cartão FEL.
+1. **Entrar em FEL sem solda:** USB do PC + botão Power (o controle `Vol+` já falhou). Se não der, use o cartão FEL.
 2. **Cartão FEL** no slot da placa (`CRIAR_CARTAO_FEL.bat`) + cabo USB-A×A → FEL garantido.
 3. **PhoenixSuit** com a imagem **correta para a placa**.
 4. Alternativas e status de cada uma: [docs/GUIA_RECUPERACAO.md](docs/GUIA_RECUPERACAO.md).
