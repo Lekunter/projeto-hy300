@@ -2,7 +2,7 @@
 
 > **Repositório:** [projeto-hy300 (GitHub: Lekunter)](https://github.com/Lekunter/projeto-hy300)
 > **Última atualização:** 03/10/2026
-> **Status:** projetor ainda em brick. O PhoenixCard (modo Product) no slot MicroSD da placa **não recuperou**. Próximo passo: identificar o SoC/placa e entrar em FEL pelo cartão FEL (`CRIAR_CARTAO_FEL.bat`).
+> **Status:** projetor ainda em brick. O PhoenixCard (modo Product) no slot MicroSD da placa **não recuperou**. SoC **confirmado H713** e placa identificada como **`M11-REV1.3`** (fotos de 03/10, ver §3). Próximo passo: fazer a UART funcionar no header de 3 furos e entrar em FEL pelo cartão FEL (`CRIAR_CARTAO_FEL.bat`).
 
 ---
 
@@ -16,9 +16,9 @@
 **Leitura técnica:**
 - O comportamento **muda** com o cartão → o BootROM **lê o slot MicroSD** antes da eMMC. Isso é ótimo: o slot é um caminho garantido para executar código nosso (cartão FEL).
 - Com o cartão Product, o boot0 do cartão foi carregado, mas o processo **travou ou não tem saída de vídeo** (não houve barra de progresso). Possíveis causas, em ordem de probabilidade:
-  1. **A imagem não é desta placa.** O `HY300 Pro+ - H713.img` foi feito para a placa de referência `HY200_QZ713DF_A1` (RAM Elpida/Samsung, Wi-Fi AIC8800). A placa deste aparelho é **outra revisão** (ver seção 3). Parâmetros de DRAM, painel e Wi-Fi podem não bater, e o boot0 do cartão pode travar ao iniciar a RAM.
-  2. **O SoC nem é H713.** Ele está sob o dissipador e **nunca foi visto**. "H713" veio da pesquisa de referência, não desta placa.
-  3. O cartão estava gravando "às cegas" (o gravador de cartão não liga o painel LCD) e foi retirado antes do fim. Menos provável: o comportamento sem cartão continua idêntico ao de antes.
+  1. **A imagem não é desta placa.** O `HY300 Pro+ - H713.img` foi feito para a placa de referência `HY200_QZ713DF_A1`. Esta é a **`M11-REV1.3`**: mesmo SoC, mas eMMC, Wi-Fi e provavelmente painel diferentes. A configuração de DRAM/boot do cartão pode não servir para esta placa.
+  2. O cartão estava gravando "às cegas" (o gravador de cartão não liga o painel LCD) e foi retirado antes do fim. Menos provável: o comportamento sem cartão continua idêntico ao de antes.
+  - ~~SoC diferente de H713~~: **descartado**. O chip foi fotografado: `Allwinner H713 PA251DA 9B70`.
 - **A eMMC muito provavelmente não foi alterada**, porque sem cartão o aparelho se comporta exatamente como antes.
 
 ---
@@ -31,19 +31,23 @@
 
 ---
 
-## 3. Hardware real deste aparelho (fotos em `fotos placa/`)
+## 3. Hardware real deste aparelho (fotos em `fotos placa/` e `fotos placa/fotos 0310/`)
 
-Esta placa **não é** a `HY200_QZ713DF_A1` da pesquisa YuujiLab. Diferenças confirmadas por foto:
+Placa **`M11-REV1.3`** (serigrafia ao lado do SoC, com `C01`). **Não é** a `HY200_QZ713DF_A1` da pesquisa YuujiLab, embora use o mesmo SoC. Tudo abaixo foi confirmado por foto em 03/10/2026, com o dissipador removido:
 
-| Item | Placa de referência (YuujiLab) | **Esta placa** |
+| Item | Placa de referência (YuujiLab) | **Esta placa (`M11-REV1.3`)** |
 | :--- | :--- | :--- |
-| SoC | Allwinner H713 (visível) | **Coberto por dissipador, não verificado** |
-| RAM (face superior) | 2x Elpida `J2108BCSE` | 2x **SK Hynix `H5TQ2G83CFR PBC 213V`** (DDR3 2Gb cada) |
-| Wi-Fi/BT | AIC8800D40 (chip na face inferior) | Módulo blindado **`AW869A WiFi6`** na face superior, antena U.FL |
-| Slot MicroSD | não tem | **Tem** (soldado ao lado da RAM, sem abertura na carcaça) |
-| Pads UART | `TX`/`RX` serigrafados ao lado do SoC | **Sem serigrafia**, não localizados |
+| SoC | Allwinner H713 | **Allwinner H713 `PA251DA 9B70`** ✅ |
+| RAM | 4x 2Gb DDR3 (2x Elpida + 2x Samsung) | 4x 2Gb DDR3 **SK Hynix `H5TQ2G83CFR`** (2 em cada face) = 1 GB |
+| eMMC | Kioxia `THGBMHG6C1LBAIL` 8 GB | **Samsung `KLM8G1WEPD-B031`** 8 GB (face inferior) |
+| Wi-Fi/BT | AIC8800D40 (chip na placa) | Módulo blindado **`AW869A WiFi6`**, antena U.FL |
+| PMIC | A8038S | QFN com 3 indutores `2R2` (face inferior, marcação não lida) |
+| Amplificador | XA8870C | SOIC-8 `NS4150`-like ao lado do slot SD (face inferior) |
+| Slot MicroSD | não tem | **Tem** (face inferior, ao lado da RAM, sem abertura na carcaça) |
+| UART | pads `TX`/`RX` serigrafados | Provável **header de 3 furos sem nome** no canto entre o jack P2 e o conector do cooler. Os furos estão com solda velha e flux queimado (tentativas anteriores). |
+| Pads de teste | n/d | 4 pads redondos em fila ao lado da eMMC (face inferior), função desconhecida |
 | Botão FEL/`UBOOT` | presente sob o HDMI | **Não montado**; só existe o botão Power |
-| Etiqueta | `DW1G+8G+20800D4` | Etiqueta `…0115 PASS` perto do slot SD |
+| Etiqueta | `DW1G+8G+20800D4` | `A024 QC-C 0115 PASS` |
 
 Demais itens desta placa:
 - Cristal `24.000 MHz`; jack P2 3,5 mm; HDMI; 1x USB-A; FFC de 40 vias do LCD.
@@ -88,13 +92,11 @@ Infográficos anotados: `fotos_anotadas/01…04`. Eles foram gerados a partir da
 
 ## 6. Próximos passos (ordem recomendada)
 
-1. **Identificar a placa e o SoC (antes de gravar qualquer coisa):**
-   - Foto do **código serigrafado da placa** (geralmente na borda, ex.: `HY…_…_A1`, com data).
-   - Foto da **face inferior** inteira (eMMC, PMIC).
-   - Se o dissipador sair com segurança (clipe ou fita térmica, girar levemente, sem alavancar), foto da **marcação do chip**.
-2. **Cartão FEL** (`CRIAR_CARTAO_FEL.bat`) + cabo USB-A×USB-A → confirmar `VID_1F3A&PID_EFE8` no notebook. Isso dá FEL garantido, sem botão nem UART.
-3. Com FEL e o **SoC confirmado como H713**: flash pelo **PhoenixSuit** com a imagem. Se der erro de DRAM/inicialização, a imagem não é desta placa (ver passo 4).
-4. **Conseguir a imagem certa para esta revisão** (placa com AW869A + slot SD + SK Hynix): procurar pelo código da placa no 4PDA / r/Magcubic / XDA.
-5. **Antes de qualquer gravação bem-sucedida, fazer backup** da eMMC atual (via FEL + `sunxi-fel` da YuujiLab, ou via ADB se o Android chegar a subir).
+1. ~~Identificar placa e SoC~~: **feito** (H713, `M11-REV1.3`).
+2. **UART no header de 3 furos** (canto P2/cooler): limpar com flux + malha, identificar GND/TX/RX com o multímetro e ligar o CP2102. O log de boot diz **por que** a tela fica vazia (slot B? painel? kernel?) antes de gravar qualquer coisa. Passo a passo: [docs/ROTEIRO_PRATICO_BANCADA_CP2102.md](docs/ROTEIRO_PRATICO_BANCADA_CP2102.md).
+3. **Cartão FEL** (`CRIAR_CARTAO_FEL.bat`) + cabo USB-A×USB-A → confirmar `VID_1F3A&PID_EFE8` no notebook. Dá FEL garantido, sem botão nem UART.
+4. **Preservar a configuração original desta placa.** A eMMC atual guarda o bootloader/DTB com o painel e a DRAM certos da `M11-REV1.3`. Se a UART funcionar, tentar o conserto **sem regravar tudo**: no U-Boot, `printenv` e corrigir o slot (ex.: voltar para `_a`). Se precisar gravar a imagem inteira, antes faça backup (via ADB se o Android subir, ou pela UART/FEL).
+5. **Gravar a imagem de referência pelo PhoenixSuit é aceitável como último recurso.** Com o cartão FEL, a placa sempre volta para FEL, então um flash errado não "mata" o aparelho. O risco real é **perder a config de painel desta placa** (tela continuaria vazia, agora por outro motivo).
+6. Procurar imagem específica da `M11-REV1.3`: buscas por "M11-REV1.3" não retornaram nada em 03/10/2026.
 
 Passo a passo detalhado: [docs/GUIA_RECUPERACAO.md](docs/GUIA_RECUPERACAO.md).

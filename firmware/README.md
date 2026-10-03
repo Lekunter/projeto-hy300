@@ -11,7 +11,7 @@
 - `gdrive_dumps/` guarda um download parcial antigo (`.part`), ignorado pelo Git e que pode ser apagado.
 
 > [!WARNING]
-> **Esta imagem não foi feita para a placa deste aparelho.** Ele tem módulo `AW869A`, RAM SK Hynix e slot MicroSD (ver [CONTEXTO.md](../CONTEXTO.md) §3). A imagem já foi gravada num cartão PhoenixCard (modo Product) e **não recuperou** o aparelho. Antes de gravar a eMMC, confirme o SoC e procure uma imagem para o código da sua placa.
+> **Esta imagem não foi feita para a placa deste aparelho.** Mesmo SoC (H713), mas a placa é a `M11-REV1.3`, com eMMC Samsung, módulo `AW869A` e slot MicroSD (ver [CONTEXTO.md](../CONTEXTO.md) §3). A imagem já foi gravada num cartão PhoenixCard (modo Product) e **não recuperou** o aparelho. Antes de gravar a eMMC, confirme o SoC e procure uma imagem para o código da sua placa.
 
 > [!WARNING]
 > Nunca grave imagens de variantes Rockchip (RK3326-S) ou H726 numa placa H713, nem o contrário.

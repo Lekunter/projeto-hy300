@@ -7,14 +7,12 @@ Métodos em ordem de prioridade **para esta placa** (revisão com módulo `AW869
 
 ---
 
-## 0. Identificar placa e SoC (obrigatório antes de gravar)
+## 0. Identificar placa e SoC: feito em 03/10/2026
 
-1. Projetor fora da tomada, carcaça aberta.
-2. Fotografe:
-   - o **código serigrafado da placa** (borda da PCB, algo como `HY…_…_A1` + data);
-   - a **face inferior** inteira;
-   - a **marcação do processador**, se o dissipador sair sem esforço (gire levemente; não alavanque contra a placa).
-3. Compare com a pesquisa de referência em `references/HY300-H713-Research/Hardware/PCB_INSPECTION.md`.
+SoC **Allwinner H713 `PA251DA 9B70`**, placa **`M11-REV1.3`**, eMMC Samsung `KLM8G1WEPD-B031`. Detalhes em [CONTEXTO.md](../CONTEXTO.md) §3.
+Ordem recomendada agora: **Método F (UART)** para diagnosticar → **Método A (cartão FEL)** → Método B (PhoenixSuit) só se o U-Boot não resolver.
+
+> Ao recolocar o dissipador, use pasta ou pad térmico novo. O H713 sem dissipador superaquece em poucos minutos.
 
 ---
 
@@ -83,14 +81,20 @@ Se o PhoenixSuit falhar logo no início (erro de DRAM/`fes`), a imagem não é p
 - Para conferir se o controle emite: aponte para a câmera do celular e aperte um botão. O LED deve piscar na tela.
 - Sequência: cabo USB-A×A no PC → segure `Vol+` apontado para o receptor → ligue na tomada → mantenha por ~5 s.
 
+### Variante: alimentar a placa só pela USB do PC + botão Power
+- Um relato de outra placa H713 ([gist probonopd/HY300_PRO.md](https://gist.github.com/probonopd/3ad6b7777caea1503f00d5fe7710ad06)) entra em FEL assim: projetor **fora da tomada**, cabo USB-A×A no PC, apertar o botão Power.
+- Esta placa é alimentada em 5 V, então a USB do PC pode conseguir ligar a lógica (o LED da lâmpada não acende, porque usa os 27 V da fonte).
+- **Não confirmado nesta placa.** Custo zero de testar: veja se aparece `VID_1F3A&PID_EFE8`.
+
 ---
 
 ## Método F: Console UART (CP2102)
 
 - 3,3 V TTL, 115200 8-N-1. Ligações: GND na carcaça do USB/HDMI, RX do módulo no TX da placa, TX do módulo no RX da placa, **VCC desligado**.
 - No prompt `=>` do U-Boot: `efex` (vai para FEL), `printenv` (mostra slot/variáveis).
-- **Nesta placa os pads não têm serigrafia e não foram encontrados.** As fotos `marked_uart_pads.jpg` são da placa de referência.
-- Para procurar com multímetro: com a placa ligada, o **TX** fica em ~3,3 V em repouso e oscila para baixo nos primeiros segundos de boot (o boot0/U-Boot imprime log). Meça vias de teste perto do SoC com a ponta preta no GND.
+- **Candidato principal nesta placa:** o **header de 3 furos sem nome** no canto entre o jack P2 e o conector do cooler (`fotos placa/fotos 0310/header_3furos_canto_P2.jpg`). Os furos estão com solda velha e flux queimado; limpe antes de medir. Identificação no [roteiro de bancada](ROTEIRO_PRATICO_BANCADA_CP2102.md).
+- Candidato secundário: 4 pads redondos em fila ao lado da eMMC, na face inferior (`pads_teste_verso.jpg`).
+- As fotos `marked_uart_pads.jpg` da pesquisa são da placa de referência; não valem para esta.
 
 ---
 

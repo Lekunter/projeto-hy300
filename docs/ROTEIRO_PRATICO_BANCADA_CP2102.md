@@ -3,7 +3,7 @@
 Roteiro da bancada para usar o console serial (UART).
 
 > [!IMPORTANT]
-> **Status (03/10/2026):** nesta placa os pads TX/RX **não têm serigrafia e não foram encontrados**. A placa também não tem botão de reset/FEL. Para entrar em FEL, prefira o **cartão FEL no slot MicroSD** ([GUIA_RECUPERACAO.md](GUIA_RECUPERACAO.md), Método A). Este roteiro continua útil para ver o log de boot, se os pads forem achados.
+> **Status (03/10/2026):** placa `M11-REV1.3`. Os pads não têm serigrafia; o candidato principal é o **header de 3 furos no canto entre o jack P2 e o conector do cooler** (ver Passo 1). A placa não tem botão de reset/FEL. Para entrar em FEL, use o **cartão FEL no slot MicroSD** ([GUIA_RECUPERACAO.md](GUIA_RECUPERACAO.md), Método A). O valor da UART aqui é **ver o log de boot** e mexer no U-Boot.
 
 ---
 
@@ -36,12 +36,15 @@ Antes de plugar qualquer fio no projetor:
 
 1. Retire os parafusos na base e na carcaça plástica cilíndrica do projetor.
 2. Separe as duas metades da carcaça com cuidado para não romper os fios do alto-falante nem o cabo flat do display LCD.
-3. Localize a placa-mãe principal. Na placa de referência (`HY200_QZ713DF_A1`) os pads `TX`/`RX` são serigrafados ao lado do SoC (`references/HY300-H713-Research/Hardware/marked_uart_pads.jpg`). **Nesta placa não há serigrafia.**
-4. Para achar o TX com o multímetro (escala DC 20 V, ponta preta na carcaça do USB):
-   - Com a placa ligada, procure vias/pads de teste perto do SoC que fiquem em **~3,3 V** em repouso.
-   - O **TX** cai e oscila por alguns segundos logo após ligar na tomada (o bootloader está imprimindo log). Num multímetro isso aparece como um valor tremendo entre 2,5 e 3,3 V.
-   - Confirme ligando o **RX do CP2102** nesse ponto com o PuTTY aberto: devem aparecer textos legíveis (`HELLO! BOOT0`, `U-Boot …`).
-   - O RX da placa costuma ficar ao lado do TX, também em ~3,3 V, mas sem oscilar.
+3. Localize o **header de 3 furos** no canto da placa, entre o jack P2 e o conector do cooler (`风扇接口`), ao lado do furo de parafuso (`fotos placa/fotos 0310/header_3furos_canto_P2.jpg`).
+4. **Limpe os furos:** flux + malha dessoldadora, depois álcool isopropílico. Os furos estão com solda velha e flux queimado; ponte de solda entre eles invalida qualquer medida. Confira com lupa se nenhum pad descolou.
+5. **Com a placa DESLIGADA** (multímetro em continuidade/bip): o furo que bipa com a carcaça do USB é o **GND**. Se nenhum bipar, provavelmente não é UART; vá para o candidato secundário (4 pads ao lado da eMMC, face inferior).
+6. **Com a placa LIGADA** (multímetro em DC 20 V, ponta preta no GND):
+   - Os outros dois furos devem ficar em **~3,3 V** em repouso. Se aparecer 5 V, **não ligue o CP2102 ali**.
+   - O **TX** cai e oscila por alguns segundos logo após ligar na tomada (o bootloader está imprimindo log). No multímetro, aparece como um valor tremendo entre 2,5 e 3,3 V.
+   - Confirme ligando **só o RX do CP2102 + GND** nesse ponto, com o PuTTY aberto: devem aparecer textos legíveis (`HELLO! BOOT0`, `U-Boot …`). Texto embaralhado = baud errado; tente 115200 primeiro, depois 1500000.
+   - O furo que sobra é o **RX** da placa (vai no TX do CP2102).
+   - Se nenhum furo oscilar, a saída de console pode estar desativada no bootloader deste firmware. Nesse caso use o cartão FEL.
 
 ---
 

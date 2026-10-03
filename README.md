@@ -1,6 +1,6 @@
 # Projeto HY300: recuperação, engenharia reversa e upgrade
 
-Repositório para recuperar de soft brick (após OTA) um projetor **HY300**. A plataforma de referência usa o **Allwinner H713** (`sun50iw12p1`). A placa deste aparelho é **outra revisão** (módulo Wi-Fi `AW869A`, RAM SK Hynix, slot MicroSD) e o SoC ainda não foi confirmado visualmente.
+Repositório para recuperar de soft brick (após OTA) um projetor **HY300** com **Allwinner H713** (`sun50iw12p1`). A placa deste aparelho é a **`M11-REV1.3`**, diferente da placa de referência da pesquisa (`HY200_QZ713DF_A1`): tem módulo Wi-Fi `AW869A`, eMMC Samsung e slot MicroSD.
 
 **Status atual e próximos passos:** [CONTEXTO.md](CONTEXTO.md)
 **Passo a passo:** [docs/GUIA_RECUPERACAO.md](docs/GUIA_RECUPERACAO.md)
@@ -45,14 +45,14 @@ projeto-hy300/
 
 ## Hardware
 
-| Item | Placa de referência (`HY200_QZ713DF_A1`) | Este aparelho |
+| Item | Placa de referência (`HY200_QZ713DF_A1`) | Este aparelho (`M11-REV1.3`) |
 | :--- | :--- | :--- |
-| SoC | Allwinner H713, A53 x4, Mali-G31 MP2 | sob dissipador, **não verificado** |
-| RAM | 1 GB DDR3 (2x Elpida + 2x Samsung) | DDR3 SK Hynix `H5TQ2G83CFR` (2 na face superior) |
-| eMMC | 8 GB Kioxia `THGBMHG6C1LBAIL` | não verificado |
+| SoC | Allwinner H713, A53 x4, Mali-G31 MP2 | **H713 `PA251DA 9B70`** (confirmado) |
+| RAM | 1 GB DDR3 (2x Elpida + 2x Samsung) | 1 GB DDR3, 4x SK Hynix `H5TQ2G83CFR` |
+| eMMC | 8 GB Kioxia `THGBMHG6C1LBAIL` | 8 GB Samsung `KLM8G1WEPD-B031` |
 | Wi-Fi/BT | AIC8800D40 | módulo `AW869A WiFi6` |
-| MicroSD | não | **sim, slot na placa** |
-| UART | pads `TX`/`RX` serigrafados | sem serigrafia, não localizados |
+| MicroSD | não | **sim, slot na placa** (face inferior) |
+| UART | pads `TX`/`RX` serigrafados | provável header de 3 furos sem nome, canto P2/cooler |
 | Fonte | n/d | `GKY40W-TYY27A`: 27 V (LED) + 5 V/2 A (placa) |
 
 ID USB em modo FEL: `USB\VID_1F3A&PID_EFE8`. Já foi visto uma vez no Windows do desktop.
@@ -61,7 +61,7 @@ ID USB em modo FEL: `USB\VID_1F3A&PID_EFE8`. Já foi visto uma vez no Windows do
 
 ## Recuperação (resumo)
 
-1. **Identificar placa e SoC** (fotos do código da PCB e do chip).
+1. **UART** no header de 3 furos → ler o log de boot e tentar consertar pelo U-Boot.
 2. **Cartão FEL** no slot da placa (`CRIAR_CARTAO_FEL.bat`) + cabo USB-A×A → FEL garantido.
 3. **PhoenixSuit** com a imagem **correta para a placa**.
 4. Alternativas e status de cada uma: [docs/GUIA_RECUPERACAO.md](docs/GUIA_RECUPERACAO.md).
