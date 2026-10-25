@@ -1,0 +1,98 @@
+[729]fes begin commit:865e5927
+[732]set pll start
+[734]set pll end
+[736]ldob fix
+[737]prcm cpus timer clock enable
+[740]board init ok
+[742]beign to init dram
+[744]DRAM only have internal ZQ!!
+[748]the id value: 0x42
+[751]the id value: 0x42
+[754]DRAM BOOT DRIVE INFO: V0.60
+[757]DRAM CLK = 624 MHz
+[759]DRAM Type = 3 (2:DDR2,3:DDR3)
+[763]DRAMC ZQ value: 0x7b7bfb
+[765]DRAM ODT value: 0x40.
+[768]the id value: 0x42
+[771]DRAM SIZE =1024 M
+[775]DRAM simple test OK.
+[777]init dram ok
+
+
+U-Boot 2018.05-00018-gd7a124a-dirty (Apr 20 2024 - 10:21:12 +0800) Allwinner Technology
+
+[02.515]CPU:   Allwinner Family
+[02.518]Model: sun50iw12
+I2C:   FDT ERROR:fdt_set_all_pin:[twi0]-->FDT_ERR_BADPATH
+FDT ERROR:fdt_set_all_pin:[twi1]-->FDT_ERR_BADPATH
+ready
+[02.545]DRAM:  512 MiB
+[02.550]Relocation Offset is: 15f11000
+[02.576]secure enable bit: 0
+[02.579]CPU=1392 MHz,PLL6=600 Mhz,AHB=150 Mhz, APB1=100Mhz  MBus=400Mhz
+[02.585]gic: normal mode
+[02.587]try fast burn key
+[02.590]out of usb burn from boot: not boot mode
+[02.594]flash init start
+[02.596]workmode = 16,storage type = 0
+try card 2
+set card number 2
+get card number 2
+[02.604][mmc]: mmc driver ver uboot2018:2023-05-16 11:34:00 avoid-repeat-reset-host
+[02.613][mmc]: get sdc2 sdc_dis_host_caps 0x180.
+[02.617][mmc]: Is not Boot mode!
+[02.620][mmc]: SUNXI SDMMC Controller Version:0x50400
+[02.631][mmc]: ************Try SD card 2************
+[02.636][mmc]: mmc 2 cmd timeout 100 status 100
+[02.640][mmc]: smc 2 err, cmd 8,  RTO
+[02.644][mmc]: mmc 2 close bus gating and reset
+[02.649][mmc]: mmc 2 cmd timeout 100 status 100
+[02.653][mmc]: smc 2 err, cmd 55,  RTO
+[02.656][mmc]: mmc 2 close bus gating and reset
+[02.661][mmc]: ************Try MMC card 2************
+[02.710][mmc]: mmc 2 cmd timeout 100 status 100
+[02.714][mmc]: smc 2 err, cmd 8,  RTO
+[02.717][mmc]: mmc 2 close bus gating and reset
+[02.722][mmc]: mmc 2 cmd timeout 100 status 100
+[02.726][mmc]: smc 2 err, cmd 55,  RTO
+[02.730][mmc]: mmc 2 close bus gating and reset
+[02.780][mmc]: gen_tuning_blk_bus8: total blk 10
+[02.784][mmc]: gen_tuning_blk_bus4: total blk 6
+[02.788][mmc]: Using 8 bit tuning now
+[02.798][mmc]: write_tuning_try_freq: write ok
+[02.803][mmc]: Pattern compare ok
+[02.805][mmc]: Write tuning pattern ok
+[02.809][mmc]: ================== HSSDR52_SDR25...
+[02.813][mmc]: skip freq 400000
+[02.816][mmc]: skip freq 25000000
+[02.819][mmc]: freq: 2-50000000-64-4
+[03.070][mmc]: [0-63|64] 
+[03.073][mmc]: ================== HSDDR52_DDR50...
+[03.077][mmc]: skip freq 400000
+[03.080][mmc]: freq: 1-25000000-64-4
+[03.369][mmc]: freq: 2-50000000-64-4
+[03.585][mmc]: [0-54|55] [61-63|3] 
+[03.588][mmc]: [0-37|38] [39-54|16] [61-63|3] 
+[03.593][mmc]: DS26/SDR12: 0xffffffff 0xffffffff
+[03.597][mmc]: HSSDR52/SDR25: 0xff20ffff 0xffffffff
+[03.601][mmc]: HSDDR52/DDR50: 0xff131bff 0xffffffff
+[03.606][mmc]: HS200/SDR104: 0xffffffff 0xffffffff
+[03.611][mmc]: HS400: 0xffffffff 0xffffffff
+[03.614][mmc]: HS400: 0xffffffff 0xffffffff
+[03.618][mmc]: Best spd md: 2-HSDDR52/DDR50, freq: 2-50000000, Bus width: 8
+pwm_led_init 01 , data=0x1005
+pwm_led_init 02 , data=0x1145
+change pwm ch to fan !
+[03.633]pwm_request: reg = 0x2000c00. pwm = 0.
+[03.637]request pwm success, pwm = 0.
+[03.640]period_ns:40000 max_duty_ns:102000 min_duty_ns:0 duty_ns:16000
+change pwm ch to fan end!
+pwm_led_init end
+[03.651]Loading Environment from SUNXI_FLASH... OK
+Hit any key to stop autoboot:  0 
+sunxi work mode=0x10
+run usb efex
+buf queue page size = 65536
+delay time 2500
+weak:otg_phy_config
+usb init ok

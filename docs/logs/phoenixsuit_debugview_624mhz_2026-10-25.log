@@ -1,0 +1,97 @@
+00000001	17:35:06	[12584] C:\Users\ianga\Desktop\Projetor\firmware\update_stock_624mhz.img	
+00000002	17:36:11	[12584] IN 1 	
+00000003	17:36:12	[12584] PnpFelIn  current m_pEfexTool is NULL 	
+00000004	17:36:12	[12584] C:\Projetos\iaportatil\projeto-hy300\tools\PhoenixSuit\PhoenixSuit v2.0.0\tools.dll	
+00000005	17:36:12	[12584] .\image\ASuitImage.cpp release m_pEfexTool 805 	
+00000006	17:36:12	[12584] Img_OpenItem now! 	
+00000007	17:36:12	[12584] Img_OpenItem[PXTOOLSB][XXXXXXXXXXXXXXXX]	
+00000008	17:36:12	[12584] Closing image now! 	
+00000009	17:36:12	[12584] CloseImage OK 	
+00000010	17:36:12	[12584] The spec_tool.fex file is spec_tool_no.fex.	
+00000011	17:36:12	[12584] The spec_tool  file is not exist.	
+00000012	17:36:12	[12584] Img_OpenItem now! 	
+00000013	17:36:12	[12584] Img_OpenItem[PXTOOLSB][XXXXXXXXXXXXXXXX]	
+00000014	17:36:12	[12584] Closing image now! 	
+00000015	17:36:12	[12584] CloseImage OK 	
+00000016	17:36:12	[12584] ImageTools64 .\image\ASuitImage.cpp 573 0 	
+00000017	17:36:12	[12584] **************************************	
+00000018	17:36:12	[12584] *********global_info_entry***********	
+00000019	17:36:12	[12584] **************************************	
+00000020	17:36:12	[12584] [fel]++++++++RecordDev:\\?\USB#VID_1F3A&PID_EFE8#5&1a60d403&0&10#{0e57c50f-0ccc-4ad2-a895-93c5ed119860} 	
+00000021	17:36:12	[12584] ********* before Fel2Fes ********* 	
+00000022	17:36:12	[12584] ********* pFel2FesParam->extend = 0xefe8da00 ********* 	
+00000023	17:36:12	[12584] ***************************************	
+00000024	17:36:12	[12584] ********ToolEntry_fel************	
+00000025	17:36:12	[12584] ***************************************	
+00000026	17:36:12	[12584] PANIC : enter fel choose mode 	
+00000027	17:36:12	[12584] fel other=0x9c5f90	
+00000028	17:36:12	[12584] OS SourceCodePage = 1252	
+00000029	17:36:12	[12584] WRN: fail in LoadPluginCenter, f(IniLanPlg)L45	
+00000030	17:36:12	[12584] WRN: f(exist_multiple_lang_tips)L94, Fail to init plg of iniLan, "Please update LiveSuit"	
+00000031	17:36:12	[12584] user choose to erase all	
+00000032	17:36:12	[12584] Img_OpenItem now! 	
+00000033	17:36:12	[12584] Img_OpenItem[FES     ][FES_1-0000000000]	
+00000034	17:36:12	[12584] down file length = 3380.	
+00000035	17:36:12	[12584] magic eGON.BT0´Õ€3, it is fes1	
+00000036	17:36:12	[12584] down and run fes1 at addr 0x10c000	
+00000037	17:36:12	[12584] Clear dram log OK.	
+00000038	17:36:12	[12584] DOWN FES1_dram OK	
+00000039	17:36:12	[12584] dram paras[0]: 0x270	
+00000040	17:36:12	[12584] dram paras[1]: 0x3	
+00000041	17:36:12	[12584] dram paras[2]: 0x7b7bfb	
+00000042	17:36:12	[12584] dram paras[3]: 0x1	
+00000043	17:36:12	[12584] dram paras[4]: 0x10f4	
+00000044	17:36:12	[12584] dram paras[5]: 0x4000000	
+00000045	17:36:12	[12584] dram paras[6]: 0x1c70	
+00000046	17:36:12	[12584] dram paras[7]: 0x40	
+00000047	17:36:12	[12584] dram paras[8]: 0x18	
+00000048	17:36:12	[12584] dram paras[9]: 0x0	
+00000049	17:36:12	[12584] dram paras[10]: 0x482151	
+00000050	17:36:12	[12584] dram paras[11]: 0x1b1a94c	
+00000051	17:36:12	[12584] dram paras[12]: 0x6e04d	
+00000052	17:36:12	[12584] dram paras[13]: 0xb4787896	
+00000053	17:36:12	[12584] dram paras[14]: 0x0	
+00000054	17:36:12	[12584] dram paras[15]: 0x48484848	
+00000055	17:36:12	[12584] dram paras[16]: 0x48	
+00000056	17:36:12	[12584] dram paras[17]: 0x1620121e	
+00000057	17:36:12	[12584] dram paras[18]: 0x0	
+00000058	17:36:12	[12584] dram paras[19]: 0x0	
+00000059	17:36:12	[12584] dram paras[20]: 0x0	
+00000060	17:36:12	[12584] dram paras[21]: 0x44440000	
+00000061	17:36:12	[12584] dram paras[22]: 0x5555	
+00000062	17:36:12	[12584] dram paras[23]: 0x34016103	
+00000063	17:36:12	[12584] dram paras[24]: 0x0	
+00000064	17:36:12	[12584] dram paras[25]: 0x0	
+00000065	17:36:12	[12584] dram paras[26]: 0x0	
+00000066	17:36:12	[12584] dram paras[27]: 0x0	
+00000067	17:36:12	[12584] dram paras[28]: 0x0	
+00000068	17:36:12	[12584] dram paras[29]: 0x0	
+00000069	17:36:12	[12584] dram paras[30]: 0x0	
+00000070	17:36:12	[12584] dram paras[31]: 0x0	
+00000071	17:36:12	[12584] RUN fes1 OK.	
+00000072	17:36:12	[12584] INFO: try to down and run fes2	
+00000073	17:36:12	[12584] Img_OpenItem now! 	
+00000074	17:36:12	[12584] Img_OpenItem[12345678][UBOOT_0000000000]	
+00000075	17:36:12	[12584] fes2 size 0x98000	
+00000076	17:36:12	[12584] uboot down and run addr 0x4a000000	
+00000077	17:36:12	[12584] dtb_syscfg_base 0x4a200000	
+00000078	17:36:13	[12584] INFO: try to down dtb at 0x4a200000	
+00000079	17:36:13	[12584] Img_OpenItem now! 	
+00000080	17:36:13	[12584] Img_OpenItem[COMMON  ][DTB_CONFIG000000]	
+00000081	17:36:13	[12584] down_dtb_syscfg size 0x11600	
+00000082	17:36:13	[12584] INFO: try to down soc cfg at 0x4a300000	
+00000083	17:36:13	[12584] Img_OpenItem now! 	
+00000084	17:36:13	[12584] Img_OpenItem[COMMON  ][SYS_CONFIG_BIN00]	
+00000085	17:36:13	[12584] down_dtb_syscfg size 0x1000	
+00000086	17:36:13	[12584] INFO: try to down board cfg at 0x4a380000	
+00000087	17:36:13	[12584] Img_OpenItem now! 	
+00000088	17:36:13	[12584] Img_OpenItem[COMMON  ][BOARD_CONFIG_BIN]	
+00000089	17:36:13	[12584] down_dtb_syscfg size 0x400	
+00000090	17:36:13	[12584] INFO:  down dtb syscfg OK	
+00000091	17:36:13	[12584] INFO: down fes2 ok	
+00000092	17:36:13	[12584] INFO: run fes2 ok	
+00000093	17:36:13	[12584] Closing image now! 	
+00000094	17:36:13	[12584] CloseImage OK 	
+00000095	17:36:13	[12584] *********** after Fel2Fes ********* 	
+00000096	17:36:15	[12584] OUT 1 	
+00000097	17:37:05	[1572] qt.qpa.mime: Retrying to obtain clipboard.	
