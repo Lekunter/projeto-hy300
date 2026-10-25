@@ -56,7 +56,8 @@ projeto-hy300/
 | UART | pads `TX`/`RX` serigrafados | não localizada (candidato: 4 pads ao lado da eMMC) |
 | Fonte | n/d | `GKY40W-TYY27A`: 27 V (LED) + 5 V/2 A (placa) |
 
-ID USB em modo FEL: `USB\VID_1F3A&PID_EFE8`. Já foi visto uma vez no Windows do desktop.
+ID USB em modo FEL: `USB\VID_1F3A&PID_EFE8`. A placa cai em FEL sozinha ao ligar com o cabo A×A no PC (25/10/2026).
+Antes de gravar qualquer firmware, confira a RAM: `python tools/verificar_dram.py imagem.img` (esta placa é DDR3).
 
 ---
 

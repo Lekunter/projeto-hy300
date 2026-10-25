@@ -17,6 +17,8 @@
 - O comportamento **muda** com o cartão → o BootROM **lê o slot MicroSD** antes da eMMC. Isso é ótimo: o slot é um caminho garantido para executar código nosso (cartão FEL).
 - Com o cartão Product, o boot0 do cartão foi carregado, mas o processo **travou ou não tem saída de vídeo** (não houve barra de progresso). Possíveis causas, em ordem de probabilidade:
   1. **A imagem não é desta placa.** O `HY300 Pro+ - H713.img` foi feito para a placa de referência `HY200_QZ713DF_A1`. Esta é a **`M11-REV1.3`**: mesmo SoC, mas eMMC, Wi-Fi e provavelmente painel diferentes. A configuração de DRAM/boot do cartão pode não servir para esta placa.
+     - **Evidência forte (25/10/2026, `tools/verificar_dram.py`):** o boot0 e o `fes1` dessa imagem (build `2025-07-10 13:56:52`) trazem `dram_type = 7` (**LPDDR3**) a **720 MHz**. Esta placa tem **DDR3** (SK Hynix `H5TQ2G83CFR`), e o log da placa de referência mostra `DRAM Type = 3` a 624 MHz (`FEL/FEL_RESEARCH.md`). Com o cartão, o boot0 tenta iniciar a RAM como LPDDR3 e trava: isso explica o standby. **Não grave essa imagem.**
+     - Existe **outra imagem** no Desktop do PC: `Desktop\Projetor\firmware\update.img` (= `update_stock.img`, 2,21 GB, build `2024-04-20 10:33:54`, origem não registrada, criada em 02/10 00:15). Ela é **DDR3 a 792 MHz**, compatível com o tipo de RAM desta placa. Placa-alvo e painel ainda desconhecidos.
   2. O cartão estava gravando "às cegas" (o gravador de cartão não liga o painel LCD) e foi retirado antes do fim. Menos provável: o comportamento sem cartão continua idêntico ao de antes.
   - ~~SoC diferente de H713~~: **descartado**. O chip foi fotografado: `Allwinner H713 PA251DA 9B70`.
 - **A eMMC muito provavelmente não foi alterada**, porque sem cartão o aparelho se comporta exatamente como antes.
@@ -66,7 +68,9 @@ Infográficos anotados: `fotos_anotadas/01…04`. Eles foram gerados a partir da
 
 | Data | Tentativa | Resultado |
 | :--- | :--- | :--- |
-| antes de 28/09 | PhoenixSuit + botão/controle | Nunca reconheceu. Mas o Windows do **desktop** já registrou `USB\VID_1F3A&PID_EFE8` uma vez, então o SoC é Allwinner e **entra em FEL**. |
+| antes de 28/09 | PhoenixSuit + botão/controle | Nunca reconheceu. |
+| 30/09–02/10 | (ação não registrada) | O Windows do **desktop** registrou `USB\VID_1F3A&PID_EFE8` **6 vezes em 3 portas** (lido em 25/10 no Gerenciador de Dispositivos), com o driver `usbdrv.inf` associado: 30/09 00:37, 30/09 22:57 (ficou 29 s), 30/09 23:15, 02/10 00:49, 02/10 01:26 (3 s), 02/10 01:28 (3 s). **A placa entra em FEL**. |
+| 25/10 16:23 | Cabo USB-A×A no desktop, depois tomada (sem cartão, sem botão) | **Entrou em FEL sozinha** e ficou estável (porta 10). O boot pela eMMC está quebrado a ponto de o aparelho cair em FEL: não precisa de botão, cartão FEL nem solda para chegar ao PhoenixSuit. |
 | 30/09 | Procurar pads TX/RX para o CP2102 | Não encontrados (placa sem serigrafia). |
 | 30/09 | Curto `ON/OFF`–`GND` (sugestão do modo IA do Google) | Equivale a apertar Power; não leva a FEL. |
 | 01/10 | Cartão `update/auto_update.txt` (pendrive/SD) | Preparado, **nunca testado** no projetor (foi substituído pelo PhoenixCard). Faltava a linha `%` no script, corrigido em 25/10. O método foi confirmado na placa de referência (`USB_BURN_GUIDE.md`), mas não neste U-Boot. |
