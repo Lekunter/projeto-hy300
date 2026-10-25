@@ -69,8 +69,13 @@ Se o PhoenixSuit falhar logo no início (erro de DRAM/`fes`), a imagem não é p
 
 ## Método D: Pendrive/SD com `update/auto_update.txt`
 
-- `PREPARAR_CARTAO_MICROSD.bat` cria `update/auto_update.txt` (`sunxi_flash write update/update.img firmware`) + `update/update.img` num pendrive/cartão FAT32.
-- **Não confirmado para este U-Boot** e **nunca testado no projetor**. Não está na pesquisa de referência; trate como tentativa de baixa chance.
+- `PREPARAR_CARTAO_MICROSD.bat` cria `update/auto_update.txt` (`sunxi_flash write update/update.img firmware` + linha `%`) + `update/update.img` num pendrive/cartão FAT32.
+- **Confirmado na placa de referência** desde out/2026: `references/HY300-H713-Research/Firmware/USB_BURN_GUIDE.md`. O U-Boot roda `auto_update_check` no boot. **Nesta placa, nunca testado**, e depende do U-Boot da eMMC estar rodando.
+- O `%` na 2ª linha é obrigatório (fim do script). Versões do script anteriores a 25/10/2026 não gravavam o `%`: refaça o pendrive.
+- **Trava contra downgrade:** o U-Boot guarda a data do último firmware gravado (chave `firmware_version` no secure storage) e **recusa em silêncio** imagem com data igual ou mais antiga. Para liberar, no console UART: `pst read firmware_version` e depois `pst write firmware_version 2000-01-01-00:00:00` (sem espaços).
+- Uso: pendrive **USB 2.0 de plástico**, FAT32 em partição **MBR**, na USB-A traseira. Ligue **a frio** (tira e recoloca o plugue) e não aperte tecla no terminal serial.
+- Sem barra verde na tela não quer dizer que falhou: sem `bootloader_a` a gravação roda sem vídeo. Acompanhe pela UART.
+- Erro `verify error` / checksum: cópia corrompida. Confira com `Get-FileHash E:\update\update.img -Algorithm SHA256` e ejete o pendrive com segurança.
 
 ---
 
@@ -93,7 +98,7 @@ Se o PhoenixSuit falhar logo no início (erro de DRAM/`fes`), a imagem não é p
 ## Método F: Console UART (CP2102)
 
 - 3,3 V TTL, 115200 8-N-1. Ligações: GND na carcaça do USB/HDMI, RX do módulo no TX da placa, TX do módulo no RX da placa, **VCC desligado**.
-- No prompt `=>` do U-Boot: `efex` (vai para FEL), `printenv` (mostra slot/variáveis).
+- No prompt `=>` do U-Boot: `efex` (vai para FEL), `printenv` (mostra slot/variáveis), `pst read firmware_version` (trava contra downgrade do Método D).
 - Os **3 furos do canto P2/cooler são do receptor IR traseiro** (confirmado em 03/10/2026), não da UART.
 - Candidato que sobra: 4 pads redondos em fila ao lado da eMMC, na face inferior (`fotos placa/fotos 0310/pads_teste_verso.jpg`). Identificação no [roteiro de bancada](ROTEIRO_PRATICO_BANCADA_CP2102.md).
 - As fotos `marked_uart_pads.jpg` da pesquisa são da placa de referência; não valem para esta.

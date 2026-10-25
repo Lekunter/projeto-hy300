@@ -1,7 +1,7 @@
 # Projeto HY300: contexto de recuperação
 
 > **Repositório:** [projeto-hy300 (GitHub: Lekunter)](https://github.com/Lekunter/projeto-hy300)
-> **Última atualização:** 03/10/2026
+> **Última atualização:** 25/10/2026
 > **Status:** projetor ainda em brick. O PhoenixCard (modo Product) no slot MicroSD da placa **não recuperou**. SoC **confirmado H713** e placa identificada como **`M11-REV1.3`** (fotos de 03/10, ver §3). Próximo passo: entrar em FEL (USB+Power ou cartão FEL `CRIAR_CARTAO_FEL.bat`; controle `Vol+` já falhou) e procurar a UART nos pads ao lado da eMMC.
 
 ---
@@ -69,7 +69,7 @@ Infográficos anotados: `fotos_anotadas/01…04`. Eles foram gerados a partir da
 | antes de 28/09 | PhoenixSuit + botão/controle | Nunca reconheceu. Mas o Windows do **desktop** já registrou `USB\VID_1F3A&PID_EFE8` uma vez, então o SoC é Allwinner e **entra em FEL**. |
 | 30/09 | Procurar pads TX/RX para o CP2102 | Não encontrados (placa sem serigrafia). |
 | 30/09 | Curto `ON/OFF`–`GND` (sugestão do modo IA do Google) | Equivale a apertar Power; não leva a FEL. |
-| 01/10 | Cartão `update/auto_update.txt` (pendrive/SD) | Preparado, **nunca testado** no projetor (foi substituído pelo PhoenixCard). Método **não confirmado** para este U-Boot. |
+| 01/10 | Cartão `update/auto_update.txt` (pendrive/SD) | Preparado, **nunca testado** no projetor (foi substituído pelo PhoenixCard). Faltava a linha `%` no script, corrigido em 25/10. O método foi confirmado na placa de referência (`USB_BURN_GUIDE.md`), mas não neste U-Boot. |
 | antes de 03/10 | Controle remoto `Vol+` ao ligar | Não entrou em FEL. |
 | 01–03/10 | PhoenixCard v4.2.7 modo **Product** no slot da placa | Fica em standby, sem barra, sem resposta. Sem cartão, nada mudou. |
 
@@ -82,7 +82,7 @@ Infográficos anotados: `fotos_anotadas/01…04`. Eles foram gerados a partir da
 | `CRIAR_CARTAO_FEL.bat` → `tools/criar_cartao_fel.ps1` | **Novo.** Grava `tools/fel/fel-sdboot.sunxi` no setor 16 do cartão: força **modo FEL** pelo slot SD. |
 | `ABRIR_PHOENIXSUIT.bat` | PhoenixSuit v1.10 (flash por FEL). Drivers: `INSTALAR_DRIVERS_FEL.bat`. |
 | `ABRIR_PHOENIXCARD.bat` | PhoenixCard v4.2.7 (cartão Product/Startup). Para voltar o cartão ao normal: botão **Format to Normal**. |
-| `PREPARAR_CARTAO_MICROSD.bat` | Cartão/pendrive `update/auto_update.txt` (não confirmado). |
+| `PREPARAR_CARTAO_MICROSD.bat` | Pendrive/cartão `update/auto_update.txt` (confirmado só na placa de referência). Imagem com data igual ou mais antiga que a gravada é recusada em silêncio; detalhes no GUIA, Método D. |
 | `ABRIR_SERIAL_CP2102.bat` | PuTTY 115200 8-N-1 no CP2102 (COM9 no desktop). |
 | `firmware/HY300 Pro+ - H713.img` | Imagem `IMAGEWTY` 1,91 GB (Git LFS). **Feita para a placa de referência.** |
 | `tools/platform-tools/` | adb/fastboot. |
@@ -97,7 +97,7 @@ Infográficos anotados: `fotos_anotadas/01…04`. Eles foram gerados a partir da
 2. **Teste sem solda:** placa alimentada só pela USB do PC + botão Power (GUIA, Método E). O controle remoto `Vol+` **já foi testado e não funcionou**.
 3. **UART nos 4 pads ao lado da eMMC** (os 3 furos do canto P2 são do receptor IR, não da UART): identificar GND/TX/RX com o multímetro e ligar o CP2102. O log de boot diz **por que** a tela fica vazia (slot B? painel? kernel?) antes de gravar qualquer coisa. Passo a passo: [docs/ROTEIRO_PRATICO_BANCADA_CP2102.md](docs/ROTEIRO_PRATICO_BANCADA_CP2102.md).
 4. **Cartão FEL** (`CRIAR_CARTAO_FEL.bat`) + cabo USB-A×USB-A → confirmar `VID_1F3A&PID_EFE8` no notebook. Dá FEL garantido, sem botão nem UART.
-5. **Preservar a configuração original desta placa.** A eMMC atual guarda o bootloader/DTB com o painel e a DRAM certos da `M11-REV1.3`. Se a UART funcionar, tentar o conserto **sem regravar tudo**: no U-Boot, `printenv` e corrigir o slot (ex.: voltar para `_a`). Se precisar gravar a imagem inteira, antes faça backup (via ADB se o Android subir, ou pela UART/FEL).
+5. **Preservar a configuração original desta placa.** A eMMC atual guarda o bootloader/DTB com o painel e a DRAM certos da `M11-REV1.3`. Se a UART funcionar, tentar o conserto **sem regravar tudo**: no U-Boot, `printenv` e corrigir o slot (ex.: voltar para `_a`). Anote também `pst read firmware_version`: se for gravar por pendrive (GUIA, Método D), a trava contra downgrade pode bloquear a imagem. Se precisar gravar a imagem inteira, antes faça backup (via ADB se o Android subir, ou pela UART/FEL).
 6. **Gravar a imagem de referência pelo PhoenixSuit é aceitável como último recurso.** Com o cartão FEL, a placa sempre volta para FEL, então um flash errado não "mata" o aparelho. O risco real é **perder a config de painel desta placa** (tela continuaria vazia, agora por outro motivo).
 7. Procurar imagem específica da `M11-REV1.3`: buscas por "M11-REV1.3" não retornaram nada em 03/10/2026.
 

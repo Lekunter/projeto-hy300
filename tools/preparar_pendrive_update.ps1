@@ -4,7 +4,7 @@
 
 .DESCRIPTION
     Cria a estrutura de pastas e o script de execução do U-Boot na raiz do pendrive/cartão:
-    [LetraDoCartao]:\update\auto_update.txt -> 'sunxi_flash write update/update.img firmware'
+    [LetraDoCartao]:\update\auto_update.txt -> 'sunxi_flash write update/update.img firmware' + linha '%' (fim do script)
     [LetraDoCartao]:\update\update.img
 #>
 
@@ -127,7 +127,8 @@ if (-not [System.IO.Directory]::Exists($targetDir)) {
 }
 
 # 5. Criar auto_update.txt (minúsculo, ASCII, UNIX newline)
-$scriptContent = "sunxi_flash write update/update.img firmware`n"
+# O '%' marca o fim do script para o U-Boot (references/HY300-H713-Research/Firmware/USB_BURN_GUIDE.md)
+$scriptContent = "sunxi_flash write update/update.img firmware`n%`n"
 $scriptPath = "$targetDir\auto_update.txt"
 [System.IO.File]::WriteAllText($scriptPath, $scriptContent, [System.Text.Encoding]::ASCII)
 Write-Host "`n[OK] Criado script de U-Boot: $scriptPath" -ForegroundColor Green
@@ -150,4 +151,5 @@ Write-Host " 2. Conecte o adaptador USB com o MicroSD na porta USB do projetor."
 Write-Host " 3. Ligue o cabo de força do projetor na tomada."
 Write-Host "    (NAO aperte nenhum botão. Deixe ele ligar sozinho)."
 Write-Host " 4. O U-Boot detectará o cartão e projetará a barra de progresso verde de gravação."
+Write-Host "    (Sem barra? Pode estar gravando sem vídeo: acompanhe pela UART. Imagem com data igual/mais antiga que a gravada é recusada em silêncio.)" -ForegroundColor Gray
 Write-Host " 5. Quando chegar em 100%, tire da tomada, remova o adaptador USB e ligue normalmente!" -ForegroundColor Green
