@@ -46,7 +46,7 @@ Placa **`M11-REV1.3`** (serigrafia ao lado do SoC, com `C01`). **Não é** a `HY
 | PMIC | A8038S | QFN com 3 indutores `2R2` (face inferior, marcação não lida) |
 | Amplificador | XA8870C | SOIC-8 `NS4150`-like ao lado do slot SD (face inferior) |
 | Slot MicroSD | não tem | **Tem** (face inferior, ao lado da RAM, sem abertura na carcaça) |
-| UART | pads `TX`/`RX` serigrafados | **Não localizada.** Candidato: 4 pads redondos em fila ao lado da eMMC (face inferior), não testado. |
+| UART | pads `TX`/`RX` serigrafados | **Não localizada.** Medido em 25/10 (numeração em `fotos placa/fotos 0310/pads_teste_verso_numerados.jpg`): os 4 pads redondos são, em ordem, **5,21 V / 0 V / 3,30 V / GND**, o padrão de **pontos de teste USB** (VBUS, D−, D+, GND), não UART. Os 3 pads de cobre sem solda (5–7) leem 0,00 / 0,28 / 0,33 V, típico de pino flutuando: podem ser a UART sem inicializar (o boot0 não roda). Teste com o RX do CP2102 (agulha) nos pads 5, 6 e 7, ligando na tomada: só ruído de linha baixa (`00` e lixo) a 115200 e a 1500000, **nenhum texto**. Conclusão: nada da eMMC roda antes de cair em FEL. |
 | Receptor IR | conector `IR` | Conector `遥控头接口` (sensor frontal) **e** receptor traseiro de 3 pinos no canto P2/cooler (os "3 furos"). **Não é UART.** |
 | Botão FEL/`UBOOT` | presente sob o HDMI | **Não montado**; só existe o botão Power |
 | Etiqueta | `DW1G+8G+20800D4` | `A024 QC-C 0115 PASS` |
