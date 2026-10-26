@@ -1,0 +1,995 @@
+[251]HELLO! BOOT0 is starting!
+[255]BOOT0 commit : 865e5927
+[258]set pll start
+[261]set pll end
+[262]ldob fix
+[264]prcm cpus timer clock enable
+[268]board init ok
+[270][mmc]: mmc driver ver 2021-07-13 11:09
+[280][mmc]: Wrong media type 0x0
+[283][mmc]: ***Try SD card 0***
+[305]mmc_read_info 749:region magic is not right, retry more time 874eea68
+[325]mmc_read_info 749:region magic is not right, retry more time 874eea68
+[345]mmc_read_info 749:region magic is not right, retry more time 874eea68
+[365]mmc_read_info 749:region magic is not right, go err 874eea68
+[372]dump info registers:[375]
+0x10b1d4 : [377]ec5726f8 [378]500ff5f [380]fdf4d205 [382]f89ef63b [383]
+[384][mmc]: RMCA FAIL!
+[387][mmc]: mmc read timing info fail
+[391][mmc]: sdc0 spd mode error, 2
+[394][mmc]: force 25m
+[397][mmc]: bias 0
+[401][mmc]: HSSDR52/SDR25 4 bit
+[405][mmc]: 25000000 Hz
+[407][mmc]: 7619 MB
+[409][mmc]: ***SD/MMC 0 init OK!!!***
+[425]DRAM only have internal ZQ!!
+[429]the id value: 0x42
+[433]the id value: 0x42
+[437]DRAM BOOT DRIVE INFO: V0.60
+[441]DRAM CLK = 624 MHz
+[443]DRAM Type = 3 (2:DDR2,3:DDR3)
+[447]DRAMC ZQ value: 0x7b7bfb
+[450]DRAM ODT value: 0x40.
+[453]the id value: 0x42
+[457]DRAM SIZE =1024 M
+[486]DRAM simple test OK.
+[489]dram size =1024
+[497]nsi init ok 2020-7-12
+[500]card no is 0
+[502]sdcard 0 line count 4
+[504][mmc]: mmc driver ver 2021-07-13 11:09
+[515][mmc]: Wrong media type 0xfe93db4f
+[519][mmc]: ***Try SD card 0***
+[540]mmc_read_info 749:region magic is not right, retry more time 874eea68
+[560]mmc_read_info 749:region magic is not right, retry more time 874eea68
+[580]mmc_read_info 749:region magic is not right, retry more time 874eea68
+[600]mmc_read_info 749:region magic is not right, go err 874eea68
+[607]dump info registers:[609]
+0x10b1d4 : [611]ec5726f8 [613]500ff5f [614]fdf4d205 [616]f89ef63b [617]
+[618][mmc]: RMCA FAIL!
+[621][mmc]: mmc read timing info fail
+[624][mmc]: sdc0 spd mode error, 2
+[628][mmc]: force 25m
+[630][mmc]: bias 0
+[635][mmc]: HSSDR52/SDR25 4 bit
+[638][mmc]: 25000000 Hz
+[641][mmc]: 7619 MB
+[643][mmc]: ***SD/MMC 0 init OK!!!***
+[875]Loading boot-pkg Succeed(index=0).
+[879]Entry_name        = u-boot
+[894]Entry_name        = monitor
+[899]Entry_name        = scp
+[905]Entry_name        = optee
+[913]Entry_name        = dtb
+[918]mmc not para
+[920]Jump to second Boot.
+NOTICE:  BL3-1: v1.0(debug):d85c03b
+NOTICE:  BL3-1: Built : 19:48:38, 2022-12-07
+NOTICE:  BL3-1 commit: 8
+NOTICE:  secure os exist
+E/TC:0 0 init_external_dt:1033 Device Tree missing
+M/TC: OP-TEE version: 70d6bc54 (gcc version 5.3.1 20160412 (Linaro GCC 5.3-2016.05)) #1 Fri Oct 21 06:53:45 UTC 2022 arm
+NOTICE:  BL3-1: Preparing for EL3 exit to normal world
+NOTICE:  BL3-1: Next image address = 0x4a000000
+NOTICE:  BL3-1: Next image spsr = 0x1d3
+
+U-Boot 2018.05-00018-gd7a124a-dirty (Apr 20 2024 - 10:21:12 +0800) Allwinner Technology
+
+[01.018]CPU:   Allwinner Family
+[01.021]Model: sun50iw12
+I2C:   FDT ERROR:fdt_set_all_pin:[twi0]-->FDT_ERR_BADPATH
+FDT ERROR:fdt_set_all_pin:[twi1]-->FDT_ERR_BADPATH
+ready
+[01.048]optee version: major:3 minor:7
+[01.051]DRAM:  [01.053]drm_base=0x40000000
+[01.055]drm_size=0x0
+[01.057]dram_base=0x40000000
+[01.060]dram_size=0x40000000
+1 GiB
+[01.065]Relocation Offset is: 35f11000
+[01.092]secure enable bit: 0
+E/TC:0   fdt_getprop_u32:343 prop trace_level not found
+[01.109]CPU=1392 MHz,PLL6=600 Mhz,AHB=150 Mhz, APB1=100Mhz  MBus=400Mhz
+[01.115]gic: sec monitor mode
+[01.118]sunxi flash type@1 not support fast burn key
+[01.123]flash init start
+[01.125]workmode = 17,storage type = 1
+try card 2
+set card number 2
+get card number 2
+[01.133][mmc]: mmc driver ver uboot2018:2023-05-16 11:34:00 avoid-repeat-reset-host
+[01.141][mmc]: get sdc2 sdc_dis_host_caps 0x180.
+[01.145][mmc]: Is not Boot mode!
+[01.148][mmc]: SUNXI SDMMC Controller Version:0x50400
+[01.160][mmc]: ************Try SD card 2************
+[01.165][mmc]: mmc 2 cmd timeout 100 status 100
+[01.169][mmc]: smc 2 err, cmd 8,  RTO
+[01.172][mmc]: mmc 2 close bus gating and reset
+[01.177][mmc]: mmc 2 cmd timeout 100 status 100
+[01.181][mmc]: smc 2 err, cmd 55,  RTO
+[01.185][mmc]: mmc 2 close bus gating and reset
+[01.189][mmc]: ************Try MMC card 2************
+[01.238][mmc]: mmc 2 cmd timeout 100 status 100
+[01.243][mmc]: smc 2 err, cmd 8,  RTO
+[01.246][mmc]: mmc 2 close bus gating and reset
+[01.251][mmc]: mmc 2 cmd timeout 100 status 100
+[01.255][mmc]: smc 2 err, cmd 55,  RTO
+[01.259][mmc]: mmc 2 close bus gating and reset
+[01.290][mmc]: gen_tuning_blk_bus8: total blk 10
+[01.295][mmc]: gen_tuning_blk_bus4: total blk 6
+[01.299][mmc]: Using 8 bit tuning now
+[01.304][mmc]: write_tuning_try_freq: write ok
+[01.308][mmc]: Pattern compare ok
+[01.311][mmc]: Write tuning pattern ok
+[01.314][mmc]: ================== HSSDR52_SDR25...
+[01.319][mmc]: skip freq 400000
+[01.322][mmc]: skip freq 25000000
+[01.325][mmc]: freq: 2-50000000-64-4
+[01.576][mmc]: [0-63|64] 
+[01.578][mmc]: ================== HSDDR52_DDR50...
+[01.583][mmc]: skip freq 400000
+[01.585][mmc]: freq: 1-25000000-64-4
+[01.877][mmc]: freq: 2-50000000-64-4
+[02.094][mmc]: [0-55|56] [61-63|3] 
+[02.097][mmc]: [0-37|38] [39-54|16] [61-63|3] 
+[02.101][mmc]: DS26/SDR12: 0xffffffff 0xffffffff
+[02.105][mmc]: HSSDR52/SDR25: 0xff20ffff 0xffffffff
+[02.110][mmc]: HSDDR52/DDR50: 0xff131cff 0xffffffff
+[02.114][mmc]: HS200/SDR104: 0xffffffff 0xffffffff
+[02.119][mmc]: HS400: 0xffffffff 0xffffffff
+[02.123][mmc]: HS400: 0xffffffff 0xffffffff
+[02.127][mmc]: Best spd md: 2-HSDDR52/DDR50, freq: 2-50000000, Bus width: 8
+[02.133][mmc]: mmc driver ver uboot2018:2023-05-16 11:34:00 avoid-repeat-reset-host
+[02.141][mmc]: get sdc_type fail and use default host:tm1.
+[02.147][mmc]: can't find node "mmc0",will add new node
+[02.151][mmc]: fdt err returned <no error>
+[02.155][mmc]: Using default timing para
+[02.159][mmc]: SUNXI SDMMC Controller Version:0x50400
+[02.177][mmc]: card_caps:0x3000000a
+[02.180][mmc]: host_caps:0x3000003f
+pwm_led_init 01 , data=0x1005
+pwm_led_init 02 , data=0x1145
+change pwm ch to fan !
+[02.193]pwm_request: reg = 0x2000c00. pwm = 0.
+[02.197]request pwm success, pwm = 0.
+[02.200]period_ns:40000 max_duty_ns:102000 min_duty_ns:0 duty_ns:16000
+change pwm ch to fan end!
+pwm_led_init end
+[02.210]Loading Environment from SUNXI_FLASH... OK
+[02.215]try to burn key
+[02.217]out of usb burn from boot: not boot mode
+GUID Partition Table Entry Array CRC is wrong: 0x3bf09d1b != 0x1950cc37
+part_get_info_efi: *** ERROR: Invalid GPT ***
+part_get_info_efi: ***        Using Backup GPT ***
+GUID Partition Table Entry Array CRC is wrong: 0x3bf09d1b != 0x1950cc37
+part_get_info_efi: *** ERROR: Invalid GPT ***
+part_get_info_efi: ***        Using Backup GPT ***
+GUID Partition Table Entry Array CRC is wrong: 0x3bf09d1b != 0x1950cc37
+part_get_info_efi: *** ERROR: Invalid GPT ***
+part_get_info_efi: ***        Using Backup GPT ***
+GUID Partition Table Entry Array CRC is wrong: 0x3bf09d1b != 0x1950cc37
+part_get_info_efi: *** ERROR: Invalid GPT ***
+part_get_info_efi: ***        Using Backup GPT ***
+GUID Partition Table Entry Array CRC is wrong: 0x3bf09d1b != 0x1950cc37
+part_get_info_efi: *** ERROR: Invalid GPT ***
+part_get_info_efi: ***        Using Backup GPT ***
+GUID Partition Table Entry Array CRC is wrong: 0x3bf09d1b != 0x1950cc37
+part_get_info_efi: *** ERROR: Invalid GPT ***
+part_get_info_efi: ***        Using Backup GPT ***
+14388 bytes read in 6 ms (2.3 MiB/s)
+GUID Partition Table Entry Array CRC is wrong: 0x3bf09d1b != 0x1950cc37
+part_get_info_efi: *** ERROR: Invalid GPT ***
+part_get_info_efi: ***        Using Backup GPT ***
+GUID Partition Table Entry Array CRC is wrong: 0x3bf09d1b != 0x1950cc37
+part_get_info_efi: *** ERROR: Invalid GPT ***
+part_get_info_efi: ***        Using Backup GPT ***
+GUID Partition Table Entry Array CRC is wrong: 0x3bf09d1b != 0x1950cc37
+part_get_info_efi: *** ERROR: Invalid GPT ***
+part_get_info_efi: ***        Using Backup GPT ***
+partno erro : can't find partition Reserve0
+[02.420]Reserve0 is not found!
+[02.422]load file:advert.bmp from Reserve0 fail!
+GUID Partition Table Entry Array CRC is wrong: 0x3bf09d1b != 0x1950cc37
+part_get_info_efi: *** ERROR: Invalid GPT ***
+part_get_info_efi: ***        Using Backup GPT ***
+GUID Partition Table Entry Array CRC is wrong: 0x3bf09d1b != 0x1950cc37
+part_get_info_efi: *** ERROR: Invalid GPT ***
+part_get_info_efi: ***        Using Backup GPT ***
+GUID Partition Table Entry Array CRC is wrong: 0x3bf09d1b != 0x1950cc37
+part_get_info_efi: *** ERROR: Invalid GPT ***
+part_get_info_efi: ***        Using Backup GPT ***
+14388 bytes read in 5 ms (2.7 MiB/s)
+GUID Partition Table Entry Array CRC is wrong: 0x3bf09d1b != 0x1950cc37
+part_get_info_efi: *** ERROR: Invalid GPT ***
+part_get_info_efi: ***        Using Backup GPT ***
+GUID Partition Table Entry Array CRC is wrong: 0x3bf09d1b != 0x1950cc37
+part_get_info_efi: *** ERROR: Invalid GPT ***
+part_get_info_efi: ***        Using Backup GPT ***
+GUID Partition Table Entry Array CRC is wrong: 0x3bf09d1b != 0x1950cc37
+part_get_info_efi: *** ERROR: Invalid GPT ***
+part_get_info_efi: ***        Using Backup GPT ***
+6220854 bytes read in 265 ms (22.4 MiB/s)
+[02.832]rtc_val = 0x0
+GUID Partition Table Entry Array CRC is wrong: 0x3bf09d1b != 0x1950cc37
+part_get_info_efi: *** ERROR: Invalid GPT ***
+part_get_info_efi: ***        Using Backup GPT ***
+GUID Partition Table Entry Array CRC is wrong: 0x3bf09d1b != 0x1950cc37
+part_get_info_efi: *** ERROR: Invalid GPT ***
+part_get_info_efi: ***        Using Backup GPT ***
+GUID Partition Table Entry Array CRC is wrong: 0x3bf09d1b != 0x1950cc37
+part_get_info_efi: *** ERROR: Invalid GPT ***
+part_get_info_efi: ***        Using Backup GPT ***
+partno erro : can't find partition Reserve0
+[02.899]Reserve0 is not found!
+[02.902]load file panel_config.ini fail!
+[02.905]LogRegData.bin version is 23-6-27-33
+[02.910]sunxi_secure_storage_read err: secure storage has not been inited
+[02.916]Project id:0x1 version:21-10-27-0
+[02.920]Can not set this reg:0x58c0014 to 0x2a00
+[02.924]Can not set this reg:0x58c0014 to 0x80000000
+[02.929]Can not set this reg:0x58c0014 to 0x20000000
+[02.933]Can not set this reg:0x58c0014 to 0x8000000
+[02.938]Can not set this reg:0x588000c to 0x1
+[02.942]Can not set this reg:0x588000c to 0x0
+[02.946]ssc percent:10 wave bottom:0x3111, wave step:0x94, n:43, ssc_freq:31500 reg_value:0xc9403111
+[02.956]pwm_request: err: get reg-base err.
+[02.959]pwm3 request for fastlogo fail!
+[03.635]Display fastlogo finish!
+Hit any key to stop autoboot:  0 
+sunxi work mode=0x11
+run card sprite
+[03.645]try sprite_led_gpio config
+[03.650]sprite_led_gpio start
+[03.653]sunxi sprite begin
+[03.655]Display fastlogo finish!
+bar x1: 480 y1: 504
+bar x2: 1440 y2: 584
+GUID Partition Table Entry Array CRC is wrong: 0x3bf09d1b != 0x1950cc37
+part_get_info_efi: *** ERROR: Invalid GPT ***
+part_get_info_efi: ***        Using Backup GPT ***
+GUID Partition Table Entry Array CRC is wrong: 0x3bf09d1b != 0x1950cc37
+part_get_info_efi: *** ERROR: Invalid GPT ***
+part_get_info_efi: ***        Using Backup GPT ***
+357443 bytes read in 21 ms (16.2 MiB/s)
+[SFTE_Set_Pixel_Sizes_i] 394 buf_size is 2304
+cur_pixel_size 32 pixel_size 32
+firmware name <NULL>
+img start = 0x18000
+try to read mmc start 98304
+read mmc ok
+[03.756]firmware probe ok
+[03.758]fetch download map
+*************DOWNLOAD MAP DUMP************
+total download part 12
+
+download part[0] name          :bootloader_a
+download part[0] download file :BOOT-RESOURCE_FE
+download part[0] verify file   :VBOOT-RESOURCE_F
+download part[0] lenlo         :0x10000
+download part[0] addrlo        :0x8000
+download part[0] encrypt       :0x0
+download part[0] verify        :0x1
+
+download part[1] name          :bootloader_b
+download part[1] download file :BOOT-RESOURCE_FE
+download part[1] verify file   :VBOOT-RESOURCE_F
+download part[1] lenlo         :0x10000
+download part[1] addrlo        :0x18000
+download part[1] encrypt       :0x0
+download part[1] verify        :0x1
+
+download part[2] name          :env_a
+download part[2] download file :ENV_FEX000000000
+download part[2] verify file   :VENV_FEX00000000
+download part[2] lenlo         :0x200
+download part[2] addrlo        :0x28000
+download part[2] encrypt       :0x0
+download part[2] verify        :0x1
+
+download part[3] name          :boot_a
+download part[3] download file :BOOT_FEX00000000
+download part[3] verify file   :VBOOT_FEX0000000
+download part[3] lenlo         :0x20000
+download part[3] addrlo        :0x28400
+download part[3] encrypt       :0x0
+download part[3] verify        :0x1
+
+download part[4] name          :vendor_boot_a
+download part[4] download file :VENDOR_BOOT_FEX0
+download part[4] verify file   :VVENDOR_BOOT_FEX
+download part[4] lenlo         :0x10000
+download part[4] addrlo        :0x68400
+download part[4] encrypt       :0x0
+download part[4] verify        :0x1
+
+download part[5] name          :super
+download part[5] download file :SUPER_FEX0000000
+download part[5] verify file   :VSUPER_FEX000000
+download part[5] lenlo         :0x400000
+download part[5] addrlo        :0x88400
+download part[5] encrypt       :0x0
+download part[5] verify        :0x1
+
+download part[6] name          :misc
+download part[6] download file :MISC_FEX00000000
+download part[6] verify file   :VMISC_FEX0000000
+download part[6] lenlo         :0x8000
+download part[6] addrlo        :0x488400
+download part[6] encrypt       :0x0
+download part[6] verify        :0x1
+
+download part[7] name          :vbmeta_a
+download part[7] download file :VBMETA_FEX000000
+download part[7] verify file   :VVBMETA_FEX00000
+download part[7] lenlo         :0x100
+download part[7] addrlo        :0x490400
+download part[7] encrypt       :0x0
+download part[7] verify        :0x1
+
+download part[8] name          :vbmeta_system_a
+download part[8] download file :VBMETA_SYSTEM_FE
+download part[8] verify file   :VVBMETA_SYSTEM_F
+download part[8] lenlo         :0x80
+download part[8] addrlo        :0x490600
+download part[8] encrypt       :0x0
+download part[8] verify        :0x1
+
+download part[9] name          :vbmeta_vendor_a
+download part[9] download file :VBMETA_VENDOR_FE
+download part[9] verify file   :VVBMETA_VENDOR_F
+download part[9] lenlo         :0x80
+download part[9] addrlo        :0x490700
+download part[9] encrypt       :0x0
+download part[9] verify        :0x1
+
+download part[10] name          :dtbo_a
+download part[10] download file :DTBO_FEX00000000
+download part[10] verify file   :VDTBO_FEX0000000
+download part[10] lenlo         :0x1000
+download part[10] addrlo        :0x4a8400
+download part[10] encrypt       :0x0
+download part[10] verify        :0x1
+
+download part[11] name          :Reserve0
+download part[11] download file :RESERVE0_FEX0000
+download part[11] verify file   :VRESERVE0_FEX000
+download part[11] lenlo         :0x8000
+download part[11] addrlo        :0x4b2400
+download part[11] encrypt       :0x0
+download part[11] verify        :0x1
+
+[04.082]fetch mbr
+the 0 mbr table is ok
+the 1 mbr table is ok
+the 2 mbr table is ok
+the 3 mbr table is ok
+*************MBR DUMP***************
+total mbr part 25
+
+part[0] name      :bootloader_a
+part[0] classname :DISK
+part[0] addrlo    :0x8000
+part[0] lenlo     :0x10000
+part[0] user_type :32768
+part[0] keydata   :0
+part[0] ro        :0
+
+part[1] name      :bootloader_b
+part[1] classname :DISK
+part[1] addrlo    :0x18000
+part[1] lenlo     :0x10000
+part[1] user_type :32768
+part[1] keydata   :0
+part[1] ro        :0
+
+part[2] name      :env_a
+part[2] classname :DISK
+part[2] addrlo    :0x28000
+part[2] lenlo     :0x200
+part[2] user_type :32768
+part[2] keydata   :0
+part[2] ro        :0
+
+part[3] name      :env_b
+part[3] classname :DISK
+part[3] addrlo    :0x28200
+part[3] lenlo     :0x200
+part[3] user_type :32768
+part[3] keydata   :0
+part[3] ro        :0
+
+part[4] name      :boot_a
+part[4] classname :DISK
+part[4] addrlo    :0x28400
+part[4] lenlo     :0x20000
+part[4] user_type :32768
+part[4] keydata   :0
+part[4] ro        :0
+
+part[5] name      :boot_b
+part[5] classname :DISK
+part[5] addrlo    :0x48400
+part[5] lenlo     :0x20000
+part[5] user_type :32768
+part[5] keydata   :0
+part[5] ro        :0
+
+part[6] name      :vendor_boot_a
+part[6] classname :DISK
+part[6] addrlo    :0x68400
+part[6] lenlo     :0x10000
+part[6] user_type :32768
+part[6] keydata   :0
+part[6] ro        :0
+
+part[7] name      :vendor_boot_b
+part[7] classname :DISK
+part[7] addrlo    :0x78400
+part[7] lenlo     :0x10000
+part[7] user_type :32768
+part[7] keydata   :0
+part[7] ro        :0
+
+part[8] name      :super
+part[8] classname :DISK
+part[8] addrlo    :0x88400
+part[8] lenlo     :0x400000
+part[8] user_type :32768
+part[8] keydata   :0
+part[8] ro        :0
+
+part[9] name      :misc
+part[9] classname :DISK
+part[9] addrlo    :0x488400
+part[9] lenlo     :0x8000
+part[9] user_type :32768
+part[9] keydata   :0
+part[9] ro        :0
+
+part[10] name      :vbmeta_a
+part[10] classname :DISK
+part[10] addrlo    :0x490400
+part[10] lenlo     :0x100
+part[10] user_type :32768
+part[10] keydata   :0
+part[10] ro        :0
+
+part[11] name      :vbmeta_b
+part[11] classname :DISK
+part[11] addrlo    :0x490500
+part[11] lenlo     :0x100
+part[11] user_type :32768
+part[11] keydata   :0
+part[11] ro        :0
+
+part[12] name      :vbmeta_system_a
+part[12] classname :DISK
+part[12] addrlo    :0x490600
+part[12] lenlo     :0x80
+part[12] user_type :32768
+part[12] keydata   :0
+part[12] ro        :0
+
+part[13] name      :vbmeta_system_b
+part[13] classname :DISK
+part[13] addrlo    :0x490680
+part[13] lenlo     :0x80
+part[13] user_type :32768
+part[13] keydata   :0
+part[13] ro        :0
+
+part[14] name      :vbmeta_vendor_a
+part[14] classname :DISK
+part[14] addrlo    :0x490700
+part[14] lenlo     :0x80
+part[14] user_type :32768
+part[14] keydata   :0
+part[14] ro        :0
+
+part[15] name      :vbmeta_vendor_b
+part[15] classname :DISK
+part[15] addrlo    :0x490780
+part[15] lenlo     :0x80
+part[15] user_type :32768
+part[15] keydata   :0
+part[15] ro        :0
+
+part[16] name      :frp
+part[16] classname :DISK
+part[16] addrlo    :0x490800
+part[16] lenlo     :0x400
+part[16] user_type :32768
+part[16] keydata   :32768
+part[16] ro        :0
+
+part[17] name      :empty
+part[17] classname :DISK
+part[17] addrlo    :0x490c00
+part[17] lenlo     :0x7800
+part[17] user_type :32768
+part[17] keydata   :0
+part[17] ro        :0
+
+part[18] name      :metadata
+part[18] classname :DISK
+part[18] addrlo    :0x498400
+part[18] lenlo     :0x8000
+part[18] user_type :32768
+part[18] keydata   :0
+part[18] ro        :0
+
+part[19] name      :private
+part[19] classname :DISK
+part[19] addrlo    :0x4a0400
+part[19] lenlo     :0x8000
+part[19] user_type :32768
+part[19] keydata   :0
+part[19] ro        :0
+
+part[20] name      :dtbo_a
+part[20] classname :DISK
+part[20] addrlo    :0x4a8400
+part[20] lenlo     :0x1000
+part[20] user_type :32768
+part[20] keydata   :0
+part[20] ro        :0
+
+part[21] name      :dtbo_b
+part[21] classname :DISK
+part[21] addrlo    :0x4a9400
+part[21] lenlo     :0x1000
+part[21] user_type :32768
+part[21] keydata   :0
+part[21] ro        :0
+
+part[22] name      :media_data
+part[22] classname :DISK
+part[22] addrlo    :0x4aa400
+part[22] lenlo     :0x8000
+part[22] user_type :32768
+part[22] keydata   :0
+part[22] ro        :0
+
+part[23] name      :Reserve0
+part[23] classname :DISK
+part[23] addrlo    :0x4b2400
+part[23] lenlo     :0x8000
+part[23] user_type :32768
+part[23] keydata   :0
+part[23] ro        :0
+
+part[24] name      :UDISK
+part[24] classname :DISK
+part[24] addrlo    :0x4ba400
+part[24] lenlo     :0x0
+part[24] user_type :33024
+part[24] keydata   :0
+part[24] ro        :0
+
+*************MBR DUMP***************
+total mbr part 25
+
+part[0] name      :bootloader_a
+part[0] classname :DISK
+part[0] addrlo    :0x8000
+part[0] lenlo     :0x10000
+part[0] user_type :0x8000
+part[0] keydata   :0x0
+part[0] ro        :0x0
+
+part[1] name      :bootloader_b
+part[1] classname :DISK
+part[1] addrlo    :0x18000
+part[1] lenlo     :0x10000
+part[1] user_type :0x8000
+part[1] keydata   :0x0
+part[1] ro        :0x0
+
+part[2] name      :env_a
+part[2] classname :DISK
+part[2] addrlo    :0x28000
+part[2] lenlo     :0x200
+part[2] user_type :0x8000
+part[2] keydata   :0x0
+part[2] ro        :0x0
+
+part[3] name      :env_b
+part[3] classname :DISK
+part[3] addrlo    :0x28200
+part[3] lenlo     :0x200
+part[3] user_type :0x8000
+part[3] keydata   :0x0
+part[3] ro        :0x0
+
+part[4] name      :boot_a
+part[4] classname :DISK
+part[4] addrlo    :0x28400
+part[4] lenlo     :0x20000
+part[4] user_type :0x8000
+part[4] keydata   :0x0
+part[4] ro        :0x0
+
+part[5] name      :boot_b
+part[5] classname :DISK
+part[5] addrlo    :0x48400
+part[5] lenlo     :0x20000
+part[5] user_type :0x8000
+part[5] keydata   :0x0
+part[5] ro        :0x0
+
+part[6] name      :vendor_boot_a
+part[6] classname :DISK
+part[6] addrlo    :0x68400
+part[6] lenlo     :0x10000
+part[6] user_type :0x8000
+part[6] keydata   :0x0
+part[6] ro        :0x0
+
+part[7] name      :vendor_boot_b
+part[7] classname :DISK
+part[7] addrlo    :0x78400
+part[7] lenlo     :0x10000
+part[7] user_type :0x8000
+part[7] keydata   :0x0
+part[7] ro        :0x0
+
+part[8] name      :super
+part[8] classname :DISK
+part[8] addrlo    :0x88400
+part[8] lenlo     :0x400000
+part[8] user_type :0x8000
+part[8] keydata   :0x0
+part[8] ro        :0x0
+
+part[9] name      :misc
+part[9] classname :DISK
+part[9] addrlo    :0x488400
+part[9] lenlo     :0x8000
+part[9] user_type :0x8000
+part[9] keydata   :0x0
+part[9] ro        :0x0
+
+part[10] name      :vbmeta_a
+part[10] classname :DISK
+part[10] addrlo    :0x490400
+part[10] lenlo     :0x100
+part[10] user_type :0x8000
+part[10] keydata   :0x0
+part[10] ro        :0x0
+
+part[11] name      :vbmeta_b
+part[11] classname :DISK
+part[11] addrlo    :0x490500
+part[11] lenlo     :0x100
+part[11] user_type :0x8000
+part[11] keydata   :0x0
+part[11] ro        :0x0
+
+part[12] name      :vbmeta_system_a
+part[12] classname :DISK
+part[12] addrlo    :0x490600
+part[12] lenlo     :0x80
+part[12] user_type :0x8000
+part[12] keydata   :0x0
+part[12] ro        :0x0
+
+part[13] name      :vbmeta_system_b
+part[13] classname :DISK
+part[13] addrlo    :0x490680
+part[13] lenlo     :0x80
+part[13] user_type :0x8000
+part[13] keydata   :0x0
+part[13] ro        :0x0
+
+part[14] name      :vbmeta_vendor_a
+part[14] classname :DISK
+part[14] addrlo    :0x490700
+part[14] lenlo     :0x80
+part[14] user_type :0x8000
+part[14] keydata   :0x0
+part[14] ro        :0x0
+
+part[15] name      :vbmeta_vendor_b
+part[15] classname :DISK
+part[15] addrlo    :0x490780
+part[15] lenlo     :0x80
+part[15] user_type :0x8000
+part[15] keydata   :0x0
+part[15] ro        :0x0
+
+part[16] name      :frp
+part[16] classname :DISK
+part[16] addrlo    :0x490800
+part[16] lenlo     :0x400
+part[16] user_type :0x8000
+part[16] keydata   :0x8000
+part[16] ro        :0x0
+
+part[17] name      :empty
+part[17] classname :DISK
+part[17] addrlo    :0x490c00
+part[17] lenlo     :0x7800
+part[17] user_type :0x8000
+part[17] keydata   :0x0
+part[17] ro        :0x0
+
+part[18] name      :metadata
+part[18] classname :DISK
+part[18] addrlo    :0x498400
+part[18] lenlo     :0x8000
+part[18] user_type :0x8000
+part[18] keydata   :0x0
+part[18] ro        :0x0
+
+part[19] name      :private
+part[19] classname :DISK
+part[19] addrlo    :0x4a0400
+part[19] lenlo     :0x8000
+part[19] user_type :0x8000
+part[19] keydata   :0x0
+part[19] ro        :0x0
+
+part[20] name      :dtbo_a
+part[20] classname :DISK
+part[20] addrlo    :0x4a8400
+part[20] lenlo     :0x1000
+part[20] user_type :0x8000
+part[20] keydata   :0x0
+part[20] ro        :0x0
+
+part[21] name      :dtbo_b
+part[21] classname :DISK
+part[21] addrlo    :0x4a9400
+part[21] lenlo     :0x1000
+part[21] user_type :0x8000
+part[21] keydata   :0x0
+part[21] ro        :0x0
+
+part[22] name      :media_data
+part[22] classname :DISK
+part[22] addrlo    :0x4aa400
+part[22] lenlo     :0x8000
+part[22] user_type :0x8000
+part[22] keydata   :0x0
+part[22] ro        :0x0
+
+part[23] name      :Reserve0
+part[23] classname :DISK
+part[23] addrlo    :0x4b2400
+part[23] lenlo     :0x8000
+part[23] user_type :0x8000
+part[23] keydata   :0x0
+part[23] ro        :0x0
+
+part[24] name      :UDISK
+part[24] classname :DISK
+part[24] addrlo    :0x4ba400
+part[24] lenlo     :0x0
+part[24] user_type :0x8100
+part[24] keydata   :0x0
+part[24] ro        :0x0
+
+[04.930]begin to erase flash
+total part: 26
+mbr 0, 8000, 8000
+bootloader_a 1, 10000, 8000
+bootloader_b 2, 10000, 8000
+env_a 3, 200, 8000
+env_b 4, 200, 8000
+boot_a 5, 20000, 8000
+boot_b 6, 20000, 8000
+vendor_boot_a 7, 10000, 8000
+vendor_boot_b 8, 10000, 8000
+super 9, 400000, 8000
+misc 10, 8000, 8000
+vbmeta_a 11, 100, 8000
+vbmeta_b 12, 100, 8000
+vbmeta_system_a 13, 80, 8000
+vbmeta_system_b 14, 80, 8000
+vbmeta_vendor_a 15, 80, 8000
+vbmeta_vendor_b 16, 80, 8000
+frp 17, 400, 8000
+empty 18, 7800, 8000
+metadata 19, 8000, 8000
+private 20, 8000, 8000
+dtbo_a 21, 1000, 8000
+dtbo_b 22, 1000, 8000
+media_data 23, 8000, 8000
+Reserve0 24, 8000, 8000
+UDISK 25, 0, 8100
+[04.990]erase all part start
+need erase flash: 1
+need erase flash 1: 17
+force erase flash
+[04.998]erase all part start
+card2 erase boot0 
+erase bootloader_a part
+[05.008][mmc]: erase from: 73728, to: 139263, cnt: 65536, erase_group: 1024
+[05.043][mmc]: sunxi_mmc_do_send_cmd_common: cmd 38 wait rsp busy 0x1c ms 
+erase bootloader_b part
+[05.051][mmc]: erase from: 139264, to: 204799, cnt: 65536, erase_group: 1024
+[05.081][mmc]: sunxi_mmc_do_send_cmd_common: cmd 38 wait rsp busy 0x17 ms 
+erase env_a part
+[05.089][mmc]: after adjust nr, no more space need to erase!!
+[05.095][mmc]: after align erase group, no space need to erase, erase failed
+[05.101][mmc]: mmc_mmc_erase: erase emmc fail!
+[05.106][mmc]: mmc_mmc_erase: some sectors in emmc are ignored!
+[05.111][mmc]: --0: from204800  nr512 
+erase env_b part
+[05.121][mmc]: after adjust start addr, no more space need to erase!!
+[05.127][mmc]: Erase addr is not erase group alignment!
+[05.132][mmc]: erase failed, range 205824 - 206336 
+[05.136][mmc]: mmc_mmc_erase: erase emmc fail!
+[05.141][mmc]: mmc_mmc_erase: some sectors in emmc are ignored!
+[05.146][mmc]: --0: from205312  nr512 
+erase boot_a part
+[05.155][mmc]: erase from: 205824, to: 336895, cnt: 131072, erase_group: 1024
+[05.235][mmc]: sunxi_mmc_do_send_cmd_common: cmd 38 wait rsp busy 0x46 ms 
+erase boot_b part
+[05.243][mmc]: erase from: 336896, to: 467967, cnt: 131072, erase_group: 1024
+[05.285][mmc]: sunxi_mmc_do_send_cmd_common: cmd 38 wait rsp busy 0x23 ms 
+erase vendor_boot_a part
+[05.294][mmc]: erase from: 467968, to: 533503, cnt: 65536, erase_group: 1024
+[05.327][mmc]: sunxi_mmc_do_send_cmd_common: cmd 38 wait rsp busy 0x1a ms 
+erase vendor_boot_b part
+[05.336][mmc]: erase from: 533504, to: 599039, cnt: 65536, erase_group: 1024
+[05.361][mmc]: sunxi_mmc_do_send_cmd_common: cmd 38 wait rsp busy 0x12 ms 
+erase super part
+[05.369][mmc]: erase from: 599040, to: 4793343, cnt: 4194304, erase_group: 1024
+[06.904][mmc]: sunxi_mmc_do_send_cmd_common: cmd 38 wait rsp busy 0x5f8 ms 
+erase misc part
+[06.912][mmc]: erase from: 4793344, to: 4826111, cnt: 32768, erase_group: 1024
+[06.929][mmc]: sunxi_mmc_do_send_cmd_common: cmd 38 wait rsp busy 0xa ms 
+erase vbmeta_a part
+[06.938][mmc]: after adjust nr, no more space need to erase!!
+[06.943][mmc]: after align erase group, no space need to erase, erase failed
+[06.950][mmc]: mmc_mmc_erase: erase emmc fail!
+[06.954][mmc]: mmc_mmc_erase: some sectors in emmc are ignored!
+[06.960][mmc]: --0: from4826112  nr256 
+erase vbmeta_b part
+[06.972][mmc]: after adjust start addr, no more space need to erase!!
+[06.979][mmc]: Erase addr is not erase group alignment!
+[06.984][mmc]: erase failed, range 4827136 - 4827392 
+[06.988][mmc]: mmc_mmc_erase: erase emmc fail!
+[06.992][mmc]: mmc_mmc_erase: some sectors in emmc are ignored!
+[06.998][mmc]: --0: from4826368  nr256 
+erase vbmeta_system_a part
+[07.006][mmc]: after adjust start addr, no more space need to erase!!
+[07.012][mmc]: Erase addr is not erase group alignment!
+[07.017][mmc]: erase failed, range 4827136 - 4827264 
+[07.022][mmc]: mmc_mmc_erase: erase emmc fail!
+[07.026][mmc]: mmc_mmc_erase: some sectors in emmc are ignored!
+[07.032][mmc]: --0: from4826624  nr128 
+erase vbmeta_system_b part
+[07.039][mmc]: after adjust start addr, no more space need to erase!!
+[07.045][mmc]: Erase addr is not erase group alignment!
+[07.050][mmc]: erase failed, range 4827136 - 4827264 
+[07.055][mmc]: mmc_mmc_erase: erase emmc fail!
+[07.059][mmc]: mmc_mmc_erase: some sectors in emmc are ignored!
+[07.065][mmc]: --0: from4826752  nr128 
+erase vbmeta_vendor_a part
+[07.072][mmc]: after adjust start addr, no more space need to erase!!
+[07.078][mmc]: Erase addr is not erase group alignment!
+[07.083][mmc]: erase failed, range 4827136 - 4827264 
+[07.088][mmc]: mmc_mmc_erase: erase emmc fail!
+[07.092][mmc]: mmc_mmc_erase: some sectors in emmc are ignored!
+[07.097][mmc]: --0: from4826880  nr128 
+erase vbmeta_vendor_b part
+[07.105][mmc]: after adjust start addr, no more space need to erase!!
+[07.111][mmc]: Erase addr is not erase group alignment!
+[07.116][mmc]: erase failed, range 4827136 - 4827264 
+[07.120][mmc]: mmc_mmc_erase: erase emmc fail!
+[07.125][mmc]: mmc_mmc_erase: some sectors in emmc are ignored!
+[07.130][mmc]: --0: from4827008  nr128 
+erase frp part
+[07.136][mmc]: erase from: 4827136, to: 4828159, cnt: 1024, erase_group: 1024
+[07.145][mmc]: sunxi_mmc_do_send_cmd_common: cmd 38 wait rsp busy 0x2 ms 
+erase empty part
+[07.153][mmc]: erase from: 4828160, to: 4858879, cnt: 30720, erase_group: 1024
+[07.178][mmc]: sunxi_mmc_do_send_cmd_common: cmd 38 wait rsp busy 0x12 ms 
+erase metadata part
+[07.187][mmc]: erase from: 4858880, to: 4891647, cnt: 32768, erase_group: 1024
+[07.204][mmc]: sunxi_mmc_do_send_cmd_common: cmd 38 wait rsp busy 0xa ms 
+erase private part
+[07.212][mmc]: erase from: 4891648, to: 4924415, cnt: 32768, erase_group: 1024
+[07.229][mmc]: sunxi_mmc_do_send_cmd_common: cmd 38 wait rsp busy 0xa ms 
+erase dtbo_a part
+[07.237][mmc]: erase from: 4924416, to: 4928511, cnt: 4096, erase_group: 1024
+[07.246][mmc]: sunxi_mmc_do_send_cmd_common: cmd 38 wait rsp busy 0x2 ms 
+erase dtbo_b part
+[07.254][mmc]: erase from: 4928512, to: 4932607, cnt: 4096, erase_group: 1024
+[07.264][mmc]: sunxi_mmc_do_send_cmd_common: cmd 38 wait rsp busy 0x3 ms 
+erase media_data part
+[07.272][mmc]: erase from: 4932608, to: 4965375, cnt: 32768, erase_group: 1024
+[07.289][mmc]: sunxi_mmc_do_send_cmd_common: cmd 38 wait rsp busy 0xa ms 
+erase Reserve0 part
+[07.297][mmc]: erase from: 4965376, to: 4998143, cnt: 32768, erase_group: 1024
+[07.314][mmc]: sunxi_mmc_do_send_cmd_common: cmd 38 wait rsp busy 0xa ms 
+erase UDISK part
+sunxi_sprite_mmc_phyerase: @nr is 0, erase from @from to end
+[07.328][mmc]: erase from: 4998144, to: 15268863, cnt: 10270720, erase_group: 1024
+[09.954][mmc]: sunxi_mmc_do_send_cmd_common: cmd 38 wait rsp busy 0xa3b ms 
+[09.960][mmc]: mmc_mmc_erase: some sectors in emmc are ignored!
+[09.966][mmc]: --0: from15268864  nr1023 
+card erase all
+[09.983]successed in erasing flash
+write primary GPT success
+write Backup GPT success
+[09.993]update partition map
+GUID Partition Table Entry Array CRC is wrong: 0x3bf09d1b != 0x1950cc37
+part_get_info_efi: *** ERROR: Invalid GPT ***
+part_get_info_efi: ***        Using Backup GPT ***
+GUID Partition Table Entry Array CRC is wrong: 0x3bf09d1b != 0x1950cc37
+part_get_info_efi: *** ERROR: Invalid GPT ***
+part_get_info_efi: ***        Using Backup GPT ***
+GUID Partition Table Entry Array CRC is wrong: 0x3bf09d1b != 0x1950cc37
+part_get_info_efi: *** ERROR: Invalid GPT ***
+part_get_info_efi: ***        Using Backup GPT ***
+[10.057]begin to download part
+[10.059]begin to download part bootloader_a
+partdata hi 0x0
+partdata lo 0x12db400
+sparse: bad magic
+[11.349]successed in writting part bootloader_a
+origin_verify value = dd696de4, active_verify value = dd696de4
+[11.609]successed in verify part bootloader_a
+[11.613]successed in download part bootloader_a
+[11.617]begin to download part bootloader_b
+partdata hi 0x0
+partdata lo 0x12db400
+sparse: bad magic
+[12.906]successed in writting part bootloader_b
+origin_verify value = dd696de4, active_verify value = dd696de4
+[13.167]successed in verify part bootloader_b
+[13.171]successed in download part bootloader_b
+[13.176]begin to download part env_a
+partdata hi 0x0
+partdata lo 0x20000
+sparse: bad magic
+[13.193]successed in writting part env_a
+origin_verify value = 2573cec0, active_verify value = 2573cec0
+[13.211]successed in verify part env_a
+[13.214]successed in download part env_a
+[13.218]begin to download part boot_a
+partdata hi 0x0
+partdata lo 0x4000000
+sparse: bad magic
+[17.565]successed in writting part boot_a
+origin_verify value = a0a3e462, active_verify value = a0a3e462
+[18.413]successed in verify part boot_a
+[18.416]successed in download part boot_a
+[18.420]begin to download part vendor_boot_a
+partdata hi 0x0
+partdata lo 0x2000000
+sparse: bad magic
+[20.602]successed in writting part vendor_boot_a
+origin_verify value = 11c0fc05, active_verify value = 11c0fc05
+[21.034]successed in verify part vendor_boot_a
+[21.038]successed in download part vendor_boot_a
+[21.042]begin to download part super
+partdata hi 0x0
+partdata lo 0x72fb8b18
+[...chunks...]
+,3749(5176)
+[...chunks...]
+hunk 3888(5176)
+[...chunks...]
+]kBJj
+[...chunks...]
+,4007(5176)
+[...chunks...]
+kBJj
+[...chunks...]
+MLH[...chunks...]
+[451.389]successed in writting part super
+origin_verify value = 64a07be, active_verify value = 9b484ede
+origin checksum=64a07be, active checksum=9b484ede
+sunxi sprite: part SUPER_FEX0000000VSUPER_FEX000000 verify error
+line:765 sunxi sprite err: sunxi_sprite_deal_part, download private failed
+sunxi sprite error : download part error
+sprite_test - do a sprite test
+
+Usage:
+sprite_test NULL
+=> 

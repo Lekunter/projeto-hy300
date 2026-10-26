@@ -1,0 +1,1616 @@
+??E@@?(0???? +???????P8??????z1|6?_?_???n???~?d??kJhI??
+????~??????????J?`H?dA???@?" P0?@?XG@%?,!???H?t????=s???????f?????????????@?????3ZA? ?????*??????8????,q????:4??????????????h#??? ????
+????????@?????????A???^????<?@F44??/???A ?Up???????????h??T???l???P ?/??+???????P0D?@?FL?Hd?p?????????p?@????h???? ?V??6@?????????
+?o???f???????????????????b}???%???~?????????????>??????????1?????>???? ????`?
+??k????(`??`/??????????????$?8???@<???????????+??"@?~?B? ?? ?Ap? ??B@@<?????@??????? ?? P@@?!?@??~???@??@?????? ?  2?@ ??????????????p?? ?????????????????????00??????????????_????????
+_???????,??? ???????????3?????q???????????z????????????????????D??p?(??????????????~<???????????????@?????0?????????.@?p?@`?@??@??|?0????9?8???? ??@ ????? ???????`???????? ??????????p??83<7f???[77]HELLO! BOOT0 is starting!
+[80]BOOT0 commit : 865e5927
+[83]set pll start
+[85]set pll end
+[87]ldob fix
+[89]prcm cpus timer clock enable
+[92]board init ok
+[94][mmc]: mmc driver ver 2021-07-13 11:09
+[105][mmc]: Wrong media type 0x0
+[108][mmc]: ***Try SD card 2***
+[112][mmc]: mmc 2 cmd 8 timeout, err 100
+[116][mmc]: mmc 2 cmd 8 err 100
+[120][mmc]: mmc 2 send if cond failed
+[124][mmc]: mmc 2 cmd 55 timeout, err 100
+[129][mmc]: mmc 2 cmd 55 err 100
+[132][mmc]: mmc 2 send app cmd failed
+[136][mmc]: ***Try MMC card 2***
+[171][mmc]: RMCA OK!
+[173][mmc]: bias 4
+[181][mmc]: MMC 5.0
+[183][mmc]: HSSDR52/SDR25 8 bit
+[186][mmc]: 50000000 Hz
+[189][mmc]: 7456 MB
+[191][mmc]: ***SD/MMC 2 init OK!!!***
+[205]DRAM only have internal ZQ!!
+[209]DRAM BOOT DRIVE INFO: V0.60
+[212]DRAM CLK = 624 MHz
+[215]DRAM Type = 3 (2:DDR2,3:DDR3)
+[218]DRAMC ZQ value: 0x7b7bfb
+[222]DRAM ODT value: 0x40.
+[225]the id value: 0x42
+[228]DRAM SIZE =1024 M
+[258]DRAM simple test OK.
+[261]dram size =1024
+[268]nsi init ok 2020-7-12
+[271]card no is 2
+[273]sdcard 2 line count 8
+[276][mmc]: mmc driver ver 2021-07-13 11:09
+[286][mmc]: ***Try MMC card 2***
+[352][mmc]: RMCA OK!
+[354][mmc]: bias 4
+[360][mmc]: MMC 5.0
+[362][mmc]: HSSDR52/SDR25 8 bit
+[365][mmc]: 50000000 Hz
+[368][mmc]: 7456 MB
+[370][mmc]: ***SD/MMC 2 init OK!!!***
+[525]Loading boot-pkg Succeed(index=0).
+[529]Entry_name        = u-boot
+[544]Entry_name        = monitor
+[549]Entry_name        = scp
+[555]Entry_name        = optee
+[563]Entry_name        = dtb
+[567]tunning data addr:0x4a0003e8
+[571]Jump to second Boot.
+NOTICE:  BL3-1: v1.0(debug):d85c03b
+NOTICE:  BL3-1: Built : 19:48:38, 2022-12-07
+NOTICE:  BL3-1 commit: 8
+NOTICE:  secure os exist
+E/TC:0 0 init_external_dt:1033 Device Tree missing
+M/TC: OP-TEE version: 70d6bc54 (gcc version 5.3.1 20160412 (Linaro GCC 5.3-2016.05)) #1 Fri Oct 21 06:53:45 UTC 2022 arm
+NOTICE:  BL3-1: Preparing for EL3 exit to normal world
+NOTICE:  BL3-1: Next image address = 0x4a000000
+NOTICE:  BL3-1: Next image spsr = 0x1d3
+
+U-Boot 2018.05-00018-gd7a124a-dirty (Apr 20 2024 - 10:21:12 +0800) Allwinner Technology
+
+[00.671]CPU:   Allwinner Family
+[00.674]Model: sun50iw12
+I2C:   FDT ERROR:fdt_set_all_pin:[twi0]-->FDT_ERR_BADPATH
+FDT ERROR:fdt_set_all_pin:[twi1]-->FDT_ERR_BADPATH
+ready
+[00.701]DRAM:  1 GiB
+[00.705]Relocation Offset is: 35f11000
+[00.732]secure enable bit: 0
+E/TC:0   fdt_getprop_u32:343 prop trace_level not found
+[00.749]CPU=1392 MHz,PLL6=600 Mhz,AHB=150 Mhz, APB1=100Mhz  MBus=400Mhz
+[00.755]gic: sec monitor mode
+[00.770]flash init start
+[00.772]workmode = 0,storage type = 2
+[00.775][mmc]: mmc driver ver uboot2018:2023-05-16 11:34:00 avoid-repeat-reset-host
+[00.784][mmc]: get sdc2 sdc_dis_host_caps 0x180.
+[00.788][mmc]: SUNXI SDMMC Controller Version:0x50400
+[00.855][mmc]: Best spd md: 2-HSDDR52/DDR50, freq: 2-50000000, Bus width: 8
+[00.861]sunxi flash init ok
+pwm_led_init 01 , data=0x41005
+pwm_led_init 02 , data=0x41145
+change pwm ch to fan !
+[00.872]period_ns:40000 max_duty_ns:102000 min_duty_ns:0 duty_ns:16000
+change pwm ch to fan end!
+pwm_led_init end
+[00.882]Loading Environment from SUNXI_FLASH... OK
+[00.897]usb burn from boot
+delay time 0
+weak:otg_phy_config
+[00.907]usb prepare ok
+[01.710]overtime is 800, begin_time is 801
+[01.715]do_burn_from_boot usb : no usb exist
+resetting USB...
+[01.721]USB0:   start sunxi  USB-DRD...
+config usb clk ok
+sunxi USB-DRD init ok...
+USB EHCI 1.00
+scanning bus 0 for devices... 1 USB Device(s) found
+[02.171]USB1:   start sunxi  USB1-Host...
+config usb clk ok
+sunxi USB1-Host init ok...
+USB EHCI 1.00
+scanning bus 1 for devices... 1 USB Device(s) found
+[02.622]scanning usb for storage devices... 0 Storage Device(s) found
+** Bad device usb 0 **
+** Bad device usb 0 **
+[02.635]env[BOOTMODE] has no start mode flag
+[02.639]env[BOOTMODE] rewrite standby to env
+Saving Environment to SUNXI_FLASH... Writing to env...
+OK
+[02.653]env[CEC_ENABLE] is not exist!
+[SCP] :wait arisc ready....
+[SCP] :arisc version: [jorpotcevt-r-303rdna1dio0v-14-8.97g-39f2]
+[SCP] :arisc startup ready
+[SCP] :arisc startup notify message feedback
+[SCP] :sunxi-arisc driver v1.10 is starting
+[83]HELLO! BOOT0 is starting!
+[86]BOOT0 commit : 865e5927
+[89]set pll start
+[92]set pll end
+[94]ldob fix
+[96]prcm cpus timer clock enable
+[99]board init ok
+[101]rtc[0] value = 0x14ff00
+[104]rtc[2] value = 0xf
+[107]rtc[3] value = 0xf4f48003
+[110][mmc]: mmc driver ver 2021-07-13 11:09
+[121][mmc]: Wrong media type 0x0
+[124][mmc]: ***Try SD card 2***
+[128][mmc]: mmc 2 cmd 8 timeout, err 100
+[132][mmc]: mmc 2 cmd 8 err 100
+[136][mmc]: mmc 2 send if cond failed
+[140][mmc]: mmc 2 cmd 55 timeout, err 100
+[145][mmc]: mmc 2 cmd 55 err 100
+[148][mmc]: mmc 2 send app cmd failed
+[152][mmc]: ***Try MMC card 2***
+[194][mmc]: RMCA OK!
+[196][mmc]: bias 4
+[203][mmc]: MMC 5.0
+[205][mmc]: HSSDR52/SDR25 8 bit
+[209][mmc]: 50000000 Hz
+[211][mmc]: 7456 MB
+[214][mmc]: ***SD/MMC 2 init OK!!!***
+[228]DRAM only have internal ZQ!!
+[231]DRAM BOOT DRIVE INFO: V0.60
+[235]DRAM CLK = 624 MHz
+[237]DRAM Type = 3 (2:DDR2,3:DDR3)
+[241]DRAMC ZQ value: 0x7b7bfb
+[244]DRAM ODT value: 0x40.
+[247]the id value: 0x42
+[251]DRAM SIZE =1024 M
+[281]DRAM simple test OK.
+[283]dram size =1024
+[291]nsi init ok 2020-7-12
+[294]card no is 2
+[296]sdcard 2 line count 8
+[299][mmc]: mmc driver ver 2021-07-13 11:09
+[309][mmc]: ***Try MMC card 2***
+[381][mmc]: RMCA OK!
+[384][mmc]: bias 4
+[389][mmc]: MMC 5.0
+[392][mmc]: HSSDR52/SDR25 8 bit
+[395][mmc]: 50000000 Hz
+[397][mmc]: 7456 MB
+[400][mmc]: ***SD/MMC 2 init OK!!!***
+[554]Loading boot-pkg Succeed(index=0).
+[559]Entry_name        = u-boot
+[573]Entry_name        = monitor
+[578]Entry_name        = scp
+[584]Entry_name        = optee
+[592]Entry_name        = dtb
+[597]tunning data addr:0x4a0003e8
+[601]Jump to second Boot.
+NOTICE:  BL3-1: v1.0(debug):d85c03b
+NOTICE:  BL3-1: Built : 19:48:38, 2022-12-07
+NOTICE:  BL3-1 commit: 8
+NOTICE:  secure os exist
+E/TC:0 0 init_external_dt:1033 Device Tree missing
+M/TC: OP-TEE version: 70d6bc54 (gcc version 5.3.1 20160412 (Linaro GCC 5.3-2016.05)) #1 Fri Oct 21 06:53:45 UTC 2022 arm
+NOTICE:  BL3-1: Preparing for EL3 exit to normal world
+NOTICE:  BL3-1: Next image address = 0x4a000000
+NOTICE:  BL3-1: Next image spsr = 0x1d3
+
+U-Boot 2018.05-00018-gd7a124a-dirty (Apr 20 2024 - 10:21:12 +0800) Allwinner Technology
+
+[00.700]CPU:   Allwinner Family
+[00.703]Model: sun50iw12
+I2C:   FDT ERROR:fdt_set_all_pin:[twi0]-->FDT_ERR_BADPATH
+FDT ERROR:fdt_set_all_pin:[twi1]-->FDT_ERR_BADPATH
+ready
+[00.730]DRAM:  1 GiB
+[00.734]Relocation Offset is: 35f11000
+[00.761]secure enable bit: 0
+E/TC:0   fdt_getprop_u32:343 prop trace_level not found
+[00.778]CPU=1392 MHz,PLL6=600 Mhz,AHB=150 Mhz, APB1=100Mhz  MBus=400Mhz
+[00.784]gic: sec monitor mode
+[00.799]flash init start
+[00.801]workmode = 0,storage type = 2
+[00.804][mmc]: mmc driver ver uboot2018:2023-05-16 11:34:00 avoid-repeat-reset-host
+[00.813][mmc]: get sdc2 sdc_dis_host_caps 0x180.
+[00.817][mmc]: SUNXI SDMMC Controller Version:0x50400
+[00.890][mmc]: Best spd md: 2-HSDDR52/DDR50, freq: 2-50000000, Bus width: 8
+[00.897]sunxi flash init ok
+pwm_led_init 01 , data=0x41005
+pwm_led_init 02 , data=0x41145
+change pwm ch to fan !
+[00.907]period_ns:40000 max_duty_ns:102000 min_duty_ns:0 duty_ns:16000
+change pwm ch to fan end!
+pwm_led_init end
+[00.918]Loading Environment from SUNXI_FLASH... OK
+[00.933]usb burn from boot
+delay time 0
+weak:otg_phy_config
+[00.943]usb prepare ok
+[01.746]overtime is 800, begin_time is 801
+[01.751]do_burn_from_boot usb : no usb exist
+[01.755]env[CEC_ENABLE] is not exist!
+secure storage read widevine fail
+[01.775]secure storage read widevine fail with:-1
+secure storage read ec_key fail
+[01.783]secure storage read ec_key fail with:-1
+14388 bytes read in 1 ms (13.7 MiB/s)
+[01.793]get file(advert.bmp) size from Reserve0 error
+[01.798]load file:advert.bmp from Reserve0 fail!
+14388 bytes read in 1 ms (13.7 MiB/s)
+6220854 bytes read in 72 ms (82.4 MiB/s)
+rtc: ir wakeup = 0xff0014
+2708 bytes read in 1 ms (2.6 MiB/s)
+[01.891]LogRegData.bin version is 23-6-27-33
+[01.896]Project id:0x30 version:21-12-14-0
+[01.899]ssc percent:10 wave bottom:0x3111, wave step:0x94, n:43, ssc_freq:31500 reg_value:0xc9403111
+[01.909]pwm_request: err: get reg-base err.
+[01.913]pwm5 request for fastlogo fail!
+[02.618]Display fastlogo finish!
+List file under ULI/factory
+** Unrecognized filesystem type **
+[02.628]update part info
+[02.851]update bootcmd
+[02.856]change working_fdt 0x77ec0e70 to 0x77e90e70
+[02.861][mmc]: delete mmc-hs400-1_8v from dtb
+[02.865][mmc]: delete mmc-hs200-1_8v from dtb
+[02.869][mmc]: get max-frequency ok 50000000 Hz
+[02.876]## error: update_fdt_dram_para : FDT_ERR_NOTFOUND
+[02.882]update dts
+the hdcp pkf is burned
+Hit any key to stop autoboot:  1  0 
+Android's image name: arm
+[04.438]Starting kernel ...
+
+[04.440][mmc]: mmc exit start
+[04.510][mmc]: mmc 2 exit ok
+[SCP] :wait arisc ready....
+[SCP] :arisc version: [jorpotcevt-r-303rdna1dio0v-14-8.97g-39f2]
+[SCP] :arisc startup ready
+[SCP] :arisc startup notify message feedback
+[SCP] :sunxi-arisc driver v1.10 is starting
+[    0.000000] Booting Linux on physical CPU 0x0
+[    0.000000] Linux version 5.4.99-00083-g2c05ac0bb34e-dirty (hotack@dell-PowerEdge-R740) (arm-linux-gnueabi-gcc (Linaro GCC 5.3-2016.05) 5.3.1 20160412, GNU ld (Linaro_Binutils-2016.05) 2.25.0 Linaro 2016_02) #815 SMP PREEMPT Sat Apr 20 10:21:53 CST 2024
+[    0.000000] CPU: ARMv7 Processor [410fd034] revision 4 (ARMv7), cr=10c0383d
+[    0.000000] CPU: div instructions available: patching division code
+[    0.000000] CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache
+[    0.000000] OF: fdt: Machine model: sun50iw12
+[    0.000000] printk: bootconsole [earlycon0] enabled
+[    0.006318] BOOTEVENT:         6.308998: ON
+[    0.088051] sunxi-msgbox-amp 3003000.msgbox: invalid resource
+[    0.096114] sunxi_pwm_probe: can't get pwm  bus clk
+[    0.454198] uart uart0: get regulator failed
+[    0.459644] uart uart1: get regulator failed
+[    0.481270] mipsloader 3061000.mipsloader: request pins failed: -19
+[    0.494345] sunxi_key_init: get key count failed
+[    0.494352] sunxi_gpadc_setup: get channel compare select failed
+[    0.506278] sunxi_gpadc_setup: get channel compare low data select failed
+[    0.513856] sunxi_gpadc_setup: get channel compare hig data select failed
+[    0.521431] sunxi_gpadc_setup: get channel scan data failed
+[    0.527651] sunxi_gpadc_setup:get channel0_compare_lowdata err!
+[    0.534259] sunxi_gpadc_setup:get channel0_compare_higdata err!
+[    0.540866] sunxi_gpadc_setup:get channel1_compare_lowdata err!
+[    0.547473] sunxi_gpadc_setup:get channel1_compare_higdata err!
+[    0.558140] sunxi_ir_startup: get ir protocol failed
+[    0.623285] sunxi-mmc 4021000.sdmmc: smc 1 p1 err, cmd 52, RTO !!
+[    0.630928] sunxi-mmc 4021000.sdmmc: smc 1 p1 err, cmd 52, RTO !!
+[    0.642848] [AUDIOCODEC][sunxi_codec_parse_params][1956]:adcdrc_used:0, adchpf_used:0, dacdrc_used:1, dachpf_used:0
+[    0.642848] 
+[    0.642987] sunxi-mmc 4021000.sdmmc: smc 1 p1 err, cmd 5, RTO !!
+[    0.656549] debugfs: Directory '2030000.codec' with parent 'regmap' already present!
+[    0.672225] debugfs: Directory '203032c.dummy_cpudai' with parent 'audiocodec' already present!
+[    0.672344] sunxi-mmc 4021000.sdmmc: smc 1 p1 err, cmd 5, RTO !!
+[    0.689445] sunxi-mmc 4021000.sdmmc: smc 1 p1 err, cmd 5, RTO !!
+[    0.696959] sunxi-mmc 4021000.sdmmc: smc 1 p1 err, cmd 5, RTO !!
+[    0.707561] sunxi-mmc 4022000.sdmmc: avoid to switch power_off_notification to POWERED_ON(0x01)
+[    0.717282] sunxi-mmc 4022000.sdmmc: avoid to switch power_off_notification to POWERED_ON(0x01)
+[    0.726990] sunxi-mmc 4022000.sdmmc: avoid to switch power_off_notification to POWERED_ON(0x01)
+[    0.726996] sunxi-mmc 4022000.sdmmc: avoid to switch power_off_notification to POWERED_ON(0x01)
+[    0.781863] [stkAccel] kxt_parse_dt/1882: Unable to read kxtj3,irq-gpio
+[    0.789556] sunxi_i2c_do_xfer()1810 - [i2c1] incomplete xfer (status: 0x20, dev addr: 0xe)
+[    0.799081] sunxi_i2c_do_xfer()1810 - [i2c1] incomplete xfer (status: 0x20, dev addr: 0xe)
+[    0.808603] sunxi_i2c_do_xfer()1810 - [i2c1] incomplete xfer (status: 0x20, dev addr: 0xe)
+[    0.819195] sunxi_i2c_do_xfer()1810 - [i2c1] incomplete xfer (status: 0x20, dev addr: 0xe)
+[    0.828432] [stkAccel] kxt_i2c_probe/2146: kxtj3 initialization failed
+[    0.911487] debugfs: Directory 'sunxi-ehci' with parent 'ehci' already present!
+[    0.939478] debugfs: Directory 'sunxi-ehci' with parent 'ehci' already present!
+[    1.013804] debugfs: Directory 'sunxi-ohci' with parent 'ohci' already present!
+[    1.085769] debugfs: Directory 'sunxi-ohci' with parent 'ohci' already present!
+[    1.163521] cpu cpu0: dev_pm_opp_set_rate: failed to find current OPP for freq 1392000000 (-34)
+[    1.188561] sunxi-audio-card 203705c.soundspdif1: use dummy codec for simple card.
+[    1.197182] debugfs: Directory '2037000.spdif' with parent 'sndspdif1' already present!
+[    1.207947] sunxi-audio-card 203207c.sounddaudio0: use dummy codec for simple card.
+[    1.216637] debugfs: Directory '2032000.daudio' with parent 'snddaudio0' already present!
+[    1.227371] sunxi-audio-card 203307c.sounddaudio0: use dummy codec for simple card.
+[    1.236075] debugfs: Directory '2033000.daudio' with parent 'snddaudio1' already present!
+[    1.251891] get_key_map_info()199 - Failed to find "oe" in dts.
+[    1.258699] [ac200] get ave_regulator_name failed!
+[    1.264764] [ac200] pwm enable
+[    1.311777] Kernel init done
+[    1.442862] EXT4-fs (mmcblk0p19): VFS: Can't find ext4 filesystem
+[    1.487178] FAT-fs (mmcblk0p23): bogus number of reserved sectors
+[    1.698959] init: Could not update logical partition
+[    2.038514] FAT-fs (mmcblk0p23): bogus number of reserved sectors
+[    2.045596] init: mount media_data fail*****Invalid argument
+[    2.289976] cgroup1: Unknown subsys name 'blkio'
+[    2.298671] cgroup1: Unknown subsys name 'schedtune'
+[    2.650709] sunxi-rfkill soc@2900000:rfkill: get gpio chip_en failed
+[    2.657945] sunxi-rfkill soc@2900000:rfkill: get gpio power_en failed
+console:/ $ [    4.059857] mali 1800000.gpu: Sunxi_data->dvfs_status is false, continuing without devfreq
+[    4.083300] invalid gpio:-2!
+[    4.086769] invalid gpio:-2!
+[    4.090291] platform 2000c15.pwm5: pinctrl_get failed!
+[    4.200653] LogRegData.bin version is 23-6-27-33
+[    4.205852] Project id:0x30 version:21-12-14-0
+[    4.210863] ge2d 5240000.ge2d: firmware downloaded!
+[    7.044764] pMemInBuffer[0]=0xc34589c0 pMemInBuffer[0]->bufStart=0x6c580000
+[    7.052630] pMemInBuffer[1]=0xc3458a80 pMemInBuffer[1]->bufStart=0x6c820000
+[    7.060454] pMemInBuffer[2]=0xc3458a40 pMemInBuffer[2]->bufStart=0x6d1a0000
+[    7.068271] pMemInBuffer[3]=0xc3458fc0 pMemInBuffer[3]->bufStart=0x43e60000
+[    7.076095] [AudBrg_Init] --> audio bridge irq num: 38
+[    7.081998] [ABP_DTV_Init] --> abp_dtv irq num: 39
+[    7.087633] audiobridge alloc size: 0x160000
+[    7.093296] audiobridge ion_alloc success!
+[    7.098006] audiobridge ion alloc success, and phy_addr: 0x1a00000
+[    7.104909] line:247 audbrg_istream_ConfigMemMap() ISTREAM1 phy_addr=0x1a00000 vir_addr=0xf0ee2000
+[    7.114911] line:258 audbrg_istream_ConfigMemMap() ISTREAM2 phy_addr=0x1a10000 vir_addr=0xf0ef2000
+[    7.124918] line:269 audbrg_istream_ConfigMemMap() ISTREAM3 phy_addr=0x1a20000 vir_addr=0xf0f02000
+[    7.134920] line:280 audbrg_istream_ConfigMemMap() ISTREAM4 phy_addr=0x1a30000 vir_addr=0xf0f12000
+[    7.144926] line:155 audbrg_ostream_ConfigMemMap() OSTREAM1 phy_addr=0x1a40000 vir_addr=0xf0f22000
+[    7.154946] line:166 audbrg_ostream_ConfigMemMap() OSTREAM2 phy_addr=0x1a50000 vir_addr=0xf0f32000
+[    7.164994] line:232 audbrg_delayline_ConfigMemMap() DELAYLINE1 phy_addr=0x1a60000 vir_addr=0xf0f42000
+[    7.175431] line:246 audbrg_delayline_ConfigMemMap() DELAYLINE2 phy_addr=0x1aa0000 vir_addr=0xf0f82000
+[    7.185840] line:260 audbrg_delayline_ConfigMemMap() DELAYLINE3 phy_addr=0x1ae0000 vir_addr=0xf0fc2000
+[    7.196228] line:274 audbrg_delayline_ConfigMemMap() DELAYLINE4 phy_addr=0x1b20000 vir_addr=0xf1002000
+[    7.351521] apexd: This device does not support updatable APEX. Exiting
+[    7.359305] apexd: Marking APEXd as activated
+[    7.425962] type=1400 audit(124.364:14): avc: denied { write } for comm="init" name="/" dev="mmcblk0p23" ino=1 scontext=u:r:init:s0 tcontext=u:object_r:oemfs:s0 tclass=dir permissive=1
+[    7.444640] type=1400 audit(124.364:15): avc: denied { add_name } for comm="init" name="media" scontext=u:r:init:s0 tcontext=u:object_r:oemfs:s0 tclass=dir permissive=1
+[    7.461889] type=1400 audit(124.364:16): avc: denied { create } for comm="init" name="media" scontext=u:r:init:s0 tcontext=u:object_r:oemfs:s0 tclass=dir permissive=1
+[    7.478979] type=1400 audit(124.384:17): avc: denied { setattr } for comm="init" name="media" dev="mmcblk0p23" ino=1048601 scontext=u:r:init:s0 tcontext=u:object_r:oemfs:s0 tclass=dir permissive=1
+[    7.560468] vdc: Waited 0ms for vold
+[    7.662762] apexd: This device does not support updatable APEX. Exiting
+[    7.670390] apexd: Marking APEXd as ready
+[    7.843044] type=1400 audit(124.780:18): avc: denied { read } for comm="tvserver" name="u:object_r:config_prop:s0" dev="tmpfs" ino=13343 scontext=u:r:tvserver:s0 tcontext=u:object_r:config_prop:s0 tclass=file permissive=1
+[    7.865508] type=1400 audit(124.780:19): avc: denied { open } for comm="tvserver" path="/dev/__properties__/u:object_r:config_prop:s0" dev="tmpfs" ino=13343 scontext=u:r:tvserver:s0 tcontext=u:object_r:config_prop:s0 tclass=file permissive=1
+[    7.947344] init: Top-level directory needs encryption action, eg mkdir /data/audio_d <mode> <uid> <gid> encryption=Require
+[    8.132928] update_verifier: Started with arg 1: nonencrypted
+[    8.139986] treadahead: /data/vendor/treadahead/readahead_file_offset not exist;  
+[    8.142350] *** NOT YET: opcode 3f ***
+[    8.148511] treadahead: go to open trace
+[    8.148717] update_verifier: Booting slot 0: isSlotMarkedSuccessful=1
+[    8.148812] update_verifier: Leaving update_verifier.
+[    8.465205] healthd: No battery devices found
+[    8.502009] healthd: battery none chg=a
+[    8.582289] type=1400 audit(125.520:27): avc: denied { create } for comm="audio.service" scontext=u:r:hal_audio_default:s0 tcontext=u:r:hal_audio_default:s0 tclass=tcp_socket permissive=1
+[    8.604569] type=1400 audit(125.540:28): avc: denied { setopt } for comm="audio.service" scontext=u:r:hal_audio_default:s0 tcontext=u:r:hal_audio_default:s0 tclass=tcp_socket permissive=1
+[    8.633943] type=1400 audit(125.540:29): avc: denied { bind } for comm="audio.service" scontext=u:r:hal_audio_default:s0 tcontext=u:r:hal_audio_default:s0 tclass=tcp_socket permissive=1
+[    8.653688] type=1400 audit(125.540:30): avc: denied { listen } for comm="audio.service" lport=14035 scontext=u:r:hal_audio_default:s0 tcontext=u:r:hal_audio_default:s0 tclass=tcp_socket permissive=1
+[    8.674333] type=1400 audit(125.540:31): avc: denied { accept } for comm="audio.service" lport=14035 scontext=u:r:hal_audio_default:s0 tcontext=u:r:hal_audio_default:s0 tclass=tcp_socket permissive=1
+[    8.724738] file system registered
+[    8.779841] type=1107 audit(125.720:32): uid=0 auid=4294967295 ses=4294967295 subj=u:r:init:s0 msg='avc: denied { set } for property=persist.sys.finish_burn_hdcpkey pid=2636 uid=1000 gid=1003 scontext=u:r:hal_graphics_composer_default:s0 tcontext=u:object_r:system_prop:s0 tclass=property_service permissive=1'
+[    8.815235] sunxi-rfkill soc@2900000:rfkill: block state already is 1
+[    8.940099] type=1400 audit(125.876:33): avc: denied { entrypoint } for comm="init" path="/system/bin/eshare.sh" dev="dm-0" ino=1110 scontext=u:r:shell:s0 tcontext=u:object_r:system_file:s0 tclass=file permissive=1
+[    8.962572] type=1400 audit(125.880:34): avc: denied { search } for comm="kworker/1:1" name="/" dev="mmcblk0p23" ino=1 scontext=u:r:kernel:s0 tcontext=u:object_r:oemfs:s0 tclass=dir permissive=1
+[    8.982461] type=1400 audit(125.880:35): avc: denied { write } for comm="kworker/1:1" name="/" dev="mmcblk0p23" ino=1 scontext=u:r:kernel:s0 tcontext=u:object_r:oemfs:s0 tclass=dir permissive=1
+[    9.002660] type=1400 audit(125.880:36): avc: denied { add_name } for comm="kworker/1:1" name="gsensor_data" scontext=u:r:kernel:s0 tcontext=u:object_r:oemfs:s0 tclass=dir permissive=1
+[    9.231503] pinctrl_get for allwinner,sunxi-pwm fail
+[    9.516257] decd 5700000.dec: decoder display runtime resume: 0
+[    9.815811] input: sunxi-ir-uinput as /devices/virtual/input/input7
+[   10.097490] sunxi-rfkill soc@2900000:rfkill: wlan power on success
+[   10.204779] misc sunxi-wlan: start scan device on bus_index: 1
+[   10.212081] sunxi-mmc 4021000.sdmmc: sdc set ios:clk 0Hz bm PP pm UP vdd 21 width 1 timing LEGACY(SDR12) dt B
+[   10.227531] sunxi-mmc 4021000.sdmmc: no vqmmc,Check if there is regulator
+[   10.250711] sunxi-mmc 4021000.sdmmc: sdc set ios:clk 400000Hz bm PP pm ON vdd 21 width 1 timing LEGACY(SDR12) dt B
+[   10.276477] sunxi-mmc 4021000.sdmmc: smc 1 p1 err, cmd 52, RTO !!
+[   10.284154] sunxi-mmc 4021000.sdmmc: smc 1 p1 err, cmd 52, RTO !!
+[   10.290999] sunxi-mmc 4021000.sdmmc: sdc set ios:clk 400000Hz bm PP pm ON vdd 21 width 1 timing LEGACY(SDR12) dt B
+[   10.306104] sunxi-mmc 4021000.sdmmc: sdc set ios:clk 400000Hz bm PP pm ON vdd 21 width 1 timing LEGACY(SDR12) dt B
+[   10.320347] sunxi-mmc 4021000.sdmmc: smc 1 p1 err, cmd 11, RE !!
+[   10.367353] mmc1: queuing unknown CIS tuple 0x10 (5 bytes)
+[   10.382687] sunxi-mmc 4021000.sdmmc: sdc set ios:clk 50000000Hz bm PP pm ON vdd 21 width 1 timing LEGACY(SDR12) dt B
+[   10.395623] sunxi-mmc 4021000.sdmmc: sdc set ios:clk 50000000Hz bm PP pm ON vdd 21 width 4 timing LEGACY(SDR12) dt B
+[   10.408084] mmc1: queuing unknown CIS tuple 0x10 (5 bytes)
+[   10.417831] mmc1: new SDIO card at address edfe
+[   10.427635] sunxi-rfkill soc@2900000:rfkill: wlan power off success
+[   10.435303] misc sunxi-wlan: start scan device on bus_index: 1
+[   10.442605] sunxi-mmc 4021000.sdmmc: smc 1 p1 err, cmd 7, RTO !!
+[   10.449399] sunxi-mmc 4021000.sdmmc: smc 1 p1 err, cmd 7, RTO !!
+[   10.456157] sunxi-mmc 4021000.sdmmc: smc 1 p1 err, cmd 7, RTO !!
+[   10.462928] sunxi-mmc 4021000.sdmmc: smc 1 p1 err, cmd 7, RTO !!
+[   10.470095] mmc1: card edfe removed
+[   10.474513] sunxi-mmc 4021000.sdmmc: sdc set ios:clk 0Hz bm PP pm OFF vdd 0 width 1 timing LEGACY(SDR12) dt B
+[   10.492797] sunxi-mmc 4021000.sdmmc: sdc set ios:clk 0Hz bm PP pm UP vdd 21 width 1 timing LEGACY(SDR12) dt B
+[   10.511654] sunxi-mmc 4021000.sdmmc: no vqmmc,Check if there is regulator
+[   10.531562] sunxi-mmc 4021000.sdmmc: sdc set ios:clk 400000Hz bm PP pm ON vdd 21 width 1 timing LEGACY(SDR12) dt B
+[   10.561000] sunxi-mmc 4021000.sdmmc: smc 1 p1 err, cmd 52, RTO !!
+[   10.568693] sunxi-mmc 4021000.sdmmc: smc 1 p1 err, cmd 52, RTO !!
+[   10.575578] sunxi-mmc 4021000.sdmmc: sdc set ios:clk 400000Hz bm PP pm ON vdd 21 width 1 timing LEGACY(SDR12) dt B
+[   10.593177] aicbsp_init
+[   10.595248] sunxi-mmc 4021000.sdmmc: sdc set ios:clk 400000Hz bm PP pm ON vdd 21 width 1 timing LEGACY(SDR12) dt B
+[   10.596042] aicbsp_init, Driver Release Tag: aic-bsp-compatible(sdio)-20231222-000
+[   10.620713] sunxi-mmc 4021000.sdmmc: smc 1 p1 err, cmd 5, RTO !!
+[   10.628328] sunxi-mmc 4021000.sdmmc: smc 1 p1 err, cmd 5, RTO !!
+[   10.635941] sunxi-mmc 4021000.sdmmc: smc 1 p1 err, cmd 5, RTO !!
+[   10.643558] sunxi-mmc 4021000.sdmmc: smc 1 p1 err, cmd 5, RTO !!
+[   10.650367] sunxi-mmc 4021000.sdmmc: sdc set ios:clk 0Hz bm PP pm OFF vdd 0 width 1 timing LEGACY(SDR12) dt B
+[   10.658974] -->aicbt_rfkill_init
+[   10.670327] <--aicbt_rfkill_init
+[   10.689115] [BT_LPM] bluesleep_init: BlueSleep Mode Driver Ver 1.3.3
+[   10.696341] [BT_LPM] bluesleep_init: Driver Release Tag: aic-btlpm-20220429-006
+[   10.706254] [BT_LPM] bluesleep_probe: bt_hostwake gpio=387 assert=1
+[   10.706254] 
+[   10.740467] [BT_LPM] bluesleep_probe: override host_wake assert to 1
+[   10.754834] [BT_LPM] bluesleep_probe: bt_wake gpio=386 assert=1
+[   10.754834] 
+[   10.764597] [BT_LPM] bluesleep_probe: override ext_wake assert to 1
+[   10.772528] [BT_LPM] bluesleep_probe: uart_index (1)
+[   10.772528] 
+[   12.438452] init: starting service 'bootanim'...
+[   12.443983] ge2d 5240000.ge2d: tvsystem power state already match!
+[   12.454400] init: Control message: Processed ctl.start for 'bootanim' from pid: 2668 (/system/bin/surfaceflinger)
+[   12.456016] libprocessgroup: Failed to open /dev/stune/top-app/tasks: No such file or directory: No such file or directory
+[   12.478491] libprocessgroup: Failed to apply MaxPerformance task profile: No such file or directory
+[   13.247293] init: processing action (persist.sys.eshare_auth_file=2) from (/system/etc/init/hw/init.rc:1178)
+[   13.293146] init: processing action (persist.sys.eshare_auth_file=2) from (/system/etc/init/hw/init.rc:1178)
+[   13.355662] init: processing action (persist.sys.eshare_auth_file=2) from (/system/etc/init/hw/init.rc:1178)
+[   13.390206] init: processing action (persist.sys.eshare_auth_file=2) from (/system/etc/init/hw/init.rc:1178)
+[   14.014272] Freeing logo buffer memory: 8160K
+[   15.377420] init: processing action (persist.sys.eshare_auth_file=2) from (/system/etc/init/hw/init.rc:1178)
+[   15.459888] init: processing action (persist.sys.eshare_auth_file=2) from (/system/etc/init/hw/init.rc:1178)
+[   17.441789] init: processing action (persist.sys.eshare_auth_file=2) from (/system/etc/init/hw/init.rc:1178)
+[   17.453825] init: Service 'eshareover' (pid 2698) exited with status 0 oneshot service took 8.521000 seconds in background
+[   17.467612] init: Sending signal 9 to service 'eshareover' (pid 2698) process group...
+[   17.477806] libprocessgroup: Successfully killed process cgroup uid 0 pid 2698 in 0ms
+[   17.531859] init: processing action (persist.sys.eshare_auth_file=2) from (/system/etc/init/hw/init.rc:1178)
+[   17.543767] init: Service 'esharecp' (pid 2707) exited with status 0 oneshot service took 8.516000 seconds in background
+[   17.557572] init: Sending signal 9 to service 'esharecp' (pid 2707) process group...
+[   17.567070] libprocessgroup: Successfully killed process cgroup uid 0 pid 2707 in 0ms
+[   27.803922] init: Control message: Processed ctl.start for 'idmap2d' from pid: 3148 (system_server)
+[   27.899569] healthd: battery none chg=a
+[   28.990184] type=1400 audit(145.924:56): avc: denied { read } for comm="Binder:3148_3" name="hctosys" dev="sysfs" ino=19186 scontext=u:r:system_server:s0 tcontext=u:object_r:sysfs:s0 tclass=file permissive=1
+[   29.011719] type=1400 audit(145.924:57): avc: denied { open } for comm="Binder:3148_3" path="/sys/devices/platform/soc@2900000/7090000.rtc/rtc/rtc0/hctosys" dev="sysfs" ino=19186 scontext=u:r:system_server:s0 tcontext=u:object_r:sysfs:s0 tclass=file permissive=1
+[   29.038954] type=1400 audit(145.928:58): avc: denied { getattr } for comm="Binder:3148_3" path="/sys/devices/platform/soc@2900000/7090000.rtc/rtc/rtc0/hctosys" dev="sysfs" ino=19186 scontext=u:r:system_server:s0 tcontext=u:object_r:sysfs:s0 tclass=file permissive=1
+[   29.344732] type=1400 audit(146.284:59): avc: denied { write } for comm="UEventObserver" name="angle_report" dev="sysfs" ino=22323 scontext=u:r:system_server:s0 tcontext=u:object_r:sysfs:s0 tclass=file permissive=1
+[   29.588732] init: processing action (sys.sysctl.extra_free_kbytes=*) from (/system/etc/init/hw/init.rc:1029)
+[   29.604840] type=1107 audit(146.544:60): uid=0 auid=4294967295 ses=4294967295 subj=u:r:init:s0 msg='avc: denied { set } for property=persist.hisi.keystone.lt pid=3148 uid=1000 gid=1000 scontext=u:r:system_server:s0 tcontext=u:object_r:default_prop:s0 tclass=property_service permissive=1'
+[   31.723916] vcc3v0: disabling
+[   31.727343] vcc3v3: disabling
+[   31.731216] vcc5v0: disabling
+[   31.734650] pio-33: disabling
+[   38.549741] init: Sending signal 9 to service 'idmap2d' (pid 2715) process group...
+[   38.713249] libprocessgroup: Successfully killed process cgroup uid 1000 pid 2715 in 154ms
+[   38.724588] init: Control message: Processed ctl.stop for 'idmap2d' from pid: 3148 (system_server)
+[   38.736285] init: Service 'idmap2d' (pid 2715) received signal 9
+[   42.410259] read descriptors
+[   42.413536] read strings
+[   42.416581] read descriptors
+[   42.419839] read strings
+[   43.664612] init: starting service 'vendor.wifi_hal_legacy'...
+[   43.683510] init: Control message: Processed ctl.interface_start for 'android.hardware.wifi@1.0::IWifi/default' from pid: 2269 (/system/bin/hwservicemanager)
+[   43.700680] init: Control message: Processed ctl.interface_start for 'android.hardware.wifi@1.0::IWifi/default' from pid: 2269 (/system/bin/hwservicemanager)
+[   43.862236] >>> rwnx_mod_init()
+[   43.865818] rwnx 20231222-000-6.4.3.0 - - 241c091M (master)
+[   43.872149] Driver Release Tag: aic-rwnx-compatible(sdio)-20231222-000
+[   43.880310] aicbsp: aicbsp_set_subsys, subsys: AIC_WIFI, state to: 1
+[   43.887482] aicbsp: aicbsp_set_subsys, power state change to 1 dure to AIC_WIFI
+[   43.895766] aicbsp: aicbsp_platform_power_on
+[   43.900584] sunxi-rfkill soc@2900000:rfkill: bus_index: 1
+[   43.906800] aicbsp: aicbsp_platform_power_on disable MMC_CAP_UHS_DDR50 for host 174a70f1
+[   43.926424] sunxi-rfkill soc@2900000:rfkill: wlan power on success
+[   43.983509] sunxi-mmc 4021000.sdmmc: sdc set ios:clk 0Hz bm PP pm UP vdd 21 width 1 timing LEGACY(SDR12) dt B
+[   43.994833] sunxi-mmc 4021000.sdmmc: no vqmmc,Check if there is regulator
+[   44.015010] sunxi-mmc 4021000.sdmmc: sdc set ios:clk 400000Hz bm PP pm ON vdd 21 width 1 timing LEGACY(SDR12) dt B
+[   44.040063] sunxi-mmc 4021000.sdmmc: smc 1 p1 err, cmd 52, RTO !!
+[   44.047799] sunxi-mmc 4021000.sdmmc: smc 1 p1 err, cmd 52, RTO !!
+[   44.054712] sunxi-mmc 4021000.sdmmc: sdc set ios:clk 400000Hz bm PP pm ON vdd 21 width 1 timing LEGACY(SDR12) dt B
+[   44.069432] sunxi-mmc 4021000.sdmmc: sdc set ios:clk 400000Hz bm PP pm ON vdd 21 width 1 timing LEGACY(SDR12) dt B
+[   44.083580] sunxi-mmc 4021000.sdmmc: smc 1 p1 err, cmd 11, RE !!
+[   44.105654] mmc1: queuing unknown CIS tuple 0x10 (5 bytes)
+[   44.117421] sunxi-mmc 4021000.sdmmc: sdc set ios:clk 50000000Hz bm PP pm ON vdd 21 width 1 timing LEGACY(SDR12) dt B
+[   44.129549] sunxi-mmc 4021000.sdmmc: sdc set ios:clk 50000000Hz bm PP pm ON vdd 21 width 4 timing LEGACY(SDR12) dt B
+[   44.141815] mmc1: queuing unknown CIS tuple 0x10 (5 bytes)
+[   44.149658] mmc1: new SDIO card at address 03ef
+[   44.172351] aicbsp: aicbsp_sdio_probe:2
+[   44.176669] aicbsp: aicbsp_sdio_probe:2, matched chip: aic8800d
+[   44.183581] aicbsp: aicbsp_sdio_probe after replace:1
+[   44.189261] aicbsp: aicbsp_sdio_probe host max clock frequecy: 50000000
+[   44.196681] aicbsp: aicwf_sdio_reg_init
+[   44.201102] sunxi-mmc 4021000.sdmmc: sdc set ios:clk 50000000Hz bm PP pm ON vdd 21 width 4 timing LEGACY(SDR12) dt B
+[   44.213019] aicbsp: Set SDIO Clock 50 MHz
+[   44.220116] aicbsp: aicbsp_8800d_fw_init, rev id: 0x7, subrev id: 0x20
+[   44.230632] rwnx_request_firmware, name: fw_patch_table_u03.bin
+[   44.237377] aicbt_patch_info_unpack bt patch version: - Dec 26 2023 17:14:56 - git 77d5f59
+[   44.246688] aicbt_init no patch info found in bt fw
+[   44.253036] rwnx_request_firmware, name: fw_adid_u03.bin
+[   44.262182] rwnx_request_firmware, name: fw_patch_u03.bin
+[   44.286057] aicbt_patch_table_load bt uart baud: 1500000, flowctrl: 1, lpm_enable: 1, tx_pwr: 24608, bt mode:255.
+[   44.340925] rwnx_request_firmware, name: fmacfw.bin
+[   44.442535] aicbsp: crypto data 8A283F6FC12FA5A3BB3C1C455178BC03
+[   44.449575] aicbsp: verify data AB7745FB9E34DD678A42765B329A4509
+[   44.457186] aicsdio: aicwf_sdio_probe:1
+[   44.462046] aicsdio: aicwf_sdio_reg_init
+[   44.467219] sunxi-mmc 4021000.sdmmc: sdc set ios:clk 50000000Hz bm PP pm ON vdd 21 width 4 timing LEGACY(SDR12) dt B
+[   44.479495] aicsdio: Set SDIO Clock 50 MHz
+[   44.491461] aicbsp: err:<aicwf_sdio_bus_pwrctl,1256>: bus down
+[   44.494393] aicbsp: aicbsp_resv_mem_alloc_skb, alloc resv_mem_txdata succuss, id: 0, size: 98304
+[   44.508515] >>> rwnx_platform_init()
+[   44.512583] >>> rwnx_cfg80211_init()
+[   44.516630] rwnx_cfg80211_init sizeof(struct rwnx_hw):30568 
+[   44.523170] >>> rwnx_init_aic()
+[   44.526770] >>> rwnx_cmd_mgr_init()
+[   44.534872] >>> rwnx_send_set_stack_start_req()
+[   44.540576] is 5g support = 1, vendor_info = 0x21
+[   44.546284] Firmware Version: mi Dec 26 2023 17:30:50 - ga75cab6e
+[   44.546290] >>> rwnx_platform_on()
+[   44.557164] >>> rwnx_plat_fmac_load()
+[   44.565445] userconfig file path:aic_userconfig.txt 
+[   44.574271] rwnx_plat_userconfig_parsing, enable = 1
+[   44.579882] rwnx_plat_userconfig_parsing, dsss = 10
+[   44.585527] rwnx_plat_userconfig_parsing, ofdmlowrate_2g4 = 11
+[   44.592121] rwnx_plat_userconfig_parsing, ofdm64qam_2g4 = 10
+[   44.598520] rwnx_plat_userconfig_parsing, ofdm256qam_2g4 = 10
+[   44.605145] rwnx_plat_userconfig_parsing, ofdm1024qam_2g4 = 9
+[   44.614840] rwnx_plat_userconfig_parsing, ofdmlowrate_5g = 11
+[   44.621367] rwnx_plat_userconfig_parsing, ofdm64qam_5g = 10
+[   44.627648] rwnx_plat_userconfig_parsing, ofdm256qam_5g = 10
+[   44.634055] rwnx_plat_userconfig_parsing, ofdm1024qam_5g = 9
+[   44.640681] rwnx_plat_userconfig_parsing, ofst_enable = 1
+[   44.648313] rwnx_plat_userconfig_parsing, ofst_chan_1_4 = -5
+[   44.654973] rwnx_plat_userconfig_parsing, ofst_chan_5_9 = -2
+[   44.661952] rwnx_plat_userconfig_parsing, ofst_chan_10_13 = -2
+[   44.669307] rwnx_plat_userconfig_parsing, ofst_chan_36_64 = -5
+[   44.676217] rwnx_plat_userconfig_parsing, ofst_chan_100_120 = -6
+[   44.683184] rwnx_plat_userconfig_parsing, ofst_chan_122_140 = -6
+[   44.690067] rwnx_plat_userconfig_parsing, ofst_chan_142_165 = 4
+[   44.696757] >>> rwnx_send_rf_calib_req()
+[   45.018901] VE: enable hw clock
+[   45.028975] >>> rwnx_send_txpwr_idx_req()
+[   45.033877] >>> rwnx_send_txpwr_ofst_req()
+[   45.038884] get macaddr: 20:a0:01:1d:54:64
+[   45.043689] >>> rwnx_send_reset()
+[   45.048379] VE: disable hw clock
+[   45.052179] >>> rwnx_send_version_req()
+[   45.056867] >>> rwnx_set_vers()
+[   45.060540] >>> rwnx_send_me_config_req()
+[   45.063867] VE: enable hw clock
+[   45.065106] ieee80211 phy0: HT supp 1, VHT supp 1, HE supp 1
+[   45.080873] >>> rwnx_send_me_chan_config_req()
+[   45.089701] >>> rwnx_send_me_chan_config_req()
+[   45.095504] >>> rwnx_dbgfs_register()
+[   45.099193] VE: disable hw clock
+[   45.100860] rwnx_interface_add: wlan%d, 2, 10
+[   45.102684] interface add:20 a0 1 1d 54 64
+[   45.141598] VE: enable hw clock
+[   45.176678] VE: disable hw clock
+[   45.200887] VE: enable hw clock
+[   45.225098] ieee80211 phy0: New interface create wlan0
+[   45.233210] VE: disable hw clock
+[   45.281620] VE: enable hw clock
+[   45.283083] >>> rwnx_open()
+[   45.288976] >>> rwnx_send_start()
+[   45.293816] >>> rwnx_send_coex_req()
+[   45.299946] >>> rwnx_send_add_if()
+[   45.329256] VE: disable hw clock
+[   45.341446] VE: enable hw clock
+[   45.379700] VE: disable hw clock
+[   45.401945] VE: enable hw clock
+[   45.438648] VE: disable hw clock
+[   45.486035] init: starting service 'wpa_supplicant'...
+[   45.491012] VE: enable hw clock
+[   45.503158] init: Created socket '/dev/socket/wpa_wlan0', mode 660, user 1010, group 1010
+[   45.513258] VE: disable hw clock
+[   45.519845] init: Control message: Processed ctl.interface_start for 'android.hardware.wifi.supplicant@1.0::ISupplicant/default' from pid: 2269 (/system/bin/hwservicemanager)
+[   45.573160] VE: enable hw clock
+[   45.588776] VE: disable hw clock
+[   45.697128] capability: warning: `wpa_supplicant' uses 32-bit capabilities (legacy support in use)
+[   45.882843] rwnx_virtual_interface_add: 10, p2p-dev-wlan0
+[   45.888962] rwnx_virtual_interface_add, ifname=p2p-dev-wlan0, wdev=67f4221e, vif_idx=1
+[   45.897877] p2p dev addr=20 a0 1 1d 54 65
+[   45.910014] P2P interface started
+[   46.176834] type=1400 audit(163.112:61): avc: denied { add_name } for comm="Binder:2617_4" name="globalAlert" scontext=u:r:netd:s0 tcontext=u:object_r:proc_net:s0 tclass=dir permissive=1
+[   46.196569] type=1400 audit(163.112:62): avc: denied { create } for comm="Binder:2617_4" name="globalAlert" scontext=u:r:netd:s0 tcontext=u:object_r:proc_net:s0 tclass=file permissive=1
+[   49.331741] type=1400 audit(166.268:63): avc: denied { read } for comm="Thread-13" name="debug_fantrl" dev="sysfs" ino=19141 scontext=u:r:system_server:s0 tcontext=u:object_r:sysfs:s0 tclass=file permissive=1
+[   49.352876] type=1400 audit(166.268:64): avc: denied { open } for comm="Thread-13" path="/sys/devices/platform/fan_ctrl/debug_fantrl" dev="sysfs" ino=19141 scontext=u:r:system_server:s0 tcontext=u:object_r:sysfs:s0 tclass=file permissive=1
+[   49.377037] type=1400 audit(166.268:65): avc: denied { getattr } for comm="Thread-13" path="/sys/devices/platform/fan_ctrl/debug_fantrl" dev="sysfs" ino=19141 scontext=u:r:system_server:s0 tcontext=u:object_r:sysfs:s0 tclass=file permissive=1
+[   49.401578] type=1400 audit(166.284:66): avc: denied { write } for comm="Thread-13" name="debug_fantrl" dev="sysfs" ino=19141 scontext=u:r:system_server:s0 tcontext=u:object_r:sysfs:s0 tclass=file permissive=1
+[   49.706383] init: processing action (sys.usb.config=none && sys.usb.configfs=1) from (/vendor/etc/init/hw/init.sun50iw12p1.usb.rc:37)
+[   49.732328] init: processing action (sys.usb.config=none && sys.usb.configfs=1) from (/system/etc/init/hw/init.usb.configfs.rc:1)
+[   49.748578] init: Command 'write /config/usb_gadget/g1/UDC none' action=sys.usb.config=none && sys.usb.configfs=1 (/system/etc/init/hw/init.usb.configfs.rc:2) took 2ms and failed: Unable to write to file '/config/usb_gadget/g1/UDC': Unable to write file contents: No such device
+[   49.785830] init: Command 'rm /config/usb_gadget/g1/configs/b.1/f1' action=sys.usb.config=none && sys.usb.configfs=1 (/system/etc/init/hw/init.usb.configfs.rc:8) took 0ms and failed: unlink() failed: No such file or directory
+[   49.809019] init: Command 'rm /config/usb_gadget/g1/configs/b.1/f2' action=sys.usb.config=none && sys.usb.configfs=1 (/system/etc/init/hw/init.usb.configfs.rc:9) took 0ms and failed: unlink() failed: No such file or directory
+[   49.831946] init: Command 'rm /config/usb_gadget/g1/configs/b.1/f3' action=sys.usb.config=none && sys.usb.configfs=1 (/system/etc/init/hw/init.usb.configfs.rc:10) took 0ms and failed: unlink() failed: No such file or directory
+[   49.854972] init: Command 'rmdir /config/usb_gadget/g1/functions/rndis.gs4' action=sys.usb.config=none && sys.usb.configfs=1 (/system/etc/init/hw/init.usb.configfs.rc:11) took 0ms and failed: rmdir() failed: No such file or directory
+[   49.883229] init: processing action (sys.usb.config=mtp && sys.usb.configfs=1) from (/vendor/etc/init/hw/init.sun50iw12p1.usb.rc:40)
+[   49.900257] init: processing action (sys.usb.config=mtp && sys.usb.configfs=1) from (/system/etc/init/hw/init.usb.configfs.rc:26)
+[   49.920759] init: Command 'symlink /config/usb_gadget/g1/functions/mtp.gs0 /config/usb_gadget/g1/configs/b.1/f1' action=sys.usb.config=mtp && sys.usb.configfs=1 (/system/etc/init/hw/init.usb.configfs.rc:28) took 1ms and failed: symlink() failed: File exists
+[   49.982393] type=1400 audit(166.920:67): avc: denied { add_name } for comm="init" name="policy" scontext=u:r:vendor_init:s0 tcontext=u:object_r:sysfs_thermal:s0 tclass=dir permissive=1
+[   50.001360] type=1400 audit(166.920:68): avc: denied { create } for comm="init" name="policy" scontext=u:r:vendor_init:s0 tcontext=u:object_r:sysfs_thermal:s0 tclass=file permissive=1
+[   50.118957] init (1684): drop_caches: 3
+[   50.128474] type=1400 audit(167.068:69): avc: denied { add_name } for comm="init" name="max_comp_streams" scontext=u:r:vendor_init:s0 tcontext=u:object_r:sysfs_zram:s0 tclass=dir permissive=1
+[   50.147889] type=1400 audit(167.068:70): avc: denied { create } for comm="init" name="max_comp_streams" scontext=u:r:vendor_init:s0 tcontext=u:object_r:sysfs_zram:s0 tclass=file permissive=1
+[   50.695954] zram: setup backing device /dev/block/loop0
+[   50.704901] zram0: detected capacity change from 0 to 879439872
+[   50.764421] mkswap: Swapspace size: 858824k, UUID=575c9aef-f0cf-42d8-a98f-4797a49dafda
+[   50.811611] Adding 858824k swap on /dev/block/zram0.  Priority:-2 extents:1 across:858824k SS
+[   50.991418] treadahead: /data/vendor/treadahead/readahead_file_offset not exist;  
+[   51.000277] treadahead: go to read trace
+[   51.345308] type=1400 audit(168.284:73): avc: denied { read } for comm="Thread-13" name="debug_fantrl" dev="sysfs" ino=19141 scontext=u:r:system_server:s0 tcontext=u:object_r:sysfs:s0 tclass=file permissive=1
+[   51.366433] type=1400 audit(168.284:74): avc: denied { open } for comm="Thread-13" path="/sys/devices/platform/fan_ctrl/debug_fantrl" dev="sysfs" ino=19141 scontext=u:r:system_server:s0 tcontext=u:object_r:sysfs:s0 tclass=file permissive=1
+[   51.390552] type=1400 audit(168.284:75): avc: denied { getattr } for comm="Thread-13" path="/sys/devices/platform/fan_ctrl/debug_fantrl" dev="sysfs" ino=19141 scontext=u:r:system_server:s0 tcontext=u:object_r:sysfs:s0 tclass=file permissive=1
+[   51.415014] type=1400 audit(168.296:76): avc: denied { write } for comm="Thread-13" name="debug_fantrl" dev="sysfs" ino=19141 scontext=u:r:system_server:s0 tcontext=u:object_r:sysfs:s0 tclass=file permissive=1
+[   52.044315] type=1400 audit(168.980:77): avc: denied { write search } for comm="migrate_legacy_" name="tmp" dev="mmcblk0p25" ino=71 scontext=u:r:migrate_legacy_obb_data:s0 tcontext=u:object_r:shell_data_file:s0 tclass=dir permissive=1
+[   52.067992] type=1400 audit(168.980:78): avc: denied { getattr } for comm="migrate_legacy_" path="/data/local/tmp" dev="mmcblk0p25" ino=71 scontext=u:r:migrate_legacy_obb_data:s0 tcontext=u:object_r:shell_data_file:s0 tclass=dir permissive=1
+[   53.359941] type=1400 audit(170.296:79): avc: denied { read } for comm="Thread-13" name="debug_fantrl" dev="sysfs" ino=19141 scontext=u:r:system_server:s0 tcontext=u:object_r:sysfs:s0 tclass=file permissive=1
+[   53.381385] type=1400 audit(170.296:80): avc: denied { open } for comm="Thread-13" path="/sys/devices/platform/fan_ctrl/debug_fantrl" dev="sysfs" ino=19141 scontext=u:r:system_server:s0 tcontext=u:object_r:sysfs:s0 tclass=file permissive=1
+[   53.405701] type=1400 audit(170.296:81): avc: denied { getattr } for comm="Thread-13" path="/sys/devices/platform/fan_ctrl/debug_fantrl" dev="sysfs" ino=19141 scontext=u:r:system_server:s0 tcontext=u:object_r:sysfs:s0 tclass=file permissive=1
+[   53.432740] type=1400 audit(170.372:82): avc: denied { write } for comm="Thread-13" name="debug_fantrl" dev="sysfs" ino=19141 scontext=u:r:system_server:s0 tcontext=u:object_r:sysfs:s0 tclass=file permissive=1
+[   55.478895] init: Service 'bootanim' (pid 3009) exited with status 0 oneshot service took 43.021999 seconds in background
+[   55.525890] init: Sending signal 9 to service 'bootanim' (pid 3009) process group...
+[   55.556725] libprocessgroup: Successfully killed process cgroup uid 1003 pid 3009 in 0ms
+[   55.991925] init: Service 'appsdisable' (pid 4870) exited with status 0 oneshot service took 5.167000 seconds in background
+[   56.004500] init: Sending signal 9 to service 'appsdisable' (pid 4870) process group...
+[   56.013996] libprocessgroup: Successfully killed process cgroup uid 0 pid 4870 in 0ms
+[   56.441533] init: Service 'gmsopt' (pid 4873) exited with status 0 oneshot service took 5.592000 seconds in background
+[   56.459968] init: Sending signal 9 to service 'gmsopt' (pid 4873) process group...
+[   56.481866] libprocessgroup: Successfully killed process cgroup uid 0 pid 4873 in 6ms
+[   56.656352] binder: undelivered TRANSACTION_COMPLETE
+[   56.662171] binder: undelivered transaction 29154, process died.
+[   57.005989] treadahead: device do not provisioned:do not trace - wait next time 
+[   57.195925] init: processing action (persist.debug.traced.enable=0 && persist.sys.without.treadahead=1) from (/system/etc/init/atrace.rc:174)
+[   57.211691] treadahead: trace readahead complete
+[   57.509244] type=1400 audit(174.448:88): avc: denied { read } for comm="Thread-13" name="debug_fantrl" dev="sysfs" ino=19141 scontext=u:r:system_server:s0 tcontext=u:object_r:sysfs:s0 tclass=file permissive=1
+[   57.566119] type=1400 audit(174.448:89): avc: denied { open } for comm="Thread-13" path="/sys/devices/platform/fan_ctrl/debug_fantrl" dev="sysfs" ino=19141 scontext=u:r:system_server:s0 tcontext=u:object_r:sysfs:s0 tclass=file permissive=1
+[   57.591036] type=1400 audit(174.448:90): avc: denied { getattr } for comm="Thread-13" path="/sys/devices/platform/fan_ctrl/debug_fantrl" dev="sysfs" ino=19141 scontext=u:r:system_server:s0 tcontext=u:object_r:sysfs:s0 tclass=file permissive=1
+[   57.619797] type=1400 audit(174.484:91): avc: denied { write } for comm="Thread-13" name="debug_fantrl" dev="sysfs" ino=19141 scontext=u:r:system_server:s0 tcontext=u:object_r:sysfs:s0 tclass=file permissive=1
+[   57.766635] wrong cmd:(null) in handle_private_cmd
+[   57.776150] wrong cmd:(null) in handle_private_cmd
+[   57.796398] wrong cmd:(null) in handle_private_cmd
+[   57.802839] wrong cmd:(null) in handle_private_cmd
+[   57.809335] wrong cmd:(null) in handle_private_cmd
+[   57.816174] wrong cmd:(null) in handle_private_cmd
+[   57.824291] wrong cmd:(null) in handle_private_cmd
+[   57.831700] >>> rwnx_send_me_set_lp_level()
+[   57.839593] set suspend mode 0
+[   59.549684] type=1400 audit(176.488:92): avc: denied { read } for comm="Thread-13" name="debug_fantrl" dev="sysfs" ino=19141 scontext=u:r:system_server:s0 tcontext=u:object_r:sysfs:s0 tclass=file permissive=1
+[   59.581534] type=1400 audit(176.488:93): avc: denied { open } for comm="Thread-13" path="/sys/devices/platform/fan_ctrl/debug_fantrl" dev="sysfs" ino=19141 scontext=u:r:system_server:s0 tcontext=u:object_r:sysfs:s0 tclass=file permissive=1
+[   59.607356] type=1400 audit(176.488:94): avc: denied { getattr } for comm="Thread-13" path="/sys/devices/platform/fan_ctrl/debug_fantrl" dev="sysfs" ino=19141 scontext=u:r:system_server:s0 tcontext=u:object_r:sysfs:s0 tclass=file permissive=1
+[   59.616295] audit: audit_lost=1 audit_rate_limit=5 audit_backlog_limit=64
+[   59.639163] type=1400 audit(176.520:95): avc: denied { read write } for comm="inner.dragonbox" name="mmcblk0" dev="tmpfs" ino=10614 scontext=u:r:system_app:s0 tcontext=u:object_r:root_block_device:s0 tclass=blk_file permissive=1
+[   59.639491] type=1400 audit(176.520:96): avc: denied { open } for comm="inner.dragonbox" path="/dev/block/mmcblk0" dev="tmpfs" ino=10614 scontext=u:r:system_app:s0 tcontext=u:object_r:root_block_device:s0 tclass=blk_file permissive=1
+[   59.666620] audit: rate limit exceeded
+[   60.638266] type=1400 audit(177.576:98): avc: denied { read write } for comm="inner.dragonbox" name="mmcblk0" dev="tmpfs" ino=10614 scontext=u:r:system_app:s0 tcontext=u:object_r:root_block_device:s0 tclass=blk_file permissive=1
+[   61.386093] init: processing action (sys.shutdown_backlight=1) from (/vendor/etc/init/hw/init.common.rc:31)
+[   61.472081] init: Command 'write /sys/class/backlight/tv/bl_power 5' action=sys.shutdown_backlight=1 (/vendor/etc/init/hw/init.common.rc:32) took 57ms and succeeded
+[   63.691098] type=1400 audit(180.628:105): avc: denied { write } for comm="Thread-13" name="debug_fantrl" dev="sysfs" ino=19141 scontext=u:r:system_server:s0 tcontext=u:object_r:sysfs:s0 tclass=file permissive=1
+[   64.333075] VE: enable hw clock
+[   64.432996] VE: disable hw clock
+[   64.482293] VE: enable hw clock
+[   64.520850] VE: disable hw clock
+[   64.535970] VE: enable hw clock
+[   64.671554] aa func = sunxi_codec_set_spk_status, line = 505
+[   64.683601] sunxi_codec_set_hp_status 645  Hp on open!
+[   64.717706] VE: disable hw clock
+[   64.750410] VE: enable hw clock
+[   65.333587] init: Received sys.powerctl='shutdown,' from pid: 3148 (system_server)
+[   65.361548] init: Clear action queue and start shutdown trigger
+[   65.366874] VE: disable hw clock
+[   65.378839] init: Entering shutdown mode
+[   65.386395] init: processing action (shutdown_done) from (<Builtin Action>:0)
+[   65.391941] VE: enable hw clock
+[   65.394911] init: Reboot start, reason: shutdown,, reboot_target: 
+[   65.405798] init: Shutdown timeout: 6000 ms
+[   65.411049] init: Create reboot monitor thread.
+[   65.418348] init: shutdown_timeout_timespec.tv_sec: 371
+[   65.448230] binder: release 4892:4892 transaction 23464 out, still active
+[   65.484045] >>> rwnx_close()
+[   65.506928] aicwf_sdio mmc1:03ef:1 wlan0: CLOSE
+[   65.510973] binder: undelivered death notification, 00000000a9fc4cd0
+[   65.526527] >>> rwnx_send_remove_if()
+[   65.531042] >>> rwnx_send_msg1()
+[   65.537383] >>> rwnx_send_coex_req()
+[   65.542252] binder: release 2736:2931 transaction 39556 in, still active
+[   65.550210] binder: send failed reply for transaction 39556 to 5011:5836
+[   65.550346] >>> rwnx_send_reset()
+[   65.557799] aa func = sunxi_codec_set_spk_status, line = 505
+[   65.568348] >>> rwnx_send_me_config_req()
+[   65.574350] ieee80211 phy0: HT supp 1, VHT supp 1, HE supp 1
+[   65.583492] >>> rwnx_send_me_chan_config_req()
+[   65.589940] Exit. P2P interface stopped
+[   65.595009] >>> rwnx_cfg80211_del_key()
+[   65.599814] >>> rwnx_send_key_del()
+[   65.604600] >>> rwnx_cfg80211_del_key()
+[   65.609554] >>> rwnx_send_key_del()
+[   65.613803] >>> rwnx_cfg80211_del_key()
+[   65.618118] >>> rwnx_send_key_del()
+[   65.622416] >>> rwnx_cfg80211_del_key()
+[   65.626770] >>> rwnx_send_key_del()
+[   65.630975] >>> rwnx_cfg80211_del_key()
+[   65.635881] >>> rwnx_send_key_del()
+[   65.640190] >>> rwnx_cfg80211_del_key()
+[   65.644781] >>> rwnx_send_key_del()
+[   65.649110] del_iface: 67f4221e, 65
+[   65.673355] >>> rwnx_send_me_chan_config_req()
+[   65.695277] >>> rwnx_send_me_chan_config_req()
+[   65.697706] type=1400 audit(182.632:106): avc: denied { read } for comm="Thread-13" name="debug_fantrl" dev="sysfs" ino=19141 scontext=u:r:system_server:s0 tcontext=u:object_r:sysfs:s0 tclass=file permissive=1
+[   65.723103] type=1400 audit(182.632:107): avc: denied { open } for comm="Thread-13" path="/sys/devices/platform/fan_ctrl/debug_fantrl" dev="sysfs" ino=19141 scontext=u:r:system_server:s0 tcontext=u:object_r:sysfs:s0 tclass=file permissive=1
+[   65.748260] type=1400 audit(182.632:108): avc: denied { getattr } for comm="Thread-13" path="/sys/devices/platform/fan_ctrl/debug_fantrl" dev="sysfs" ino=19141 scontext=u:r:system_server:s0 tcontext=u:object_r:sysfs:s0 tclass=file permissive=1
+[   66.063766] type=1400 audit(182.996:109): avc: denied { write } for comm="Thread-13" name="debug_fantrl" dev="sysfs" ino=19141 scontext=u:r:system_server:s0 tcontext=u:object_r:sysfs:s0 tclass=file permissive=1
+[   66.239908] binder: send failed reply for transaction 39609 to 3148:4059
+[   66.267239] binder_alloc: 2668: binder_alloc_buf, no vma
+[   66.281975] binder: 4753:4753 transaction failed 29189/-3, size 88-0 line 3294
+[   66.315250] binder: undelivered transaction 40017, process died.
+[   66.322881] binder: send failed reply for transaction 40018 to 3148:3308
+[   66.331322] binder: undelivered transaction 40023, process died.
+[   66.338800] binder: send failed reply for transaction 40025 to 3148:3305
+[   66.628750] libprocessgroup: Failed to kill process cgroup uid 0 pid 2618 in 242ms, 1 processes remain
+[   66.642225] init: Service 'lmkd' (pid 2267) received signal 15
+[   66.649082] init: Sending signal 9 to service 'lmkd' (pid 2267) process group...
+[   66.658040] libprocessgroup: Successfully killed process cgroup uid 1069 pid 2267 in 0ms
+[   66.668973] init: Service 'media' (pid 2736) received signal 15
+[   66.675904] init: Sending signal 9 to service 'media' (pid 2736) process group...
+[   66.684783] libprocessgroup: Successfully killed process cgroup uid 1013 pid 2736 in 0ms
+[   66.695394] init: Service 'multi_ir' (pid 2740) received signal 15
+[   66.702597] init: Sending signal 9 to service 'multi_ir' (pid 2740) process group...
+[   66.711988] libprocessgroup: Successfully killed process cgroup uid 0 pid 2740 in 0ms
+[   66.797267] vdc: Waited 0ms for vold
+[   66.845750] vdc: Waited 0ms for vold
+[   66.850206] binder_alloc: 3148: binder_alloc_buf, no vma
+[   66.856295] binder: 2280:2280 transaction failed 29189/-3, size 100-0 line 3294
+[   66.956365] binder: undelivered TRANSACTION_COMPLETE
+[   66.966568] binder: undelivered TRANSACTION_ERROR: 29189
+[   66.972669] binder: undelivered TRANSACTION_COMPLETE
+[   66.978821] binder: undelivered TRANSACTION_ERROR: 29189
+[   66.985493] binder: release 3148:4484 transaction 23464 in, still active
+[   66.988446] printk: logd.auditd: 40 output lines suppressed due to ratelimiting
+[   66.993554] binder: send failed reply for transaction 23464, target dead
+[   67.012491] binder: undelivered death notification, 00000000a85bd9b0
+[   67.100676] audit: type=1400 audit(184.040:110): avc:  denied  { add_name } for  pid=1 comm="init" name="reset" scontext=u:r:init:s0 tcontext=u:object_r:sysfs_zram:s0 tclass=dir permissive=1
+[   67.152942] zram0: detected capacity change from 879439872 to 0
+[   67.889355] reboot_callback(): empty arg
+[   67.911623] ge2d 5240000.ge2d: acquire tvdisp clock on emergency shutdown
+[   68.631666] Invalid pin
+[   68.634413] Invalid pin
+[   68.637193] ge2d 5240000.ge2d: ge2d suspend
+[   68.642056] [ohci2-controller]: ohci shutdown start
+[   68.647569] [ohci2-controller]: ohci shutdown end
+[   68.652885] [ohci1-controller]: ohci shutdown start
+[   68.658387] [ohci1-controller]: ohci shutdown end
+[   68.663705] [ohci0-controller]: ohci shutdown start
+[   68.669207] [ohci0-controller]: ohci shutdown end
+[   68.674519] [ehci2-controller]: ehci shutdown start
+[   68.680017] [ehci2-controller]: ehci shutdown end
+[   68.685333] [ehci1-controller]: ehci shutdown start
+[   68.690823] [ehci1-controller]: ehci shutdown end
+[   68.696141] [ehci0-controller]: ehci shutdown start
+[   68.701636] [ehci0-controller]: ehci shutdown end
+[   68.715975] sunxi-mmc 4022000.sdmmc: sdc set ios:clk 0Hz bm PP pm OFF vdd 0 width 1 timing LEGACY(SDR12) dt B
+[   68.895611] reboot: Power down
+[82]HELLO! BOOT0 is starting!
+[85]BOOT0 commit : 865e5927
+[88]set pll start
+[91]set pll end
+[93]ldob fix
+[94]prcm cpus timer clock enable
+[98]board init ok
+[100]rtc[0] value = 0x14ff00
+[103]rtc[2] value = 0x2
+[105]rtc[3] value = 0xa102
+[108]rtc[4] value = 0xf
+[111][mmc]: mmc driver ver 2021-07-13 11:09
+[121][mmc]: Wrong media type 0x0
+[125][mmc]: ***Try SD card 2***
+[129][mmc]: mmc 2 cmd 8 timeout, err 100
+[133][mmc]: mmc 2 cmd 8 err 100
+[137][mmc]: mmc 2 send if cond failed
+[141][mmc]: mmc 2 cmd 55 timeout, err 100
+[146][mmc]: mmc 2 cmd 55 err 100
+[149][mmc]: mmc 2 send app cmd failed
+[153][mmc]: ***Try MMC card 2***
+[194][mmc]: RMCA OK!
+[196][mmc]: bias 4
+[203][mmc]: MMC 5.0
+[205][mmc]: HSSDR52/SDR25 8 bit
+[209][mmc]: 50000000 Hz
+[211][mmc]: 7456 MB
+[213][mmc]: ***SD/MMC 2 init OK!!!***
+[228]DRAM only have internal ZQ!!
+[231]DRAM BOOT DRIVE INFO: V0.60
+[235]DRAM CLK = 624 MHz
+[237]DRAM Type = 3 (2:DDR2,3:DDR3)
+[241]DRAMC ZQ value: 0x7b7bfb
+[244]DRAM ODT value: 0x40.
+[247]the id value: 0x42
+[251]DRAM SIZE =1024 M
+[280]DRAM simple test OK.
+[283]dram size =1024
+[291]nsi init ok 2020-7-12
+[294]card no is 2
+[296]sdcard 2 line count 8
+[299][mmc]: mmc driver ver 2021-07-13 11:09
+[309][mmc]: ***Try MMC card 2***
+[380][mmc]: RMCA OK!
+[383][mmc]: bias 4
+[388][mmc]: MMC 5.0
+[390][mmc]: HSSDR52/SDR25 8 bit
+[394][mmc]: 50000000 Hz
+[396][mmc]: 7456 MB
+[398][mmc]: ***SD/MMC 2 init OK!!!***
+[554]Loading boot-pkg Succeed(index=0).
+[558]Entry_name        = u-boot
+[573]Entry_name        = monitor
+[577]Entry_name        = scp
+[583]Entry_name        = optee
+[592]Entry_name        = dtb
+[596]tunning data addr:0x4a0003e8
+[600]Jump to second Boot.
+NOTICE:  BL3-1: v1.0(debug):d85c03b
+NOTICE:  BL3-1: Built : 19:48:38, 2022-12-07
+NOTICE:  BL3-1 commit: 8
+NOTICE:  secure os exist
+E/TC:0 0 init_external_dt:1033 Device Tree missing
+M/TC: OP-TEE version: 70d6bc54 (gcc version 5.3.1 20160412 (Linaro GCC 5.3-2016.05)) #1 Fri Oct 21 06:53:45 UTC 2022 arm
+NOTICE:  BL3-1: Preparing for EL3 exit to normal world
+NOTICE:  BL3-1: Next image address = 0x4a000000
+NOTICE:  BL3-1: Next image spsr = 0x1d3
+
+U-Boot 2018.05-00018-gd7a124a-dirty (Apr 20 2024 - 10:21:12 +0800) Allwinner Technology
+
+[00.698]CPU:   Allwinner Family
+[00.701]Model: sun50iw12
+I2C:   FDT ERROR:fdt_set_all_pin:[twi0]-->FDT_ERR_BADPATH
+FDT ERROR:fdt_set_all_pin:[twi1]-->FDT_ERR_BADPATH
+ready
+[00.728]DRAM:  1 GiB
+[00.732]Relocation Offset is: 35f11000
+[00.760]secure enable bit: 0
+E/TC:0   fdt_getprop_u32:343 prop trace_level not found
+[00.776]CPU=1392 MHz,PLL6=600 Mhz,AHB=150 Mhz, APB1=100Mhz  MBus=400Mhz
+[00.782]gic: sec monitor mode
+[00.797]flash init start
+[00.799]workmode = 0,storage type = 2
+[00.803][mmc]: mmc driver ver uboot2018:2023-05-16 11:34:00 avoid-repeat-reset-host
+[00.811][mmc]: get sdc2 sdc_dis_host_caps 0x180.
+[00.815][mmc]: SUNXI SDMMC Controller Version:0x50400
+[00.887][mmc]: Best spd md: 2-HSDDR52/DDR50, freq: 2-50000000, Bus width: 8
+[00.894]sunxi flash init ok
+pwm_led_init 01 , data=0x41005
+pwm_led_init 02 , data=0x41145
+change pwm ch to fan !
+[00.905]period_ns:40000 max_duty_ns:102000 min_duty_ns:0 duty_ns:16000
+change pwm ch to fan end!
+pwm_led_init end
+[00.915]Loading Environment from SUNXI_FLASH... OK
+[00.930]usb burn from boot
+delay time 0
+weak:otg_phy_config
+[00.940]usb prepare ok
+[01.743]overtime is 800, begin_time is 801
+[01.748]do_burn_from_boot usb : no usb exist
+resetting USB...
+[01.754]USB0:   start sunxi  USB-DRD...
+config usb clk ok
+sunxi USB-DRD init ok...
+USB EHCI 1.00
+scanning bus 0 for devices... 1 USB Device(s) found
+[02.204]USB1:   start sunxi  USB1-Host...
+config usb clk ok
+sunxi USB1-Host init ok...
+USB EHCI 1.00
+scanning bus 1 for devices... 1 USB Device(s) found
+[02.655]scanning usb for storage devices... 0 Storage Device(s) found
+** Bad device usb 0 **
+** Bad device usb 0 **
+[SCP] :wait arisc ready....
+[SCP] :arisc version: [jorpotcevt-r-303rdna1dio0v-14-8.97g-39f2]
+[SCP] :arisc startup ready
+[SCP] :arisc startup notify message feedback
+[SCP] :sunxi-arisc driver v1.10 is starting
+?l?[79]HELLO! BOOT0 is starting!
+[82]BOOT0 commit : 865e5927
+[85]set pll start
+[88]set pll end
+[90]ldob fix
+[91]prcm cpus timer clock enable
+[94]board init ok
+[96]rtc[0] value = 0x14ff00
+[100]rtc[2] value = 0xf
+[102]rtc[3] value = 0xf4f48003
+[105]rtc[4] value = 0xf
+[108][mmc]: mmc driver ver 2021-07-13 11:09
+[119][mmc]: Wrong media type 0x0
+[122][mmc]: ***Try SD card 2***
+[126][mmc]: mmc 2 cmd 8 timeout, err 100
+[130][mmc]: mmc 2 cmd 8 err 100
+[134][mmc]: mmc 2 send if cond failed
+[138][mmc]: mmc 2 cmd 55 timeout, err 100
+[143][mmc]: mmc 2 cmd 55 err 100
+[146][mmc]: mmc 2 send app cmd failed
+[150][mmc]: ***Try MMC card 2***
+[188][mmc]: RMCA OK!
+[190][mmc]: bias 4
+[197][mmc]: MMC 5.0
+[200][mmc]: HSSDR52/SDR25 8 bit
+[203][mmc]: 50000000 Hz
+[205][mmc]: 7456 MB
+[208][mmc]: ***SD/MMC 2 init OK!!!***
+[222]DRAM only have internal ZQ!!
+[226]DRAM BOOT DRIVE INFO: V0.60
+[229]DRAM CLK = 624 MHz
+[231]DRAM Type = 3 (2:DDR2,3:DDR3)
+[235]DRAMC ZQ value: 0x7b7bfb
+[238]DRAM ODT value: 0x40.
+[241]the id value: 0x42
+[245]DRAM SIZE =1024 M
+[275]DRAM simple test OK.
+[277]dram size =1024
+[285]nsi init ok 2020-7-12
+[288]card no is 2
+[290]sdcard 2 line count 8
+[293][mmc]: mmc driver ver 2021-07-13 11:09
+[303][mmc]: ***Try MMC card 2***
+[373][mmc]: RMCA OK!
+[375][mmc]: bias 4
+[381][mmc]: MMC 5.0
+[383][mmc]: HSSDR52/SDR25 8 bit
+[386][mmc]: 50000000 Hz
+[389][mmc]: 7456 MB
+[391][mmc]: ***SD/MMC 2 init OK!!!***
+[546]Loading boot-pkg Succeed(index=0).
+[550]Entry_name        = u-boot
+[565]Entry_name        = monitor
+[570]Entry_name        = scp
+[576]Entry_name        = optee
+[584]Entry_name        = dtb
+[588]tunning data addr:0x4a0003e8
+[592]Jump to second Boot.
+NOTICE:  BL3-1: v1.0(debug):d85c03b
+NOTICE:  BL3-1: Built : 19:48:38, 2022-12-07
+NOTICE:  BL3-1 commit: 8
+NOTICE:  secure os exist
+E/TC:0 0 init_external_dt:1033 Device Tree missing
+M/TC: OP-TEE version: 70d6bc54 (gcc version 5.3.1 20160412 (Linaro GCC 5.3-2016.05)) #1 Fri Oct 21 06:53:45 UTC 2022 arm
+NOTICE:  BL3-1: Preparing for EL3 exit to normal world
+NOTICE:  BL3-1: Next image address = 0x4a000000
+NOTICE:  BL3-1: Next image spsr = 0x1d3
+
+U-Boot 2018.05-00018-gd7a124a-dirty (Apr 20 2024 - 10:21:12 +0800) Allwinner Technology
+
+[00.691]CPU:   Allwinner Family
+[00.694]Model: sun50iw12
+I2C:   FDT ERROR:fdt_set_all_pin:[twi0]-->FDT_ERR_BADPATH
+FDT ERROR:fdt_set_all_pin:[twi1]-->FDT_ERR_BADPATH
+ready
+[00.721]DRAM:  1 GiB
+[00.725]Relocation Offset is: 35f11000
+[00.752]secure enable bit: 0
+E/TC:0   fdt_getprop_u32:343 prop trace_level not found
+[00.769]CPU=1392 MHz,PLL6=600 Mhz,AHB=150 Mhz, APB1=100Mhz  MBus=400Mhz
+[00.776]gic: sec monitor mode
+[00.790]flash init start
+[00.792]workmode = 0,storage type = 2
+[00.796][mmc]: mmc driver ver uboot2018:2023-05-16 11:34:00 avoid-repeat-reset-host
+[00.804][mmc]: get sdc2 sdc_dis_host_caps 0x180.
+[00.808][mmc]: SUNXI SDMMC Controller Version:0x50400
+[00.878][mmc]: Best spd md: 2-HSDDR52/DDR50, freq: 2-50000000, Bus width: 8
+[00.885]sunxi flash init ok
+pwm_led_init 01 , data=0x41005
+pwm_led_init 02 , data=0x41145
+change pwm ch to fan !
+[00.896]period_ns:40000 max_duty_ns:102000 min_duty_ns:0 duty_ns:16000
+change pwm ch to fan end!
+pwm_led_init end
+[00.906]Loading Environment from SUNXI_FLASH... OK
+[00.920]usb burn from boot
+delay time 0
+weak:otg_phy_config
+[00.930]usb prepare ok
+[01.733]overtime is 800, begin_time is 801
+[01.738]do_burn_from_boot usb : no usb exist
+secure storage read widevine fail
+[01.759]secure storage read widevine fail with:-1
+secure storage read ec_key fail
+[01.766]secure storage read ec_key fail with:-1
+14388 bytes read in 2 ms (6.9 MiB/s)
+[01.776]get file(advert.bmp) size from Reserve0 error
+[01.781]load file:advert.bmp from Reserve0 fail!
+14388 bytes read in 1 ms (13.7 MiB/s)
+6220854 bytes read in 73 ms (81.3 MiB/s)
+rtc: ir wakeup = 0xff0014
+2708 bytes read in 1 ms (2.6 MiB/s)
+[01.874]LogRegData.bin version is 23-6-27-33
+[01.879]Project id:0x30 version:21-12-14-0
+[01.883]ssc percent:10 wave bottom:0x3111, wave step:0x94, n:43, ssc_freq:31500 reg_value:0xc9403111
+[01.892]pwm_request: err: get reg-base err.
+[01.896]pwm5 request for fastlogo fail!
+[02.601]Display fastlogo finish!
+List file under ULI/factory
+** Unrecognized filesystem type **
+[02.612]update part info
+[02.835]update bootcmd
+[02.840]change working_fdt 0x77ec0e70 to 0x77e90e70
+[02.845][mmc]: delete mmc-hs400-1_8v from dtb
+[02.849][mmc]: delete mmc-hs200-1_8v from dtb
+[02.853][mmc]: get max-frequency ok 50000000 Hz
+[02.860]## error: update_fdt_dram_para : FDT_ERR_NOTFOUND
+[02.866]update dts
+the hdcp pkf is burned
+Hit any key to stop autoboot:  1  0 
+Android's image name: arm
+[04.422]Starting kernel ...
+
+[04.424][mmc]: mmc exit start
+[04.496][mmc]: mmc 2 exit ok
+[SCP] :wait arisc ready....
+[SCP] :arisc version: [jorpotcevt-r-303rdna1dio0v-14-8.97g-39f2]
+[SCP] :arisc startup ready
+[SCP] :arisc startup notify message feedback
+[SCP] :sunxi-arisc driver v1.10 is starting
+[    0.000000] Booting Linux on physical CPU 0x0
+[    0.000000] Linux version 5.4.99-00083-g2c05ac0bb34e-dirty (hotack@dell-PowerEdge-R740) (arm-linux-gnueabi-gcc (Linaro GCC 5.3-2016.05) 5.3.1 20160412, GNU ld (Linaro_Binutils-2016.05) 2.25.0 Linaro 2016_02) #815 SMP PREEMPT Sat Apr 20 10:21:53 CST 2024
+[    0.000000] CPU: ARMv7 Processor [410fd034] revision 4 (ARMv7), cr=10c0383d
+[    0.000000] CPU: div instructions available: patching division code
+[    0.000000] CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache
+[    0.000000] OF: fdt: Machine model: sun50iw12
+[    0.000000] printk: bootconsole [earlycon0] enabled
+[    0.006304] BOOTEVENT:         6.298206: ON
+[    0.087520] sunxi-msgbox-amp 3003000.msgbox: invalid resource
+[    0.095551] sunxi_pwm_probe: can't get pwm  bus clk
+[    0.454364] uart uart0: get regulator failed
+[    0.459698] uart uart1: get regulator failed
+[    0.481325] mipsloader 3061000.mipsloader: request pins failed: -19
+[    0.494194] sunxi_key_init: get key count failed
+[    0.494201] sunxi_gpadc_setup: get channel compare select failed
+[    0.506114] sunxi_gpadc_setup: get channel compare low data select failed
+[    0.513685] sunxi_gpadc_setup: get channel compare hig data select failed
+[    0.521265] sunxi_gpadc_setup: get channel scan data failed
+[    0.527481] sunxi_gpadc_setup:get channel0_compare_lowdata err!
+[    0.534086] sunxi_gpadc_setup:get channel0_compare_higdata err!
+[    0.540688] sunxi_gpadc_setup:get channel1_compare_lowdata err!
+[    0.547292] sunxi_gpadc_setup:get channel1_compare_higdata err!
+[    0.557902] sunxi_ir_startup: get ir protocol failed
+[    0.622762] sunxi-mmc 4021000.sdmmc: smc 1 p1 err, cmd 52, RTO !!
+[    0.630393] sunxi-mmc 4021000.sdmmc: smc 1 p1 err, cmd 52, RTO !!
+[    0.642329] [AUDIOCODEC][sunxi_codec_parse_params][1956]:adcdrc_used:0, adchpf_used:0, dacdrc_used:1, dachpf_used:0
+[    0.642329] 
+[    0.642456] sunxi-mmc 4021000.sdmmc: smc 1 p1 err, cmd 5, RTO !!
+[    0.656025] debugfs: Directory '2030000.codec' with parent 'regmap' already present!
+[    0.671702] debugfs: Directory '203032c.dummy_cpudai' with parent 'audiocodec' already present!
+[    0.671776] sunxi-mmc 4021000.sdmmc: smc 1 p1 err, cmd 5, RTO !!
+[    0.688916] sunxi-mmc 4021000.sdmmc: smc 1 p1 err, cmd 5, RTO !!
+[    0.696514] sunxi-mmc 4021000.sdmmc: smc 1 p1 err, cmd 5, RTO !!
+[    0.707112] sunxi-mmc 4022000.sdmmc: avoid to switch power_off_notification to POWERED_ON(0x01)
+[    0.716838] sunxi-mmc 4022000.sdmmc: avoid to switch power_off_notification to POWERED_ON(0x01)
+[    0.716843] sunxi-mmc 4022000.sdmmc: avoid to switch power_off_notification to POWERED_ON(0x01)
+[    0.716848] sunxi-mmc 4022000.sdmmc: avoid to switch power_off_notification to POWERED_ON(0x01)
+[    0.778783] [stkAccel] kxt_parse_dt/1882: Unable to read kxtj3,irq-gpio
+[    0.786522] sunxi_i2c_do_xfer()1810 - [i2c1] incomplete xfer (status: 0x20, dev addr: 0xe)
+[    0.796048] sunxi_i2c_do_xfer()1810 - [i2c1] incomplete xfer (status: 0x20, dev addr: 0xe)
+[    0.805565] sunxi_i2c_do_xfer()1810 - [i2c1] incomplete xfer (status: 0x20, dev addr: 0xe)
+[    0.816149] sunxi_i2c_do_xfer()1810 - [i2c1] incomplete xfer (status: 0x20, dev addr: 0xe)
+[    0.825382] [stkAccel] kxt_i2c_probe/2146: kxtj3 initialization failed
+[    0.911065] debugfs: Directory 'sunxi-ehci' with parent 'ehci' already present!
+[    0.935039] debugfs: Directory 'sunxi-ehci' with parent 'ehci' already present!
+[    1.009365] debugfs: Directory 'sunxi-ohci' with parent 'ohci' already present!
+[    1.081340] debugfs: Directory 'sunxi-ohci' with parent 'ohci' already present!
+[    1.159126] cpu cpu0: dev_pm_opp_set_rate: failed to find current OPP for freq 1392000000 (-34)
+[    1.184167] sunxi-audio-card 203705c.soundspdif1: use dummy codec for simple card.
+[    1.192788] debugfs: Directory '2037000.spdif' with parent 'sndspdif1' already present!
+[    1.203369] sunxi-audio-card 203207c.sounddaudio0: use dummy codec for simple card.
+[    1.212053] debugfs: Directory '2032000.daudio' with parent 'snddaudio0' already present!
+[    1.222622] sunxi-audio-card 203307c.sounddaudio0: use dummy codec for simple card.
+[    1.231335] debugfs: Directory '2033000.daudio' with parent 'snddaudio1' already present!
+[    1.246896] get_key_map_info()199 - Failed to find "oe" in dts.
+[    1.253709] [ac200] get ave_regulator_name failed!
+[    1.259517] [ac200] pwm enable
+[    1.291325] Kernel init done
+[    1.698689] init: Could not update logical partition
+[    2.281450] cgroup1: Unknown subsys name 'blkio'
+[    2.290539] cgroup1: Unknown subsys name 'schedtune'
+[    2.641167] sunxi-rfkill soc@2900000:rfkill: get gpio chip_en failed
+[    2.648340] sunxi-rfkill soc@2900000:rfkill: get gpio power_en failed
+console:/ $ [    3.381613] mali 1800000.gpu: Sunxi_data->dvfs_status is false, continuing without devfreq
+[    3.404787] invalid gpio:-2!
+[    3.408229] invalid gpio:-2!
+[    3.417225] platform 2000c15.pwm5: pinctrl_get failed!
+[    3.532651] LogRegData.bin version is 23-6-27-33
+[    3.538600] Project id:0x30 version:21-12-14-0
+[    3.543860] ge2d 5240000.ge2d: firmware downloaded!
+[    3.962453] pMemInBuffer[0]=0xc3d62fc0 pMemInBuffer[0]->bufStart=0x6dc20000
+[    3.970785] pMemInBuffer[1]=0xc35b8f80 pMemInBuffer[1]->bufStart=0x6dc40000
+[    3.978649] pMemInBuffer[2]=0xc35b8040 pMemInBuffer[2]->bufStart=0x6dc60000
+[    3.986472] pMemInBuffer[3]=0xc35b8300 pMemInBuffer[3]->bufStart=0x6dc80000
+[    3.994301] [AudBrg_Init] --> audio bridge irq num: 38
+[    4.000236] [ABP_DTV_Init] --> abp_dtv irq num: 39
+[    4.005712] audiobridge alloc size: 0x160000
+[    4.011354] audiobridge ion_alloc success!
+[    4.016099] audiobridge ion alloc success, and phy_addr: 0x0
+[    4.022427] line:247 audbrg_istream_ConfigMemMap() ISTREAM1 phy_addr=0x0 vir_addr=0xf0ec2000
+[    4.031862] line:258 audbrg_istream_ConfigMemMap() ISTREAM2 phy_addr=0x10000 vir_addr=0xf0ed2000
+[    4.041681] line:269 audbrg_istream_ConfigMemMap() ISTREAM3 phy_addr=0x20000 vir_addr=0xf0ee2000
+[    4.051495] line:280 audbrg_istream_ConfigMemMap() ISTREAM4 phy_addr=0x30000 vir_addr=0xf0ef2000
+[    4.061315] line:155 audbrg_ostream_ConfigMemMap() OSTREAM1 phy_addr=0x40000 vir_addr=0xf0f02000
+[    4.071134] line:166 audbrg_ostream_ConfigMemMap() OSTREAM2 phy_addr=0x50000 vir_addr=0xf0f12000
+[    4.080950] line:232 audbrg_delayline_ConfigMemMap() DELAYLINE1 phy_addr=0x60000 vir_addr=0xf0f22000
+[    4.091153] line:246 audbrg_delayline_ConfigMemMap() DELAYLINE2 phy_addr=0xa0000 vir_addr=0xf0f62000
+[    4.101363] line:260 audbrg_delayline_ConfigMemMap() DELAYLINE3 phy_addr=0xe0000 vir_addr=0xf0fa2000
+[    4.111571] line:274 audbrg_delayline_ConfigMemMap() DELAYLINE4 phy_addr=0x120000 vir_addr=0xf0fe2000
+[    4.272993] mipsloader: mipsloader: mips start
+[    4.278050] mipsloader: mipsloader: mips start
+[    4.283061] mipsloader: mipsloader: mips start
+[    4.288054] mipsloader: mipsloader: mips start
+[    4.293064] mipsloader: mipsloader: mips start
+[    4.300990] apexd: This device does not support updatable APEX. Exiting
+[    4.308767] apexd: Marking APEXd as activated
+[    4.355195] type=1400 audit(467.292:15): avc: denied { setattr } for comm="init" name="media" dev="mmcblk0p23" ino=1048601 scontext=u:r:init:s0 tcontext=u:object_r:oemfs:s0 tclass=dir permissive=1
+[    4.441010] vdc: Waited 0ms for vold
+[    4.642416] apexd: This device does not support updatable APEX. Exiting
+[    4.650025] apexd: Marking APEXd as ready
+[    4.690612] init: Top-level directory needs encryption action, eg mkdir /data/audio_d <mode> <uid> <gid> encryption=Require
+[    4.704035] type=1400 audit(467.644:16): avc: denied { getattr } for comm="init" path="/data/audio_d" dev="mmcblk0p25" ino=175 scontext=u:r:vendor_init:s0 tcontext=u:object_r:audio_rw_data_file:s0 tclass=dir permissive=1
+[    4.794548] logd.daemon: reinit
+[    4.876369] update_verifier: Started with arg 1: nonencrypted
+[    4.884000] treadahead: /data/vendor/treadahead/readahead_file_offset_tmp exist;  exception at last time
+[    4.885775] *** NOT YET: opcode 3f ***
+[    4.894652] treadahead: go to open trace
+[    4.894858] update_verifier: Booting slot 0: isSlotMarkedSuccessful=1
+[    4.894946] update_verifier: Leaving update_verifier.
+[    5.175616] healthd: No battery devices found
+[    5.201737] healthd: battery none chg=a
+[    5.283728] type=1400 audit(468.208:17): avc: denied { read } for comm="tvserver" name="u:object_r:config_prop:s0" dev="tmpfs" ino=3724 scontext=u:r:tvserver:s0 tcontext=u:object_r:config_prop:s0 tclass=file permissive=1
+[    5.330633] type=1400 audit(468.208:18): avc: denied { open } for comm="tvserver" path="/dev/__properties__/u:object_r:config_prop:s0" dev="tmpfs" ino=3724 scontext=u:r:tvserver:s0 tcontext=u:object_r:config_prop:s0 tclass=file permissive=1
+[    5.357083] type=1400 audit(468.208:19): avc: denied { getattr } for comm="tvserver" path="/dev/__properties__/u:object_r:config_prop:s0" dev="tmpfs" ino=3724 scontext=u:r:tvserver:s0 tcontext=u:object_r:config_prop:s0 tclass=file permissive=1
+[    5.473188] file system registered
+[    5.565007] sunxi-rfkill soc@2900000:rfkill: block state already is 1
+[    5.742569] aicbsp_init
+[    5.745593] aicbsp_init, Driver Release Tag: aic-bsp-compatible(sdio)-20231222-000
+[    5.746250] pinctrl_get for allwinner,sunxi-pwm fail
+[    5.763869] -->aicbt_rfkill_init
+[    5.775725] <--aicbt_rfkill_init
+[    5.785316] [BT_LPM] bluesleep_init: BlueSleep Mode Driver Ver 1.3.3
+[    5.794031] [BT_LPM] bluesleep_init: Driver Release Tag: aic-btlpm-20220429-006
+[    5.802809] [BT_LPM] bluesleep_probe: bt_hostwake gpio=387 assert=1
+[    5.802809] 
+[    5.811512] [BT_LPM] bluesleep_probe: override host_wake assert to 1
+[    5.821971] [BT_LPM] bluesleep_probe: bt_wake gpio=386 assert=1
+[    5.821971] 
+[    5.830612] [BT_LPM] bluesleep_probe: override ext_wake assert to 1
+[    5.837716] [BT_LPM] bluesleep_probe: uart_index (1)
+[    5.837716] 
+[    6.256662] decd 5700000.dec: decoder display runtime resume: 0
+[    7.188173] init: Control message: Could not find 'android.hardware.camera.provider@2.4::ICameraProvider/legacy/0' for ctl.interface_start from pid: 2270 (/system/bin/hwservicemanager)
+[    7.323547] input: sunxi-ir-uinput as /devices/virtual/input/input7
+[    8.068444] init: processing action (persist.sys.eshare_auth_file=2) from (/system/etc/init/hw/init.rc:1178)
+[    8.128845] init: processing action (persist.sys.eshare_auth_file=2) from (/system/etc/init/hw/init.rc:1178)
+[    8.931910] type=1400 audit(471.872:43): avc: denied { search } for comm="kworker/1:1" name="/" dev="mmcblk0p23" ino=1 scontext=u:r:kernel:s0 tcontext=u:object_r:oemfs:s0 tclass=dir permissive=1
+[    8.952623] type=1400 audit(471.872:44): avc: denied { write } for comm="kworker/1:1" name="/" dev="mmcblk0p23" ino=1 scontext=u:r:kernel:s0 tcontext=u:object_r:oemfs:s0 tclass=dir permissive=1
+[    8.972346] type=1400 audit(471.872:45): avc: denied { add_name } for comm="kworker/1:1" name="gsensor_data" scontext=u:r:kernel:s0 tcontext=u:object_r:oemfs:s0 tclass=dir permissive=1
+[    8.991429] type=1400 audit(471.872:46): avc: denied { create } for comm="kworker/1:1" name="gsensor_data" scontext=u:r:kernel:s0 tcontext=u:object_r:oemfs:s0 tclass=file permissive=1
+[    9.010207] type=1400 audit(471.872:47): avc: denied { read write } for comm="kworker/1:1" name="gsensor_data" dev="mmcblk0p23" ino=1048645 scontext=u:r:kernel:s0 tcontext=u:object_r:oemfs:s0 tclass=file permissive=1
+[    9.032075] type=1400 audit(471.872:48): avc: denied { open } for comm="kworker/1:1" path="/oem/gsensor_data" dev="mmcblk0p23" ino=1048645 scontext=u:r:kernel:s0 tcontext=u:object_r:oemfs:s0 tclass=file permissive=1
+[    9.194532] init: starting service 'bootanim'...
+[    9.196327] ge2d 5240000.ge2d: tvsystem power state already match!
+[    9.205010] init: Control message: Processed ctl.start for 'bootanim' from pid: 2545 (/system/bin/surfaceflinger)
+[    9.212116] libprocessgroup: Failed to open /dev/stune/top-app/tasks: No such file or directory: No such file or directory
+[    9.231061] libprocessgroup: Failed to apply MaxPerformance task profile: No such file or directory
+[   10.158715] init: processing action (persist.sys.eshare_auth_file=2) from (/system/etc/init/hw/init.rc:1178)
+[   10.201140] init: processing action (persist.sys.eshare_auth_file=2) from (/system/etc/init/hw/init.rc:1178)
+[   10.223899] init: processing action (persist.sys.eshare_auth_file=2) from (/system/etc/init/hw/init.rc:1178)
+[   10.806192] Freeing logo buffer memory: 8160K
+[   12.291213] init: processing action (persist.sys.eshare_auth_file=2) from (/system/etc/init/hw/init.rc:1178)
+[   12.340592] init: processing action (persist.sys.eshare_auth_file=2) from (/system/etc/init/hw/init.rc:1178)
+[   14.416453] init: processing action (persist.sys.eshare_auth_file=2) from (/system/etc/init/hw/init.rc:1178)
+[   14.433726] init: Service 'esharecp' (pid 2616) exited with status 0 oneshot service took 8.564000 seconds in background
+[   14.446132] init: Sending signal 9 to service 'esharecp' (pid 2616) process group...
+[   14.455647] libprocessgroup: Successfully killed process cgroup uid 0 pid 2616 in 0ms
+[   14.467359] init: Service 'eshareover' (pid 2615) exited with status 0 oneshot service took 8.603000 seconds in background
+[   14.479884] init: Sending signal 9 to service 'eshareover' (pid 2615) process group...
+[   14.489409] libprocessgroup: Successfully killed process cgroup uid 0 pid 2615 in 0ms
+[   14.500557] init: processing action (persist.sys.eshare_auth_file=2) from (/system/etc/init/hw/init.rc:1178)
+[   16.222749] healthd: battery none chg=a
+[   16.588600] type=1400 audit(479.528:49): avc: denied { read } for comm="Binder:2883_3" name="hctosys" dev="sysfs" ino=19186 scontext=u:r:system_server:s0 tcontext=u:object_r:sysfs:s0 tclass=file permissive=1
+[   16.609751] type=1400 audit(479.528:50): avc: denied { open } for comm="Binder:2883_3" path="/sys/devices/platform/soc@2900000/7090000.rtc/rtc/rtc0/hctosys" dev="sysfs" ino=19186 scontext=u:r:system_server:s0 tcontext=u:object_r:sysfs:s0 tclass=file permissive=1
+[   16.636422] type=1400 audit(479.528:51): avc: denied { getattr } for comm="Binder:2883_3" path="/sys/devices/platform/soc@2900000/7090000.rtc/rtc/rtc0/hctosys" dev="sysfs" ino=19186 scontext=u:r:system_server:s0 tcontext=u:object_r:sysfs:s0 tclass=file permissive=1
+[   17.029519] type=1400 audit(479.968:52): avc: denied { write } for comm="UEventObserver" name="angle_report" dev="sysfs" ino=22323 scontext=u:r:system_server:s0 tcontext=u:object_r:sysfs:s0 tclass=file permissive=1
+[   17.248802] type=1107 audit(480.188:53): uid=0 auid=4294967295 ses=4294967295 subj=u:r:init:s0 msg='avc: denied { set } for property=persist.hisi.keystone.lt pid=2883 uid=1000 gid=1000 scontext=u:r:system_server:s0 tcontext=u:object_r:default_prop:s0 tclass=property_service permissive=1'
+[   17.372099] init: processing action (sys.sysctl.extra_free_kbytes=*) from (/system/etc/init/hw/init.rc:1029)
+[   20.043942] read descriptors
+[   20.047319] read strings
+[   20.050357] read descriptors
+[   20.053681] read strings
+[   20.233046] type=1400 audit(483.172:54): avc: denied { add_name } for comm="main" name="bootevent" scontext=u:r:zygote:s0 tcontext=u:object_r:proc:s0 tclass=dir permissive=1
+[   20.251631] type=1400 audit(483.172:55): avc: denied { create } for comm="main" name="bootevent" scontext=u:r:zygote:s0 tcontext=u:object_r:proc:s0 tclass=file permissive=1
+[   20.755411] init: starting service 'vendor.wifi_hal_legacy'...
+[   20.772256] init: Control message: Processed ctl.interface_start for 'android.hardware.wifi@1.0::IWifi/default' from pid: 2270 (/system/bin/hwservicemanager)
+[   20.789374] init: Control message: Processed ctl.interface_start for 'android.hardware.wifi@1.0::IWifi/default' from pid: 2270 (/system/bin/hwservicemanager)
+[   20.958689] >>> rwnx_mod_init()
+[   20.962313] rwnx 20231222-000-6.4.3.0 - - 241c091M (master)
+[   20.968596] Driver Release Tag: aic-rwnx-compatible(sdio)-20231222-000
+[   20.975921] aicbsp: aicbsp_set_subsys, subsys: AIC_WIFI, state to: 1
+[   20.983036] aicbsp: aicbsp_set_subsys, power state change to 1 dure to AIC_WIFI
+[   20.991225] aicbsp: aicbsp_platform_power_on
+[   20.996009] sunxi-rfkill soc@2900000:rfkill: bus_index: 1
+[   21.002238] aicbsp: aicbsp_platform_power_on disable MMC_CAP_UHS_DDR50 for host f1c899b3
+[   21.023215] sunxi-rfkill soc@2900000:rfkill: wlan power on success
+[   21.080398] sunxi-mmc 4021000.sdmmc: sdc set ios:clk 0Hz bm PP pm UP vdd 21 width 1 timing LEGACY(SDR12) dt B
+[   21.092097] sunxi-mmc 4021000.sdmmc: no vqmmc,Check if there is regulator
+[   21.111628] sunxi-mmc 4021000.sdmmc: sdc set ios:clk 400000Hz bm PP pm ON vdd 21 width 1 timing LEGACY(SDR12) dt B
+[   21.135906] sunxi-mmc 4021000.sdmmc: smc 1 p1 err, cmd 52, RTO !!
+[   21.143568] sunxi-mmc 4021000.sdmmc: smc 1 p1 err, cmd 52, RTO !!
+[   21.150428] sunxi-mmc 4021000.sdmmc: sdc set ios:clk 400000Hz bm PP pm ON vdd 21 width 1 timing LEGACY(SDR12) dt B
+[   21.165737] sunxi-mmc 4021000.sdmmc: sdc set ios:clk 400000Hz bm PP pm ON vdd 21 width 1 timing LEGACY(SDR12) dt B
+[   21.179872] sunxi-mmc 4021000.sdmmc: smc 1 p1 err, cmd 11, RE !!
+[   21.206193] mmc1: queuing unknown CIS tuple 0x10 (5 bytes)
+[   21.221028] sunxi-mmc 4021000.sdmmc: sdc set ios:clk 50000000Hz bm PP pm ON vdd 21 width 1 timing LEGACY(SDR12) dt B
+[   21.233088] sunxi-mmc 4021000.sdmmc: sdc set ios:clk 50000000Hz bm PP pm ON vdd 21 width 4 timing LEGACY(SDR12) dt B
+[   21.246217] mmc1: queuing unknown CIS tuple 0x10 (5 bytes)
+[   21.255790] mmc1: new SDIO card at address a143
+[   21.278720] aicbsp: aicbsp_sdio_probe:2
+[   21.283064] aicbsp: aicbsp_sdio_probe:2, matched chip: aic8800d
+[   21.289815] aicbsp: aicbsp_sdio_probe after replace:1
+[   21.295667] aicbsp: aicbsp_sdio_probe host max clock frequecy: 50000000
+[   21.303111] aicbsp: aicwf_sdio_reg_init
+[   21.307572] sunxi-mmc 4021000.sdmmc: sdc set ios:clk 50000000Hz bm PP pm ON vdd 21 width 4 timing LEGACY(SDR12) dt B
+[   21.319648] aicbsp: Set SDIO Clock 50 MHz
+[   21.327610] aicbsp: aicbsp_8800d_fw_init, rev id: 0x7, subrev id: 0x20
+[   21.339856] rwnx_request_firmware, name: fw_patch_table_u03.bin
+[   21.346614] aicbt_patch_info_unpack bt patch version: - Dec 26 2023 17:14:56 - git 77d5f59
+[   21.356831] aicbt_init no patch info found in bt fw
+[   21.364931] rwnx_request_firmware, name: fw_adid_u03.bin
+[   21.373700] rwnx_request_firmware, name: fw_patch_u03.bin
+[   21.398700] aicbt_patch_table_load bt uart baud: 1500000, flowctrl: 1, lpm_enable: 1, tx_pwr: 24608, bt mode:255.
+[   21.450971] rwnx_request_firmware, name: fmacfw.bin
+[   21.581877] aicbsp: crypto data 8C702BC7CA6A8387486A990182E1C70A
+[   21.588704] aicbsp: verify data B3D05ECC392DEAC8C62AA293D944462B
+[   21.595980] aicsdio: aicwf_sdio_probe:1
+[   21.600493] aicsdio: aicwf_sdio_reg_init
+[   21.606348] sunxi-mmc 4021000.sdmmc: sdc set ios:clk 50000000Hz bm PP pm ON vdd 21 width 4 timing LEGACY(SDR12) dt B
+[   21.618329] aicsdio: Set SDIO Clock 50 MHz
+[   21.631057] aicbsp: err:<aicwf_sdio_bus_pwrctl,1256>: bus down
+[   21.634681] aicbsp: aicbsp_resv_mem_alloc_skb, alloc resv_mem_txdata succuss, id: 0, size: 98304
+[   21.648413] >>> rwnx_platform_init()
+[   21.652490] >>> rwnx_cfg80211_init()
+[   21.656602] rwnx_cfg80211_init sizeof(struct rwnx_hw):30568 
+[   21.664328] >>> rwnx_init_aic()
+[   21.668064] >>> rwnx_cmd_mgr_init()
+[   21.672452] >>> rwnx_send_set_stack_start_req()
+[   21.678181] is 5g support = 1, vendor_info = 0x21
+[   21.683769] Firmware Version: mi Dec 26 2023 17:30:50 - ga75cab6e
+[   21.683775] >>> rwnx_platform_on()
+[   21.694485] >>> rwnx_plat_fmac_load()
+[   21.700282] userconfig file path:aic_userconfig.txt 
+[   21.712093] rwnx_plat_userconfig_parsing, enable = 1
+[   21.718414] rwnx_plat_userconfig_parsing, dsss = 10
+[   21.724685] rwnx_plat_userconfig_parsing, ofdmlowrate_2g4 = 11
+[   21.731297] rwnx_plat_userconfig_parsing, ofdm64qam_2g4 = 10
+[   21.737968] rwnx_plat_userconfig_parsing, ofdm256qam_2g4 = 10
+[   21.744825] rwnx_plat_userconfig_parsing, ofdm1024qam_2g4 = 9
+[   21.752311] rwnx_plat_userconfig_parsing, ofdmlowrate_5g = 11
+[   21.759434] rwnx_plat_userconfig_parsing, ofdm64qam_5g = 10
+[   21.765776] rwnx_plat_userconfig_parsing, ofdm256qam_5g = 10
+[   21.772181] rwnx_plat_userconfig_parsing, ofdm1024qam_5g = 9
+[   21.775831] type=1400 audit(484.712:56): avc: denied { add_name } for comm="Binder:2502_4" name="globalAlert" scontext=u:r:netd:s0 tcontext=u:object_r:proc_net:s0 tclass=dir permissive=1
+[   21.778927] rwnx_plat_userconfig_parsing, ofst_enable = 1
+[   21.797904] type=1400 audit(484.712:57): avc: denied { create } for comm="Binder:2502_4" name="globalAlert" scontext=u:r:netd:s0 tcontext=u:object_r:proc_net:s0 tclass=file permissive=1
+[   21.803536] rwnx_plat_userconfig_parsing, ofst_chan_1_4 = -5
+[   21.828378] rwnx_plat_userconfig_parsing, ofst_chan_5_9 = -2
+[   21.834867] rwnx_plat_userconfig_parsing, ofst_chan_10_13 = -2
+[   21.842401] rwnx_plat_userconfig_parsing, ofst_chan_36_64 = -5
+[   21.849583] rwnx_plat_userconfig_parsing, ofst_chan_100_120 = -6
+[   21.856493] rwnx_plat_userconfig_parsing, ofst_chan_122_140 = -6
+[   21.863395] rwnx_plat_userconfig_parsing, ofst_chan_142_165 = 4
+[   21.870320] >>> rwnx_send_rf_calib_req()
+[   22.202650] >>> rwnx_send_txpwr_idx_req()
+[   22.207724] >>> rwnx_send_txpwr_ofst_req()
+[   22.213367] get macaddr: 20:a0:01:1d:54:64
+[   22.218877] >>> rwnx_send_reset()
+[   22.227266] >>> rwnx_send_version_req()
+[   22.235708] >>> rwnx_set_vers()
+[   22.240140] >>> rwnx_send_me_config_req()
+[   22.240408] VE: enable hw clock
+[   22.245013] ieee80211 phy0: HT supp 1, VHT supp 1, HE supp 1
+[   22.256139] >>> rwnx_send_me_chan_config_req()
+[   22.265164] >>> rwnx_send_me_chan_config_req()
+[   22.270514] >>> rwnx_dbgfs_register()
+[   22.275183] rwnx_interface_add: wlan%d, 2, 10
+[   22.275246] interface add:20 a0 1 1d 54 64
+[   22.328176] VE: disable hw clock
+[   22.356790] VE: enable hw clock
+[   22.370977] ieee80211 phy0: New interface create wlan0
+[   22.390425] VE: disable hw clock
+[   22.421009] VE: enable hw clock
+[   22.445696] >>> rwnx_open()
+[   22.451014] >>> rwnx_send_start()
+[   22.458511] >>> rwnx_send_coex_req()
+[   22.472964] >>> rwnx_send_add_if()
+[   22.490083] VE: disable hw clock
+[   22.545573] VE: enable hw clock
+[   22.580458] VE: disable hw clock
+[   22.623718] VE: enable hw clock
+[   22.661323] VE: disable hw clock
+[   22.695564] VE: enable hw clock
+[   22.698456] init: starting service 'wpa_supplicant'...
+[   22.708297] init: Created socket '/dev/socket/wpa_wlan0', mode 660, user 1010, group 1010
+[   22.741815] VE: disable hw clock
+[   22.764491] VE: enable hw clock
+[   22.772553] init: Control message: Processed ctl.interface_start for 'android.hardware.wifi.supplicant@1.0::ISupplicant/default' from pid: 2270 (/system/bin/hwservicemanager)
+[   22.812133] VE: disable hw clock
+[   22.860093] VE: enable hw clock
+[   22.901710] VE: disable hw clock
+[   23.020294] VE: enable hw clock
+[   23.051778] VE: disable hw clock
+[   23.102346] capability: warning: `wpa_supplicant' uses 32-bit capabilities (legacy support in use)
+[   23.356516] rwnx_virtual_interface_add: 10, p2p-dev-wlan0
+[   23.364717] rwnx_virtual_interface_add, ifname=p2p-dev-wlan0, wdev=a95b3066, vif_idx=1
+[   23.373904] p2p dev addr=20 a0 1 1d 54 65
+[   23.389175] P2P interface started
+[   23.959985] type=1400 audit(486.868:58): avc: denied { read } for comm="Thread-17" name="debug_fantrl" dev="sysfs" ino=19141 scontext=u:r:system_server:s0 tcontext=u:object_r:sysfs:s0 tclass=file permissive=1
+[   24.050442] type=1400 audit(486.868:59): avc: denied { open } for comm="Thread-17" path="/sys/devices/platform/fan_ctrl/debug_fantrl" dev="sysfs" ino=19141 scontext=u:r:system_server:s0 tcontext=u:object_r:sysfs:s0 tclass=file permissive=1
+[   24.088295] type=1400 audit(486.868:60): avc: denied { getattr } for comm="Thread-17" path="/sys/devices/platform/fan_ctrl/debug_fantrl" dev="sysfs" ino=19141 scontext=u:r:system_server:s0 tcontext=u:object_r:sysfs:s0 tclass=file permissive=1
+[   24.115434] type=1400 audit(486.944:61): avc: denied { write } for comm="Thread-17" name="debug_fantrl" dev="sysfs" ino=19141 scontext=u:r:system_server:s0 tcontext=u:object_r:sysfs:s0 tclass=file permissive=1
+[   24.207239] init: processing action (sys.usb.config=none && sys.usb.configfs=1) from (/vendor/etc/init/hw/init.sun50iw12p1.usb.rc:37)
+[   24.253420] init: processing action (sys.usb.config=none && sys.usb.configfs=1) from (/system/etc/init/hw/init.usb.configfs.rc:1)
+[   24.270872] init: Command 'write /config/usb_gadget/g1/UDC none' action=sys.usb.config=none && sys.usb.configfs=1 (/system/etc/init/hw/init.usb.configfs.rc:2) took 2ms and failed: Unable to write to file '/config/usb_gadget/g1/UDC': Unable to write file contents: No such device
+[   24.309220] init: Command 'rm /config/usb_gadget/g1/configs/b.1/f1' action=sys.usb.config=none && sys.usb.configfs=1 (/system/etc/init/hw/init.usb.configfs.rc:8) took 0ms and failed: unlink() failed: No such file or directory
+[   24.332231] init: Command 'rm /config/usb_gadget/g1/configs/b.1/f2' action=sys.usb.config=none && sys.usb.configfs=1 (/system/etc/init/hw/init.usb.configfs.rc:9) took 0ms and failed: unlink() failed: No such file or directory
+[   24.356387] init: Command 'rm /config/usb_gadget/g1/configs/b.1/f3' action=sys.usb.config=none && sys.usb.configfs=1 (/system/etc/init/hw/init.usb.configfs.rc:10) took 0ms and failed: unlink() failed: No such file or directory
+[   24.380316] init: Command 'rmdir /config/usb_gadget/g1/functions/rndis.gs4' action=sys.usb.config=none && sys.usb.configfs=1 (/system/etc/init/hw/init.usb.configfs.rc:11) took 0ms and failed: rmdir() failed: No such file or directory
+[   24.634545] type=1400 audit(487.572:62): avc: denied { add_name } for comm="init" name="policy" scontext=u:r:vendor_init:s0 tcontext=u:object_r:sysfs_thermal:s0 tclass=dir permissive=1
+[   24.653749] type=1400 audit(487.572:63): avc: denied { create } for comm="init" name="policy" scontext=u:r:vendor_init:s0 tcontext=u:object_r:sysfs_thermal:s0 tclass=file permissive=1
+[   24.803920] init (1687): drop_caches: 3
+[   24.812901] type=1400 audit(487.752:64): avc: denied { add_name } for comm="init" name="max_comp_streams" scontext=u:r:vendor_init:s0 tcontext=u:object_r:sysfs_zram:s0 tclass=dir permissive=1
+[   24.839331] type=1400 audit(487.756:65): avc: denied { create } for comm="init" name="max_comp_streams" scontext=u:r:vendor_init:s0 tcontext=u:object_r:sysfs_zram:s0 tclass=file permissive=1
+[   24.971661] zram: setup backing device /dev/block/loop0
+[   24.992389] zram0: detected capacity change from 0 to 879439872
+[   25.077620] mkswap: Swapspace size: 858824k, UUID=f79f45aa-a314-4ca9-b5a3-34bf34002092
+[   25.107157] Adding 858824k swap on /dev/block/zram0.  Priority:-2 extents:1 across:858824k SS
+[   25.276500] treadahead: /data/vendor/treadahead/readahead_file_offset_tmp exist;  exception at last time
+[   25.287426] treadahead: go to read trace
+[   28.141976] type=1400 audit(490.980:72): avc: denied { search } for comm="rhighenglishd08" name="/" dev="mmcblk0p19" ino=2 scontext=u:r:system_app:s0 tcontext=u:object_r:metadata_file:s0 tclass=dir permissive=1
+[   28.469488] type=1400 audit(491.408:73): avc: denied { read } for comm="Thread-17" name="debug_fantrl" dev="sysfs" ino=19141 scontext=u:r:system_server:s0 tcontext=u:object_r:sysfs:s0 tclass=file permissive=1
+[   28.493592] type=1400 audit(491.408:74): avc: denied { open } for comm="Thread-17" path="/sys/devices/platform/fan_ctrl/debug_fantrl" dev="sysfs" ino=19141 scontext=u:r:system_server:s0 tcontext=u:object_r:sysfs:s0 tclass=file permissive=1
+[   28.520125] type=1400 audit(491.408:75): avc: denied { getattr } for comm="Thread-17" path="/sys/devices/platform/fan_ctrl/debug_fantrl" dev="sysfs" ino=19141 scontext=u:r:system_server:s0 tcontext=u:object_r:sysfs:s0 tclass=file permissive=1
+[   28.546121] type=1400 audit(491.440:76): avc: denied { write } for comm="Thread-17" name="debug_fantrl" dev="sysfs" ino=19141 scontext=u:r:system_server:s0 tcontext=u:object_r:sysfs:s0 tclass=file permissive=1
+[   29.794088] init: Service 'appsdisable' (pid 3997) exited with status 0 oneshot service took 4.669000 seconds in background
+[   29.814256] init: Sending signal 9 to service 'appsdisable' (pid 3997) process group...
+[   29.835397] libprocessgroup: Successfully killed process cgroup uid 0 pid 3997 in 0ms
+[   29.859191] init: Service 'gmsopt' (pid 4000) exited with status 0 oneshot service took 4.709000 seconds in background
+[   29.882208] init: Sending signal 9 to service 'gmsopt' (pid 4000) process group...
+[   29.933605] libprocessgroup: Successfully killed process cgroup uid 0 pid 4000 in 0ms
+[   29.951016] wrong cmd:(null) in handle_private_cmd
+[   29.961162] wrong cmd:(null) in handle_private_cmd
+[   29.969414] wrong cmd:(null) in handle_private_cmd
+[   29.976090] wrong cmd:(null) in handle_private_cmd
+[   29.982838] wrong cmd:(null) in handle_private_cmd
+[   30.014482] wrong cmd:(null) in handle_private_cmd
+[   30.035601] wrong cmd:(null) in handle_private_cmd
+[   30.060093] >>> rwnx_send_me_set_lp_level()
+[   30.066881] set suspend mode 0
+[   30.465296] type=1400 audit(493.404:77): avc: denied { write search } for comm="migrate_legacy_" name="tmp" dev="mmcblk0p25" ino=71 scontext=u:r:migrate_legacy_obb_data:s0 tcontext=u:object_r:shell_data_file:s0 tclass=dir permissive=1
+[   30.526740] audit_log_lost: 1 callbacks suppressed
+[   30.526749] audit: audit_lost=1 audit_rate_limit=5 audit_backlog_limit=64
+[   30.545896] type=1400 audit(493.428:78): avc: denied { getattr } for comm="migrate_legacy_" path="/data/local/tmp" dev="mmcblk0p25" ino=71 scontext=u:r:migrate_legacy_obb_data:s0 tcontext=u:object_r:shell_data_file:s0 tclass=dir permissive=1
+[   30.587843] type=1400 audit(493.440:79): avc: denied { read } for comm="Thread-17" name="debug_fantrl" dev="sysfs" ino=19141 scontext=u:r:system_server:s0 tcontext=u:object_r:sysfs:s0 tclass=file permissive=1
+[   30.595168] audit: rate limit exceeded
+[   30.610843] type=1400 audit(493.440:80): avc: denied { open } for comm="Thread-17" path="/sys/devices/platform/fan_ctrl/debug_fantrl" dev="sysfs" ino=19141 scontext=u:r:system_server:s0 tcontext=u:object_r:sysfs:s0 tclass=file permissive=1
+[   30.637760] type=1400 audit(493.440:81): avc: denied { getattr } for comm="Thread-17" path="/sys/devices/platform/fan_ctrl/debug_fantrl" dev="sysfs" ino=19141 scontext=u:r:system_server:s0 tcontext=u:object_r:sysfs:s0 tclass=file permissive=1
+[   30.857404] init: Service 'bootanim' (pid 2914) exited with status 0 oneshot service took 21.655001 seconds in background
+[   30.915859] init: Sending signal 9 to service 'bootanim' (pid 2914) process group...
+[   30.939864] libprocessgroup: Successfully killed process cgroup uid 1003 pid 2914 in 0ms
+[   31.715793] vcc3v0: disabling
+[   31.719367] vcc3v3: disabling
+[   31.722707] vcc5v0: disabling
+[   31.738178] pio-33: disabling
+[   32.240683] binder_alloc: 3764: binder_alloc_buf, no vma
+[   32.249095] binder: 2883:2979 transaction failed 29189/-3, size 60-0 line 3294
+[   32.335101] aa func = sunxi_codec_set_spk_status, line = 505
+[   32.350492] sunxi_codec_set_hp_status 645  Hp on open!
+[   32.639090] aa func = sunxi_codec_set_spk_status, line = 505
+[   33.364781] init: processing action (sys.shutdown_backlight=1) from (/vendor/etc/init/hw/init.common.rc:31)
+[   33.417251] audit: audit_lost=2 audit_rate_limit=5 audit_backlog_limit=64
+[   33.425310] type=1400 audit(496.356:87): avc: denied { add_name } for comm="init" name="bl_power" scontext=u:r:vendor_init:s0 tcontext=u:object_r:sysfs:s0 tclass=dir permissive=1
+[   33.446577] audit: rate limit exceeded
+[   33.767237] binder: 2883:2883 transaction failed 29189/-22, size 92-0 line 3123
+[   34.675798] type=1400 audit(497.612:89): avc: denied { read } for comm="Thread-17" name="debug_fantrl" dev="sysfs" ino=19141 scontext=u:r:system_server:s0 tcontext=u:object_r:sysfs:s0 tclass=file permissive=1
+[   35.123796] binder: 2883:3721 transaction failed 29189/-22, size 0-0 line 3123
+[   35.139206] type=1400 audit(497.612:90): avc: denied { open } for comm="Thread-17" path="/sys/devices/platform/fan_ctrl/debug_fantrl" dev="sysfs" ino=19141 scontext=u:r:system_server:s0 tcontext=u:object_r:sysfs:s0 tclass=file permissive=1
+[   35.164587] type=1400 audit(497.612:91): avc: denied { getattr } for comm="Thread-17" path="/sys/devices/platform/fan_ctrl/debug_fantrl" dev="sysfs" ino=19141 scontext=u:r:system_server:s0 tcontext=u:object_r:sysfs:s0 tclass=file permissive=1
+[   35.191627] type=1400 audit(497.628:92): avc: denied { write } for comm="Thread-17" name="debug_fantrl" dev="sysfs" ino=19141 scontext=u:r:system_server:s0 tcontext=u:object_r:sysfs:s0 tclass=file permissive=1
+[   37.583543] binder: release 4111:4935 transaction 29998 out, still active
+[   37.595246] binder: undelivered TRANSACTION_COMPLETE
+[   38.107415] init: Received sys.powerctl='shutdown,' from pid: 2883 (system_server)
+[   38.128544] init: Clear action queue and start shutdown trigger
+[   38.152589] init: Entering shutdown mode
+[   38.159600] init: processing action (shutdown_done) from (<Builtin Action>:0)
+[   38.187895] init: Reboot start, reason: shutdown,, reboot_target: 
+[   38.206486] init: Shutdown timeout: 6000 ms
+[   38.211378] init: Create reboot monitor thread.
+[   38.228040] init: shutdown_timeout_timespec.tv_sec: 344
+[   38.280076] init: starting service 'blank_screen'...
+[   38.321136] init: Stopping 112 services by sending SIGTERM
+[   38.338752] binder: release 4017:4017 transaction 17169 out, still active
+[   38.404061] >>> rwnx_close()
+[   38.428453] aicwf_sdio mmc1:a143:1 wlan0: CLOSE
+[   38.459995] >>> rwnx_send_remove_if()
+[   38.468756] >>> rwnx_send_msg1()
+[   38.507092] CPU1: update max cpu_capacity 930
+[   38.539885] >>> rwnx_send_coex_req()
+[   38.555559] >>> rwnx_send_reset()
+[   38.560775] >>> rwnx_send_me_config_req()
+[   38.563240] binder: undelivered death notification, 00000000a9231140
+[   38.565798] ieee80211 phy0: HT supp 1, VHT supp 1, HE supp 1
+[   38.579654] >>> rwnx_send_me_chan_config_req()
+[   38.590537] Exit. P2P interface stopped
+[   38.606851] >>> rwnx_cfg80211_del_key()
+[   38.617139] binder_alloc: 2545: binder_alloc_buf, no vma
+[   38.630399] binder: 2883:3250 transaction failed 29189/-3, size 708-24 line 3294
+[   38.654809] binder_alloc: 2545: binder_alloc_buf, no vma
+[   38.656264] >>> rwnx_send_key_del()
+[   38.660820] binder: 4132:4132 transaction failed 29189/-3, size 88-0 line 3294
+[   38.696708] >>> rwnx_cfg80211_del_key()
+[   38.701544] >>> rwnx_send_key_del()
+[   38.704568] binder: send failed reply for transaction 31189 to 2883:2976
+[   38.713427] binder: undelivered transaction 31199, process died.
+[   38.713430] >>> rwnx_cfg80211_del_key()
+[   38.713435] >>> rwnx_send_key_del()
+[   38.729794] >>> rwnx_cfg80211_del_key()
+[   38.734516] >>> rwnx_send_key_del()
+[   38.739145] >>> rwnx_cfg80211_del_key()
+[   38.744353] >>> rwnx_send_key_del()
+[   38.749128] >>> rwnx_cfg80211_del_key()
+[   38.753460] >>> rwnx_send_key_del()
+[   38.760302] del_iface: a95b3066, 65
+[   38.787236] >>> rwnx_send_me_chan_config_req()
+[   38.796643] >>> rwnx_send_me_chan_config_req()
+[   38.967088] CPU3: update max cpu_capacity 1024
+[   38.983517] binder: send failed reply for transaction 31119 to 2883:3301
+[   39.164017] vdc: Waited 0ms for vold
+[   39.215371] vdc: Waited 0ms for vold
+[   39.219949] binder_alloc: 2883: binder_alloc_buf, no vma
+[   39.225980] binder: 2280:2280 transaction failed 29189/-3, size 100-0 line 3294
+[   39.359011] binder: undelivered TRANSACTION_COMPLETE
+[   39.364722] binder: undelivered TRANSACTION_ERROR: 29189
+[   39.371139] binder: undelivered death notification, 0000000089902080
+[   39.379287] printk: logd: 33 output lines suppressed due to ratelimiting
+[   39.435982] binder: undelivered TRANSACTION_COMPLETE
+[   39.441620] binder: undelivered TRANSACTION_ERROR: 29189
+[   39.448107] binder: release 2883:3443 transaction 29998 in, still active
+[   39.455671] binder: send failed reply for transaction 29998, target dead
+[   39.463288] binder: release 2883:3986 transaction 17169 in, still active
+[   39.470854] binder: send failed reply for transaction 17169, target dead
+[   39.616050] audit: type=1400 audit(502.556:93): avc:  denied  { add_name } for  pid=1 comm="init" name="reset" scontext=u:r:init:s0 tcontext=u:object_r:sysfs_zram:s0 tclass=dir permissive=1
+[   39.668576] zram0: detected capacity change from 879439872 to 0
+[   40.222017] reboot_callback(): empty arg
+[   40.243297] ge2d 5240000.ge2d: acquire tvdisp clock on emergency shutdown
+[   40.751390] Invalid pin
+[   40.754146] Invalid pin
+[   40.756942] ge2d 5240000.ge2d: ge2d suspend
+[   40.761878] [ohci2-controller]: ohci shutdown start
+[   40.767420] [ohci2-controller]: ohci shutdown end
+[   40.772748] [ohci1-controller]: ohci shutdown start
+[   40.778253] [ohci1-controller]: ohci shutdown end
+[   40.783573] [ohci0-controller]: ohci shutdown start
+[   40.789078] [ohci0-controller]: ohci shutdown end
+[   40.794398] [ehci2-controller]: ehci shutdown start
+[   40.799904] [ehci2-controller]: ehci shutdown end
+[   40.805227] [ehci1-controller]: ehci shutdown start
+[   40.810726] [ehci1-controller]: ehci shutdown end
+[   40.816043] [ehci0-controller]: ehci shutdown start
+[   40.821541] [ehci0-controller]: ehci shutdown end
+[   40.835582] sunxi-mmc 4022000.sdmmc: sdc set ios:clk 0Hz bm PP pm OFF vdd 0 width 1 timing LEGACY(SDR12) dt B
+[   41.015314] reboot: Power down
+[83]HELLO! BOOT0 is starting!
+[87]BOOT0 commit : 865e5927
+[90]set pll start
+[92]set pll end
+[94]ldob fix
+[96]prcm cpus timer clock enable
+[99]board init ok
+[101]rtc[0] value = 0x14ff00
+[104]rtc[2] value = 0x2
+[107]rtc[3] value = 0xa102
+[109]rtc[4] value = 0xf
+[112][mmc]: mmc driver ver 2021-07-13 11:09
+[123][mmc]: Wrong media type 0x0
+[126][mmc]: ***Try SD card 2***
+[130][mmc]: mmc 2 cmd 8 timeout, err 100
+[134][mmc]: mmc 2 cmd 8 err 100
+[138][mmc]: mmc 2 send if cond failed
+[142][mmc]: mmc 2 cmd 55 timeout, err 100
+[147][mmc]: mmc 2 cmd 55 err 100
+[150][mmc]: mmc 2 send app cmd failed
+[154][mmc]: ***Try MMC card 2***
+[192][mmc]: RMCA OK!
+[194][mmc]: bias 4
+[201][mmc]: MMC 5.0
+[203][mmc]: HSSDR52/SDR25 8 bit
+[207][mmc]: 50000000 Hz
+[209][mmc]: 7456 MB
+[212][mmc]: ***SD/MMC 2 init OK!!!***
+[226]DRAM only have internal ZQ!!
+[229]DRAM BOOT DRIVE INFO: V0.60
+[233]DRAM CLK = 624 MHz
+[235]DRAM Type = 3 (2:DDR2,3:DDR3)
+[239]DRAMC ZQ value: 0x7b7bfb
+[242]DRAM ODT value: 0x40.
+[245]the id value: 0x42
+[249]DRAM SIZE =1024 M
+[279]DRAM simple test OK.
+[281]dram size =1024
+[289]nsi init ok 2020-7-12
+[292]card no is 2
+[294]sdcard 2 line count 8
+[297][mmc]: mmc driver ver 2021-07-13 11:09
+[307][mmc]: ***Try MMC card 2***
+[375][mmc]: RMCA OK!
+[378][mmc]: bias 4
+[383][mmc]: MMC 5.0
+[386][mmc]: HSSDR52/SDR25 8 bit
+[389][mmc]: 50000000 Hz
+[391][mmc]: 7456 MB
+[394][mmc]: ***SD/MMC 2 init OK!!!***
+[549]Loading boot-pkg Succeed(index=0).
+[553]Entry_name        = u-boot
+[567]Entry_name        = monitor
+[572]Entry_name        = scp
+[578]Entry_name        = optee
+[587]Entry_name        = dtb
+[591]tunning data addr:0x4a0003e8
+[595]Jump to second Boot.
+NOTICE:  BL3-1: v1.0(debug):d85c03b
+NOTICE:  BL3-1: Built : 19:48:38, 2022-12-07
+NOTICE:  BL3-1 commit: 8
+NOTICE:  secure os exist
+E/TC:0 0 init_external_dt:1033 Device Tree missing
+M/TC: OP-TEE version: 70d6bc54 (gcc version 5.3.1 20160412 (Linaro GCC 5.3-2016.05)) #1 Fri Oct 21 06:53:45 UTC 2022 arm
+NOTICE:  BL3-1: Preparing for EL3 exit to normal world
+NOTICE:  BL3-1: Next image address = 0x4a000000
+NOTICE:  BL3-1: Next image spsr = 0x1d3
+
+U-Boot 2018.05-00018-gd7a124a-dirty (Apr 20 2024 - 10:21:12 +0800) Allwinner Technology
+
+[00.694]CPU:   Allwinner Family
+[00.697]Model: sun50iw12
+I2C:   FDT ERROR:fdt_set_all_pin:[twi0]-->FDT_ERR_BADPATH
+FDT ERROR:fdt_set_all_pin:[twi1]-->FDT_ERR_BADPATH
+ready
+[00.724]DRAM:  1 GiB
+[00.728]Relocation Offset is: 35f11000
+[00.755]secure enable bit: 0
+E/TC:0   fdt_getprop_u32:343 prop trace_level not found
+[00.772]CPU=1392 MHz,PLL6=600 Mhz,AHB=150 Mhz, APB1=100Mhz  MBus=400Mhz
+[00.778]gic: sec monitor mode
+[00.793]flash init start
+[00.795]workmode = 0,storage type = 2
+[00.798][mmc]: mmc driver ver uboot2018:2023-05-16 11:34:00 avoid-repeat-reset-host
+[00.807][mmc]: get sdc2 sdc_dis_host_caps 0x180.
+[00.811][mmc]: SUNXI SDMMC Controller Version:0x50400
+[00.880][mmc]: Best spd md: 2-HSDDR52/DDR50, freq: 2-50000000, Bus width: 8
+[00.886]sunxi flash init ok
+pwm_led_init 01 , data=0x41005
+pwm_led_init 02 , data=0x41145
+change pwm ch to fan !
+[00.897]period_ns:40000 max_duty_ns:102000 min_duty_ns:0 duty_ns:16000
+change pwm ch to fan end!
+pwm_led_init end
+[00.908]Loading Environment from SUNXI_FLASH... OK
+[00.922]usb burn from boot
+delay time 0
+weak:otg_phy_config
+[00.932]usb prepare ok
+[01.735]overtime is 800, begin_time is 801
+[01.740]do_burn_from_boot usb : no usb exist
+resetting USB...
+[01.746]USB0:   start sunxi  USB-DRD...
+config usb clk ok
+sunxi USB-DRD init ok...
+USB EHCI 1.00
+scanning bus 0 for devices... 1 USB Device(s) found
+[02.196]USB1:   start sunxi  USB1-Host...
+config usb clk ok
+sunxi USB1-Host init ok...
+USB EHCI 1.00
+scanning bus 1 for devices... 1 USB Device(s) found
+[02.647]scanning usb for storage devices... 0 Storage Device(s) found
+** Bad device usb 0 **
+** Bad device usb 0 **
+[SCP] :wait arisc ready....
+[SCP] :arisc version: [jorpotcevt-r-303rdna1dio0v-14-8.97g-39f2]
+[SCP] :arisc startup ready
+[SCP] :arisc startup notify message feedback
+[SCP] :sunxi-arisc driver v1.10 is starting

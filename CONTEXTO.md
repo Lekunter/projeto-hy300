@@ -2,7 +2,9 @@
 
 > **Repositório:** [projeto-hy300 (GitHub: Lekunter)](https://github.com/Lekunter/projeto-hy300)
 > **Última atualização:** 25/10/2026
-> **Status:** projetor ainda em brick. O PhoenixCard (modo Product) no slot MicroSD da placa **não recuperou**. SoC **confirmado H713** e placa identificada como **`M11-REV1.3`** (fotos de 03/10, ver §3). Próximo passo: entrar em FEL (USB+Power ou cartão FEL `CRIAR_CARTAO_FEL.bat`; controle `Vol+` já falhou) e procurar a UART nos pads ao lado da eMMC.
+> **Status (25/10/2026, 23h):** **eMMC regravada e Android sobe.** Firmware Hotack `update_stock.img` (build 2024-04-20, DDR3) com a RAM baixada para 624 MHz (`update_stock_624mhz.img`), gravado por cartão PhoenixCard Product no slot da placa. Boot0, U-Boot, kernel e Android iniciam pela eMMC (slot A), Wi-Fi AIC8800D detectado. **Problema atual:** uns 7 s depois do fim do boot o `system_server` pede `shutdown` e o projetor volta ao standby. Próximo passo: soldar o RX da UART para usar o shell `console:/ $` e ler o `logcat`.
+>
+> **Como gravamos:** a USB do U-Boot de gravação não enumera nesta placa, então o PhoenixSuit não serve. O leitor USB corrompeu 501 bytes do cartão PhoenixCard (verify error no `super`); foi corrigido reescrevendo os blocos direto no cartão. UART TX = pad 7 (`fotos placa/fotos 0310/pads_teste_verso_numerados.jpg`). Logs em `docs/logs/`.
 
 ---
 
@@ -70,6 +72,8 @@ Infográficos anotados: `fotos_anotadas/01…04`. Eles foram gerados a partir da
 | :--- | :--- | :--- |
 | antes de 28/09 | PhoenixSuit + botão/controle | Nunca reconheceu. |
 | 30/09–02/10 | (ação não registrada) | O Windows do **desktop** registrou `USB\VID_1F3A&PID_EFE8` **6 vezes em 3 portas** (lido em 25/10 no Gerenciador de Dispositivos), com o driver `usbdrv.inf` associado: 30/09 00:37, 30/09 22:57 (ficou 29 s), 30/09 23:15, 02/10 00:49, 02/10 01:26 (3 s), 02/10 01:28 (3 s). **A placa entra em FEL**. |
+| 25/10 18:05–23:07 | PhoenixCard Product com `update_stock_624mhz.img` no slot da placa | 1ª e 2ª gravação: tudo gravado, mas `super` com verify error (`active=9b484ede`, igual nas duas). O cartão tinha 501 bytes corrompidos pelo leitor (168 no `boot-resource`, 333 no `super`). Corrigido reescrevendo os 2 blocos de 4 MB no cartão. **3ª gravação: `CARD OK`, `sprite success`.** |
+| 25/10 23:09–23:18 | Primeiro boot pela eMMC | Liga em standby (normal) e sobe com o Power. Boot0/U-Boot/kernel 5.4.99 (Hotack)/Android OK, slot A `isSlotMarkedSuccessful=1`, Wi-Fi AIC8800D. **Desliga sozinho** ~7 s após o boot (`sys.powerctl='shutdown'` do `system_server`), duas vezes seguidas. |
 | 25/10 17:17–17:39 | PhoenixSuit V2.0.0 com `update_stock.img` (DDR3 792 MHz) e com `update_stock_624mhz.img` (`tools/ajustar_dram_clk.py`) | Nada gravado. A 792 MHz o `fes1` às vezes trava. A 624 MHz a RAM inicia sempre (DDR3, **1024 MB, simple test OK**), o U-Boot sobe, **acha a eMMC** (8 bits, DDR50) e lê o env, mas em `run usb efex` → `weak:otg_phy_config` → `usb init ok` a USB não enumera: o Windows mostra "Falha na Solicitação de Descritor" (igual a 02/10). **O bloqueio é só a USB do U-Boot de gravação.** |
 | 25/10 16:23 | Cabo USB-A×A no desktop, depois tomada (sem cartão, sem botão) | **Entrou em FEL sozinha** e ficou estável (porta 10). O boot pela eMMC está quebrado a ponto de o aparelho cair em FEL: não precisa de botão, cartão FEL nem solda para chegar ao PhoenixSuit. |
 | 30/09 | Procurar pads TX/RX para o CP2102 | Não encontrados (placa sem serigrafia). |
